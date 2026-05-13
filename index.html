@@ -1,17 +1,14 @@
-<!-- Catálogo General - RSS Jersys -->
 <!DOCTYPE html>
 <html class="light" lang="es">
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>RSS Jerseys - Catálogo</title>
+<title>RSS Jerseys - Clubes</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-  }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48; }
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 </style>
@@ -64,18 +61,17 @@
 </head>
 <body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
 
-<!-- TopAppBar -->
 <header class="flex flex-col w-full max-w-full z-50 px-margin-desktop bg-surface border-b-2 border-on-surface fixed top-0">
   <div class="flex items-center justify-between h-20">
     <div class="flex items-center gap-8">
       <a href="index.html" class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">RSS JERSEYS</a>
       <nav class="hidden md:flex items-center gap-6">
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="#">Nuevos</a>
+        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="nuevos.html">Nuevos</a>
         <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-primary font-bold border-b-4 border-primary pb-1" href="index.html">Clubes</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="#">Selecciones</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="#">Retro</a>
+        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="selecciones.html">Selecciones</a>
+        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="retro.html">Retro</a>
         <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="personalizar.html">Personalización</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="#">Oferta</a>
+        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="oferta.html">Oferta</a>
       </nav>
     </div>
     <div class="flex items-center gap-4">
@@ -87,14 +83,12 @@
 
 <main class="mt-20 px-margin-mobile md:px-margin-desktop">
 
-  <!-- Hero Section -->
   <section class="py-16 border-b-2 border-on-surface mb-12">
     <p class="font-label-bold text-label-bold text-primary uppercase mb-4">Temporada 2024/25</p>
     <h1 class="font-headline-xl text-headline-xl uppercase mb-6">Clubes</h1>
     <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Las camisetas oficiales de los mejores clubes del mundo. Ediciones limitadas, colecciones retro y los últimos lanzamientos.</p>
   </section>
 
-  <!-- Filter Bar -->
   <div class="flex items-center gap-4 mb-12 overflow-x-auto hide-scrollbar pb-2">
     <button class="border-2 border-on-surface bg-on-surface text-surface px-6 py-3 font-label-bold text-label-bold uppercase whitespace-nowrap">Todos</button>
     <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">LaLiga</button>
@@ -104,10 +98,8 @@
     <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Ligue 1</button>
   </div>
 
-  <!-- Product Grid -->
   <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter pb-section-gap">
 
-    <!-- Card Barcelona (→ producto.html) -->
     <a href="producto.html" class="flex flex-col group cursor-pointer">
       <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
         <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
@@ -120,7 +112,6 @@
       <p class="font-label-bold text-label-bold">$34.99</p>
     </a>
 
-    <!-- Card Real Madrid (→ producto.html) -->
     <a href="producto.html" class="flex flex-col group cursor-pointer">
       <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
         <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
@@ -133,7 +124,6 @@
       <p class="font-label-bold text-label-bold">$29.99</p>
     </a>
 
-    <!-- Card AC Milan (→ producto.html) -->
     <a href="producto.html" class="flex flex-col group cursor-pointer">
       <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4">
         <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
@@ -145,7 +135,6 @@
       <p class="font-label-bold text-label-bold">$32.99</p>
     </a>
 
-    <!-- Card Juventus (→ producto.html) -->
     <a href="producto.html" class="flex flex-col group cursor-pointer">
       <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4">
         <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
@@ -157,19 +146,6 @@
       <p class="font-label-bold text-label-bold">$34.99</p>
     </a>
 
-    <!-- Card PSG (→ producto.html) -->
-    <a href="producto.html" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4">
-        <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://thumblr.uniid.it/product/341526/059821d089a8.jpg?width=3840&format=webp&q=75"
-          alt="PSG Training Kit">
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">PSG</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Training Kit</p>
-      <p class="font-label-bold text-label-bold">$24.99</p>
-    </a>
-
-    <!-- Card Personalización CTA -->
     <a href="personalizar.html" class="flex flex-col group cursor-pointer">
       <div class="bg-primary aspect-[3/4] overflow-hidden mb-4 flex flex-col items-center justify-center gap-4 p-8">
         <span class="material-symbols-outlined text-on-primary" style="font-size:64px">edit</span>
@@ -183,39 +159,35 @@
   </div>
 </main>
 
-<!-- Footer -->
 <footer class="w-full py-section-gap px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter bg-on-surface border-t-4 border-primary">
   <div class="col-span-2 md:col-span-1 flex flex-col gap-8">
     <span class="font-headline-lg text-surface font-black">RSS</span>
-    <p class="font-label-bold text-surface-variant uppercase text-xs">© 2024 RSS JERSEYS.<br>ALL RIGHTS RESERVED.<br>PRESTIGE ATHLETICS.</p>
+    <p class="font-label-bold text-surface-variant uppercase text-xs">© 2024 RSS JERSEYS.<br>ALL RIGHTS RESERVED.</p>
   </div>
   <div class="flex flex-col gap-6">
     <h4 class="font-headline-sm text-surface uppercase mb-2">Productos</h4>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="index.html">Novedades</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Más Vendidos</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Outlet</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="nuevos.html">Novedades</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="index.html">Clubes</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="oferta.html">Outlet</a>
   </div>
   <div class="flex flex-col gap-6">
     <h4 class="font-headline-sm text-surface uppercase mb-2">Deportes</h4>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Fútbol</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Basketball</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Training</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="index.html">Fútbol</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="selecciones.html">Selecciones</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="retro.html">Retro</a>
   </div>
   <div class="flex flex-col gap-6">
     <h4 class="font-headline-sm text-surface uppercase mb-2">Soporte</h4>
     <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Ayuda</a>
     <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Envíos</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Devoluciones</a>
   </div>
   <div class="flex flex-col gap-6">
     <h4 class="font-headline-sm text-surface uppercase mb-2">Síguenos</h4>
     <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Instagram</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Twitter</a>
     <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Facebook</a>
   </div>
 </footer>
 
-<!-- BottomNavBar (Mobile only) -->
 <nav class="fixed bottom-0 left-0 w-full flex justify-around items-center md:hidden pb-safe bg-on-surface z-50 border-t border-on-surface-variant">
   <a class="flex flex-col items-center justify-center bg-primary text-on-primary p-2" href="index.html">
     <span class="material-symbols-outlined">home</span>
@@ -225,17 +197,13 @@
     <span class="material-symbols-outlined">grid_view</span>
     <span class="font-label-bold text-[10px] uppercase">Categorías</span>
   </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="#">
+  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="nuevos.html">
     <span class="material-symbols-outlined">new_releases</span>
     <span class="font-label-bold text-[10px] uppercase">Novedades</span>
   </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="#">
-    <span class="material-symbols-outlined">person</span>
-    <span class="font-label-bold text-[10px] uppercase">Cuenta</span>
-  </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="#">
-    <span class="material-symbols-outlined">shopping_cart</span>
-    <span class="font-label-bold text-[10px] uppercase">Carrito</span>
+  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="personalizar.html">
+    <span class="material-symbols-outlined">edit</span>
+    <span class="font-label-bold text-[10px] uppercase">Custom</span>
   </a>
 </nav>
 
