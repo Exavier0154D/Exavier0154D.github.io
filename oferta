@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RSS Jerseys - Oferta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48; }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .price-slash { text-decoration: line-through; opacity: 0.5; }
+  @keyframes pulse-border { 0%,100% { border-color: #9e0000; } 50% { border-color: #cc0000; } }
+  .deal-pulse { animation: pulse-border 2s ease-in-out infinite; }
+</style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: { extend: {
+      "colors": {
+        "inverse-primary":"#ffb4a8","tertiary":"#4d4c4c","outline":"#926e69","on-primary-fixed":"#410000","outline-variant":"#e8bdb6","surface-tint":"#c00000","surface-container-lowest":"#ffffff","surface-container":"#eeeeee","on-tertiary-fixed-variant":"#474646","on-surface-variant":"#5e3f3a","secondary-fixed":"#ffe088","secondary-container":"#fed65b","on-error":"#ffffff","on-secondary":"#ffffff","primary-fixed-dim":"#ffb4a8","surface-dim":"#dadada","secondary":"#735c00","surface":"#f9f9f9","primary":"#9e0000","surface-container-highest":"#e2e2e2","surface-container-high":"#e8e8e8","surface-variant":"#e2e2e2","on-secondary-container":"#745c00","on-primary":"#ffffff","secondary-fixed-dim":"#e9c349","on-tertiary-container":"#e4e1e1","on-secondary-fixed-variant":"#574500","on-background":"#1a1c1c","on-error-container":"#93000a","inverse-surface":"#2f3131","surface-bright":"#f9f9f9","error":"#ba1a1a","on-tertiary":"#ffffff","on-primary-container":"#ffdad4","background":"#f9f9f9","surface-container-low":"#f3f3f4","tertiary-container":"#656464","primary-fixed":"#ffdad4","primary-container":"#cc0000","tertiary-fixed-dim":"#c9c6c5","inverse-on-surface":"#f0f1f1","error-container":"#ffdad6","on-primary-fixed-variant":"#930000","tertiary-fixed":"#e5e2e1","on-tertiary-fixed":"#1c1b1b","on-surface":"#1a1c1c","on-secondary-fixed":"#241a00"
+      },
+      "borderRadius":{"DEFAULT":"0px","lg":"0px","xl":"0px","full":"9999px"},
+      "spacing":{"unit":"4px","margin-desktop":"64px","margin-mobile":"16px","gutter":"24px","section-gap":"128px"},
+      "fontFamily":{"headline-lg":["Montserrat"],"body-md":["Hanken Grotesk"],"body-lg":["Hanken Grotesk"],"label-bold":["Montserrat"],"headline-md":["Montserrat"],"headline-xl":["Montserrat"],"headline-sm":["Montserrat"],"headline-lg-mobile":["Montserrat"]},
+      "fontSize":{"headline-lg":["48px",{"lineHeight":"44px","letterSpacing":"-0.03em","fontWeight":"800"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-bold":["14px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-md":["32px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-xl":["80px",{"lineHeight":"72px","letterSpacing":"-0.04em","fontWeight":"900"}],"headline-sm":["20px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-lg-mobile":["36px",{"lineHeight":"34px","letterSpacing":"-0.03em","fontWeight":"800"}]}
+    }}
+  }
+</script>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+
+<!-- TopAppBar -->
+<header class="flex flex-col w-full z-50 px-margin-desktop bg-surface border-b-2 border-on-surface fixed top-0">
+  <div class="flex items-center justify-between h-20">
+    <div class="flex items-center gap-8">
+      <a href="index.html" class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">RSS JERSEYS</a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="nuevos.html">Nuevos</a>
+        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="index.html">Clubes</a>
+        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="selecciones.html">Selecciones</a>
+        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="retro.html">Retro</a>
+        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="personalizar.html">Personalización</a>
+        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-primary font-bold border-b-4 border-primary pb-1" href="oferta.html">Oferta</a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-4">
+      <button class="material-symbols-outlined text-on-surface hover:text-primary transition-all active:scale-95">favorite</button>
+      <button class="material-symbols-outlined text-on-surface hover:text-primary transition-all active:scale-95">shopping_bag</button>
+    </div>
+  </div>
+</header>
+
+<main class="mt-20 px-margin-mobile md:px-margin-desktop">
+
+  <!-- Hero Oferta -->
+  <section class="py-16 border-b-2 border-on-surface mb-12">
+    <p class="font-label-bold text-label-bold text-primary uppercase mb-4">Tiempo limitado</p>
+    <h1 class="font-headline-xl text-headline-xl uppercase mb-6">Oferta</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Stock limitado a precios de outlet. Hasta 50% de descuento en camisetas seleccionadas.</p>
+  </section>
+
+  <!-- Banner urgencia -->
+  <div class="w-full bg-primary text-on-primary flex flex-col md:flex-row items-center justify-between px-12 py-8 mb-12 gap-4 deal-pulse border-4 border-primary">
+    <div>
+      <p class="font-label-bold text-label-bold uppercase mb-1 opacity-80">Oferta del día</p>
+      <h2 class="font-headline-md text-headline-md uppercase">2x1 en camisetas seleccionadas</h2>
+    </div>
+    <div class="flex items-center gap-6">
+      <div class="text-center">
+        <p class="font-headline-lg text-headline-lg font-black" id="hours">08</p>
+        <p class="font-label-bold text-label-bold uppercase opacity-70">Horas</p>
+      </div>
+      <p class="font-headline-lg text-headline-lg">:</p>
+      <div class="text-center">
+        <p class="font-headline-lg text-headline-lg font-black" id="minutes">34</p>
+        <p class="font-label-bold text-label-bold uppercase opacity-70">Min</p>
+      </div>
+      <p class="font-headline-lg text-headline-lg">:</p>
+      <div class="text-center">
+        <p class="font-headline-lg text-headline-lg font-black" id="seconds">59</p>
+        <p class="font-label-bold text-label-bold uppercase opacity-70">Seg</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filtros descuento -->
+  <div class="flex items-center gap-4 mb-12 overflow-x-auto hide-scrollbar pb-2">
+    <button class="border-2 border-on-surface bg-on-surface text-surface px-6 py-3 font-label-bold text-label-bold uppercase whitespace-nowrap">Todo</button>
+    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">-20%</button>
+    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">-30%</button>
+    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">-40%</button>
+    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">-50%</button>
+  </div>
+
+  <!-- Grid ofertas -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter pb-section-gap">
+
+    <a href="producto.html" class="flex flex-col group cursor-pointer">
+      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
+        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+          src="https://www.soccerbox.com/media/catalog/product/cache/9d14d56c606ce6e31fa44a7bf9aa05c5/r/e/real-madrid-home-shirt-24.jpg" alt="Real Madrid">
+        <div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase font-black">-30%</div>
+      </div>
+      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Real Madrid</p>
+      <p class="font-headline-sm text-headline-sm uppercase mb-1">Home Kit 24/25</p>
+      <div class="flex items-center gap-3">
+        <p class="font-label-bold text-label-bold text-primary">$20.99</p>
+        <p class="font-label-bold text-label-bold price-slash text-on-surface-variant">$29.99</p>
+      </div>
+    </a>
+
+    <a href="producto.html" class="flex flex-col group cursor-pointer">
+      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
+        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGy_tzp75YX4116pu52lw8K3u7E7V2pZqlnA&s" alt="AC Milan">
+        <div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase font-black">-50%</div>
+        <div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container px-2 py-1 text-label-bold uppercase text-xs">Hot</div>
+      </div>
+      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">AC Milan</p>
+      <p class="font-headline-sm text-headline-sm uppercase mb-1">Third Kit</p>
+      <div class="flex items-center gap-3">
+        <p class="font-label-bold text-label-bold text-primary">$16.49</p>
+        <p class="font-label-bold text-label-bold price-slash text-on-surface-variant">$32.99</p>
+      </div>
+    </a>
+
+    <a href="producto.html" class="flex flex-col group cursor-pointer">
+      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
+        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+          src="https://store.juventus.com/images/juventus/products/large/JU25A02.webp" alt="Juventus">
+        <div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase font-black">-20%</div>
+      </div>
+      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Juventus</p>
+      <p class="font-headline-sm text-headline-sm uppercase mb-1">Away Pro</p>
+      <div class="flex items-center gap-3">
+        <p class="font-label-bold text-label-bold text-primary">$27.99</p>
+        <p class="font-label-bold text-label-bold price-slash text-on-surface-variant">$34.99</p>
+      </div>
+    </a>
+
+    <a href="producto.html" class="flex flex-col group cursor-pointer">
+      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
+        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+          src="https://thumblr.uniid.it/product/341526/059821d089a8.jpg?width=3840&format=webp&q=75" alt="PSG">
+        <div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase font-black">-40%</div>
+      </div>
+      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">PSG</p>
+      <p class="font-headline-sm text-headline-sm uppercase mb-1">Training Kit</p>
+      <div class="flex items-center gap-3">
+        <p class="font-label-bold text-label-bold text-primary">$14.99</p>
+        <p class="font-label-bold text-label-bold price-slash text-on-surface-variant">$24.99</p>
+      </div>
+    </a>
+
+    <a href="producto.html" class="flex flex-col group cursor-pointer">
+      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
+        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+          src="https://tamam-mauritius.com/cdn/shop/files/8cd62399.jpg?v=1745720188" alt="Barcelona detalle">
+        <div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase font-black">-35%</div>
+        <div class="absolute bottom-4 left-4 bg-on-surface text-surface px-3 py-1 text-label-bold uppercase text-xs">Últimas unidades</div>
+      </div>
+      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Barcelona</p>
+      <p class="font-headline-sm text-headline-sm uppercase mb-1">Away 23/24</p>
+      <div class="flex items-center gap-3">
+        <p class="font-label-bold text-label-bold text-primary">$22.74</p>
+        <p class="font-label-bold text-label-bold price-slash text-on-surface-variant">$34.99</p>
+      </div>
+    </a>
+
+    <a href="producto.html" class="flex flex-col group cursor-pointer">
+      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
+        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+          src="https://tamam-mauritius.com/cdn/shop/files/999ffaca.jpg?v=1745720308&width=1445" alt="Jersey detail">
+        <div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase font-black">-25%</div>
+      </div>
+      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Genérico</p>
+      <p class="font-headline-sm text-headline-sm uppercase mb-1">Training Pro</p>
+      <div class="flex items-center gap-3">
+        <p class="font-label-bold text-label-bold text-primary">$18.74</p>
+        <p class="font-label-bold text-label-bold price-slash text-on-surface-variant">$24.99</p>
+      </div>
+    </a>
+
+    <a href="retro.html" class="flex flex-col group cursor-pointer">
+      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
+        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+          src="https://store.fcbarcelona.com/cdn/shop/files/Bolet_Baixa-11795.jpg?v=1765970839" alt="Retro">
+        <div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 text-label-bold uppercase font-black">Retro</div>
+        <div class="absolute top-4 right-4 bg-primary text-on-primary px-2 py-1 text-label-bold uppercase text-xs">-45%</div>
+      </div>
+      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Varios</p>
+      <p class="font-headline-sm text-headline-sm uppercase mb-1">Outlet Retro</p>
+      <div class="flex items-center gap-3">
+        <p class="font-label-bold text-label-bold text-primary">Desde $19.99</p>
+      </div>
+    </a>
+
+    <a href="nuevos.html" class="flex flex-col group cursor-pointer">
+      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 flex flex-col items-center justify-center gap-4 p-8 border-2 border-on-surface-variant">
+        <span class="material-symbols-outlined text-on-surface-variant" style="font-size:64px">arrow_forward</span>
+        <p class="font-headline-sm text-headline-sm text-on-surface-variant uppercase text-center">Ver nuevos lanzamientos</p>
+      </div>
+      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Sin descuento</p>
+      <p class="font-headline-sm text-headline-sm uppercase mb-1">Ver catálogo completo</p>
+      <p class="font-label-bold text-label-bold text-on-surface-variant">Precio regular</p>
+    </a>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-section-gap px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter bg-on-surface border-t-4 border-primary">
+  <div class="col-span-2 md:col-span-1 flex flex-col gap-8">
+    <span class="font-headline-lg text-surface font-black">RSS</span>
+    <p class="font-label-bold text-surface-variant uppercase text-xs">© 2024 RSS JERSEYS.<br>ALL RIGHTS RESERVED.<br>PRESTIGE ATHLETICS.</p>
+  </div>
+  <div class="flex flex-col gap-6">
+    <h4 class="font-headline-sm text-surface uppercase mb-2">Productos</h4>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="nuevos.html">Novedades</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="index.html">Clubes</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="oferta.html">Outlet</a>
+  </div>
+  <div class="flex flex-col gap-6">
+    <h4 class="font-headline-sm text-surface uppercase mb-2">Deportes</h4>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="selecciones.html">Selecciones</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="index.html">Clubes</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="retro.html">Retro</a>
+  </div>
+  <div class="flex flex-col gap-6">
+    <h4 class="font-headline-sm text-surface uppercase mb-2">Soporte</h4>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Ayuda</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Envíos</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Devoluciones</a>
+  </div>
+  <div class="flex flex-col gap-6">
+    <h4 class="font-headline-sm text-surface uppercase mb-2">Síguenos</h4>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Instagram</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Twitter</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Facebook</a>
+  </div>
+</footer>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center md:hidden pb-safe bg-on-surface z-50 border-t border-on-surface-variant">
+  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="index.html"><span class="material-symbols-outlined">home</span><span class="font-label-bold text-[10px] uppercase">Inicio</span></a>
+  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="index.html"><span class="material-symbols-outlined">grid_view</span><span class="font-label-bold text-[10px] uppercase">Categorías</span></a>
+  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="nuevos.html"><span class="material-symbols-outlined">new_releases</span><span class="font-label-bold text-[10px] uppercase">Novedades</span></a>
+  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="#"><span class="material-symbols-outlined">person</span><span class="font-label-bold text-[10px] uppercase">Cuenta</span></a>
+  <a class="flex flex-col items-center justify-center bg-primary text-on-primary p-2" href="oferta.html"><span class="material-symbols-outlined">local_offer</span><span class="font-label-bold text-[10px] uppercase">Oferta</span></a>
+</nav>
+
+<script>
+  // Countdown timer
+  let totalSeconds = 8 * 3600 + 34 * 60 + 59;
+  setInterval(() => {
+    if (totalSeconds <= 0) return;
+    totalSeconds--;
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+    document.getElementById('hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+  }, 1000);
+</script>
+
+</body>
+</html>
