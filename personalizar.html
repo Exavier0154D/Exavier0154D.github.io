@@ -1,4 +1,3 @@
-<!-- Personalización - RSS Jersys -->
 <!DOCTYPE html>
 <html class="light" lang="es">
 <head>
@@ -72,17 +71,16 @@
 </head>
 <body class="bg-background text-on-surface font-body-md">
 
-<!-- TopAppBar -->
 <header class="bg-surface border-b-2 border-on-surface flex flex-col w-full max-w-full z-50 px-margin-desktop">
   <div class="flex items-center justify-between py-6">
     <a href="index.html" class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">RSS JERSEYS</a>
     <nav class="hidden md:flex items-center gap-8">
-      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="#">Nuevos</a>
+      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="nuevos.html">Nuevos</a>
       <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="index.html">Clubes</a>
-      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="#">Selecciones</a>
-      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="#">Retro</a>
+      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="selecciones.html">Selecciones</a>
+      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="retro.html">Retro</a>
       <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-primary font-bold border-b-4 border-primary pb-1" href="personalizar.html">Personalización</a>
-      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="#">Oferta</a>
+      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="oferta.html">Oferta</a>
     </nav>
     <div class="flex items-center gap-4">
       <button class="text-on-surface hover:text-primary transition-all active:scale-95">
@@ -96,20 +94,17 @@
 </header>
 
 <main class="min-h-screen">
-  <!-- Progress Bar -->
   <div class="w-full bg-surface-container-high h-2 sticky top-0 z-40">
     <div class="bg-primary h-full w-3/4 transition-all duration-500" id="progress-bar"></div>
   </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-140px)]">
 
-    <!-- Left Panel: Jersey Preview -->
     <section class="lg:col-span-7 jersey-preview-canvas flex items-center justify-center p-8 border-r-2 border-on-surface">
       <div class="relative w-full max-w-xl aspect-[3/4] flex items-center justify-center">
         <img alt="Jersey Back View"
           class="absolute inset-0 w-full h-full object-contain opacity-90 mix-blend-multiply"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYBcFlRUhBadTdIaWlBPOqPLiB8jXT5fpa6F0jCG4fr-K-ZMEAQRpBXEV_0k1uVlPS-I5g85w5zWSCTLkU28_EfcshejQRLCtY6yEn0ScbnpXwgfPOIuj9yq6oSuollPoqPGl_PniaAr_5CZLQXT8PeSn2bUwgiacQ4VEWKU24Wxalo4v21JvLqI0RyAjWcsvD2Y7ZTCM5Alh6g16AhdnwY4iHg1PqGO6Y5ryW5Y31f5_Cjw4OAC0bBYJQDiSC07HP1CRMPl3L4NzH"/>
-        <!-- Dynamic Overlay: Name & Number -->
         <div class="relative z-10 flex flex-col items-center justify-center w-full text-center mt-[-10%]">
           <span id="preview-name" class="font-headline-xl text-headline-xl text-on-surface uppercase tracking-tight scale-125 mb-[-20px]">
             GARCIA
@@ -121,7 +116,6 @@
       </div>
     </section>
 
-    <!-- Right Panel: Interactive Form Steps -->
     <section class="lg:col-span-5 bg-white p-margin-desktop flex flex-col justify-between">
       <div>
         <div class="mb-12">
@@ -130,10 +124,7 @@
           <p class="font-body-lg text-body-lg text-tertiary mt-4">Personaliza el dorsal con tu nombre o el de tu ídolo. Máximo 12 caracteres.</p>
         </div>
 
-        <!-- Interactive Inputs -->
         <div class="space-y-12">
-
-          <!-- Name Input -->
           <div class="group">
             <label class="font-label-bold text-label-bold uppercase block mb-4 group-focus-within:text-primary transition-colors">NOMBRE DEL JUGADOR</label>
             <input
@@ -146,7 +137,6 @@
               oninput="document.getElementById('preview-name').textContent = this.value || 'NOMBRE'"/>
           </div>
 
-          <!-- Number Input Preview -->
           <div class="group opacity-50">
             <label class="font-label-bold text-label-bold uppercase block mb-4">NÚMERO</label>
             <div class="flex items-center gap-4">
@@ -155,7 +145,6 @@
             </div>
           </div>
 
-          <!-- Jersey Selection Preview -->
           <div class="flex items-center gap-6 p-4 border border-surface-variant">
             <img class="w-20 h-20 object-cover"
               alt="Jersey seleccionado"
@@ -169,7 +158,6 @@
         </div>
       </div>
 
-      <!-- Action Footer -->
       <div class="mt-12 pt-8 border-t-2 border-surface-variant flex items-center justify-between">
         <a href="producto.html" class="font-label-bold text-label-bold uppercase flex items-center gap-2 hover:text-primary transition-colors group">
           <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
@@ -183,42 +171,6 @@
   </div>
 </main>
 
-<!-- Footer -->
-<footer class="w-full py-section-gap px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter bg-on-surface border-t-4 border-primary text-surface">
-  <div class="col-span-2 md:col-span-1">
-    <h2 class="font-headline-lg text-headline-lg font-black mb-8">RSS</h2>
-  </div>
-  <div class="flex flex-col gap-4">
-    <h3 class="font-label-bold text-label-bold uppercase text-primary-fixed-dim">Productos</h3>
-    <a class="font-body-md text-body-md uppercase tracking-widest text-surface-variant hover:text-primary transition-all hover:translate-x-1" href="index.html">Novedades</a>
-    <a class="font-body-md text-body-md uppercase tracking-widest text-surface-variant hover:text-primary transition-all hover:translate-x-1" href="index.html">Clubes</a>
-    <a class="font-body-md text-body-md uppercase tracking-widest text-surface-variant hover:text-primary transition-all hover:translate-x-1" href="#">Retro</a>
-  </div>
-  <div class="flex flex-col gap-4">
-    <h3 class="font-label-bold text-label-bold uppercase text-primary-fixed-dim">Soporte</h3>
-    <a class="font-body-md text-body-md uppercase tracking-widest text-surface-variant hover:text-primary transition-all hover:translate-x-1" href="#">Envíos</a>
-    <a class="font-body-md text-body-md uppercase tracking-widest text-surface-variant hover:text-primary transition-all hover:translate-x-1" href="#">Devoluciones</a>
-    <a class="font-body-md text-body-md uppercase tracking-widest text-surface-variant hover:text-primary transition-all hover:translate-x-1" href="#">Tallas</a>
-  </div>
-  <div class="flex flex-col gap-4">
-    <h3 class="font-label-bold text-label-bold uppercase text-primary-fixed-dim">Síguenos</h3>
-    <a class="font-body-md text-body-md uppercase tracking-widest text-surface-variant hover:text-primary transition-all hover:translate-x-1" href="#">Instagram</a>
-    <a class="font-body-md text-body-md uppercase tracking-widest text-surface-variant hover:text-primary transition-all hover:translate-x-1" href="#">Twitter</a>
-    <a class="font-body-md text-body-md uppercase tracking-widest text-surface-variant hover:text-primary transition-all hover:translate-x-1" href="#">Youtube</a>
-  </div>
-  <div class="col-span-2 md:col-span-1 flex flex-col gap-4">
-    <h3 class="font-label-bold text-label-bold uppercase text-primary-fixed-dim">Newsletter</h3>
-    <div class="flex border-b-2 border-surface-variant pb-2">
-      <input class="bg-transparent border-none text-surface placeholder:text-surface-variant w-full font-label-bold uppercase focus:ring-0" placeholder="TU EMAIL" type="email"/>
-      <button class="material-symbols-outlined text-primary">arrow_forward</button>
-    </div>
-  </div>
-  <div class="col-span-full pt-16 border-t border-surface-variant/20">
-    <p class="font-body-md text-body-md uppercase tracking-widest text-surface-variant opacity-60">© 2024 RSS JERSEYS. ALL RIGHTS RESERVED. PRESTIGE ATHLETICS.</p>
-  </div>
-</footer>
-
-<!-- BottomNavBar (Mobile Only) -->
 <nav class="fixed bottom-0 left-0 w-full flex justify-around items-center md:hidden pb-safe bg-on-surface z-50 border-t border-on-surface-variant">
   <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="index.html">
     <span class="material-symbols-outlined">home</span>
@@ -231,14 +183,6 @@
   <a class="flex flex-col items-center justify-center bg-primary text-on-primary p-2" href="personalizar.html">
     <span class="material-symbols-outlined">edit</span>
     <span class="font-label-bold text-[10px] uppercase">Custom</span>
-  </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="#">
-    <span class="material-symbols-outlined">person</span>
-    <span class="font-label-bold text-[10px] uppercase">Cuenta</span>
-  </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="#">
-    <span class="material-symbols-outlined">shopping_cart</span>
-    <span class="font-label-bold text-[10px] uppercase">Carrito</span>
   </a>
 </nav>
 
