@@ -1,211 +1,388 @@
-<!DOCTYPE html>
-<html class="light" lang="es">
-<head>
+<!DOCTYPE html><html lang="es" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>RSS Jerseys - Clubes</title>
+<title>RSS JERSEYS | CALIDAD IMPORTADA</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-<style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48; }
-  .hide-scrollbar::-webkit-scrollbar { display: none; }
-  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style>
 <script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-          "inverse-primary": "#ffb4a8","tertiary": "#4d4c4c","outline": "#926e69",
-          "on-primary-fixed": "#410000","outline-variant": "#e8bdb6","surface-tint": "#c00000",
-          "surface-container-lowest": "#ffffff","surface-container": "#eeeeee",
-          "on-tertiary-fixed-variant": "#474646","on-surface-variant": "#5e3f3a",
-          "secondary-fixed": "#ffe088","secondary-container": "#fed65b","on-error": "#ffffff",
-          "on-secondary": "#ffffff","primary-fixed-dim": "#ffb4a8","surface-dim": "#dadada",
-          "secondary": "#735c00","surface": "#f9f9f9","primary": "#9e0000",
-          "surface-container-highest": "#e2e2e2","surface-container-high": "#e8e8e8",
-          "surface-variant": "#e2e2e2","on-secondary-container": "#745c00","on-primary": "#ffffff",
-          "secondary-fixed-dim": "#e9c349","on-tertiary-container": "#e4e1e1",
-          "on-secondary-fixed-variant": "#574500","on-background": "#1a1c1c",
-          "on-error-container": "#93000a","inverse-surface": "#2f3131","surface-bright": "#f9f9f9",
-          "error": "#ba1a1a","on-tertiary": "#ffffff","on-primary-container": "#ffdad4",
-          "background": "#f9f9f9","surface-container-low": "#f3f3f4","tertiary-container": "#656464",
-          "primary-fixed": "#ffdad4","primary-container": "#cc0000","tertiary-fixed-dim": "#c9c6c5",
-          "inverse-on-surface": "#f0f1f1","error-container": "#ffdad6",
-          "on-primary-fixed-variant": "#930000","tertiary-fixed": "#e5e2e1",
-          "on-tertiary-fixed": "#1c1b1b","on-surface": "#1a1c1c","on-secondary-fixed": "#241a00"
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f3f3f4",
+                    "on-tertiary-container": "#e4e1e1",
+                    "inverse-surface": "#2f3131",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dadada",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "surface-container-highest": "#e2e2e2",
+                    "secondary-fixed": "#ffe088",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "secondary": "#735c00",
+                    "inverse-primary": "#ffb4a8",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "on-primary-fixed-variant": "#930000",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#e5e2e1",
+                    "secondary-fixed-dim": "#e9c349",
+                    "surface-tint": "#c00000",
+                    "background": "#f9f9f9",
+                    "primary-container": "#cc0000",
+                    "on-secondary-container": "#745c00",
+                    "tertiary": "#4d4c4c",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary-fixed-variant": "#574500",
+                    "primary-fixed-dim": "#ffb4a8",
+                    "on-secondary-fixed": "#241a00",
+                    "on-background": "#1a1c1c",
+                    "on-surface-variant": "#5e3f3a",
+                    "tertiary-fixed-dim": "#c9c6c5",
+                    "surface-bright": "#f9f9f9",
+                    "tertiary-container": "#656464",
+                    "on-secondary": "#ffffff",
+                    "primary": "#9e0000",
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary-container": "#ffdad4",
+                    "on-primary-fixed": "#410000",
+                    "primary-fixed": "#ffdad4",
+                    "secondary-container": "#fed65b",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#926e69",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#e8bdb6",
+                    "surface": "#f9f9f9",
+                    "on-surface": "#1a1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "128px",
+                    "unit": "4px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-bold": ["Montserrat"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-md": ["Montserrat"],
+                    "headline-xl": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-sm": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-bold": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-xl": ["80px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "900"}],
+                    "headline-lg": ["48px", {"lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["36px", {"lineHeight": "34px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                    "headline-sm": ["20px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
         },
-        "borderRadius": {"DEFAULT": "0px","lg": "0px","xl": "0px","full": "9999px"},
-        "spacing": {"unit": "4px","margin-desktop": "64px","margin-mobile": "16px","gutter": "24px","section-gap": "128px"},
-        "fontFamily": {
-          "headline-lg": ["Montserrat"],"body-md": ["Hanken Grotesk"],"body-lg": ["Hanken Grotesk"],
-          "label-bold": ["Montserrat"],"headline-md": ["Montserrat"],"headline-xl": ["Montserrat"],
-          "headline-sm": ["Montserrat"],"headline-lg-mobile": ["Montserrat"]
-        },
-        "fontSize": {
-          "headline-lg": ["48px", {"lineHeight": "44px","letterSpacing": "-0.03em","fontWeight": "800"}],
-          "body-md": ["16px", {"lineHeight": "24px","fontWeight": "400"}],
-          "body-lg": ["18px", {"lineHeight": "28px","fontWeight": "400"}],
-          "label-bold": ["14px", {"lineHeight": "16px","letterSpacing": "0.05em","fontWeight": "700"}],
-          "headline-md": ["32px", {"lineHeight": "32px","letterSpacing": "-0.02em","fontWeight": "800"}],
-          "headline-xl": ["80px", {"lineHeight": "72px","letterSpacing": "-0.04em","fontWeight": "900"}],
-          "headline-sm": ["20px", {"lineHeight": "24px","letterSpacing": "-0.01em","fontWeight": "700"}],
-          "headline-lg-mobile": ["36px", {"lineHeight": "34px","letterSpacing": "-0.03em","fontWeight": "800"}]
-        }
       }
-    }
-  }
-</script>
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+    </style>
 </head>
-<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
-
-<header class="flex flex-col w-full max-w-full z-50 px-margin-desktop bg-surface border-b-2 border-on-surface fixed top-0">
-  <div class="flex items-center justify-between h-20">
-    <div class="flex items-center gap-8">
-      <a href="index.html" class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">RSS JERSEYS</a>
-      <nav class="hidden md:flex items-center gap-6">
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="nuevos.html">Nuevos</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-primary font-bold border-b-4 border-primary pb-1" href="index.html">Clubes</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="selecciones.html">Selecciones</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="retro.html">Retro</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="personalizar.html">Personalización</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="oferta.html">Oferta</a>
-      </nav>
-    </div>
-    <div class="flex items-center gap-4">
-      <button class="material-symbols-outlined text-on-surface hover:text-primary transition-all active:scale-95">favorite</button>
-      <button class="material-symbols-outlined text-on-surface hover:text-primary transition-all active:scale-95">shopping_bag</button>
-    </div>
-  </div>
+<body class="bg-background text-on-background">
+<div class="w-full bg-on-background text-white py-2 px-margin-mobile md:px-margin-desktop text-center">
+<p class="font-label-bold text-label-bold uppercase text-[10px] md:text-[12px] tracking-widest">
+            Envíos a todo Ecuador e Internacionales · Atención por WhatsApp
+        </p>
+</div>
+<header class="sticky top-0 z-[100] bg-background border-b-2 border-on-background">
+<div class="flex items-center justify-between h-16 md:h-20 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<button class="md:hidden">
+<span class="material-symbols-outlined text-on-background">menu</span>
+</button>
+<div class="md:flex-1 text-center md:text-left">
+<h1 class="font-headline-md text-headline-md font-black tracking-tighter text-on-background">RSS JERSEYS</h1>
+</div>
+<nav class="hidden md:flex items-center space-x-gutter">
+<a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="nuevos.html">NUEVOS</a>
+<a class="font-headline-sm text-[14px] uppercase tracking-tighter text-primary border-b-2 border-primary font-black" href="index.html">CLUBES</a>
+<a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="selecciones.html">SELECCIONES</a>
+<a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="retro.html">RETRO</a>
+<a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="personalizar.html">PERSONALIZAR</a>
+<a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="oferta.html">OFERTA</a>
+</nav>
+<div class="flex items-center space-x-4 md:space-x-6 md:flex-1 justify-end">
+<button class="transition-transform active:scale-95"><span class="material-symbols-outlined">search</span></button>
+<button class="transition-transform active:scale-95"><span class="material-symbols-outlined">favorite</span></button>
+<button class="transition-transform active:scale-95 relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</div>
+<div class="w-full bg-surface-container overflow-x-auto hide-scrollbar whitespace-nowrap px-margin-mobile md:px-margin-desktop py-3 border-t border-outline-variant">
+<div class="flex gap-4">
+<a href="nuevos.html" class="px-6 py-1 bg-on-background text-white font-label-bold text-[12px] uppercase">NUEVOS</a>
+<a href="index.html" class="px-6 py-1 border border-on-background font-label-bold text-[12px] uppercase hover:bg-surface-dim transition-colors">CLUBES</a>
+<a href="selecciones.html" class="px-6 py-1 border border-on-background font-label-bold text-[12px] uppercase hover:bg-surface-dim transition-colors">SELECCIONES</a>
+<a href="retro.html" class="px-6 py-1 border border-on-background font-label-bold text-[12px] uppercase hover:bg-surface-dim transition-colors">RETRO</a>
+<a href="personalizar.html" class="px-6 py-1 border border-on-background font-label-bold text-[12px] uppercase hover:bg-surface-dim transition-colors">PERSONALIZACIÓN</a>
+<a href="oferta.html" class="px-6 py-1 border border-error text-error font-label-bold text-[12px] uppercase hover:bg-error-container transition-colors">OFERTA</a>
+</div>
+</div>
 </header>
-
-<main class="mt-20 px-margin-mobile md:px-margin-desktop">
-
-  <section class="py-16 border-b-2 border-on-surface mb-12">
-    <p class="font-label-bold text-label-bold text-primary uppercase mb-4">Temporada 2024/25</p>
-    <h1 class="font-headline-xl text-headline-xl uppercase mb-6">Clubes</h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Las camisetas oficiales de los mejores clubes del mundo. Ediciones limitadas, colecciones retro y los últimos lanzamientos.</p>
-  </section>
-
-  <div class="flex items-center gap-4 mb-12 overflow-x-auto hide-scrollbar pb-2">
-    <button class="border-2 border-on-surface bg-on-surface text-surface px-6 py-3 font-label-bold text-label-bold uppercase whitespace-nowrap">Todos</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">LaLiga</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Premier League</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Serie A</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Bundesliga</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Ligue 1</button>
-  </div>
-
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter pb-section-gap">
-
-    <a href="producto.html" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
-        <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://cdn.shopify.com/s/files/1/0880/2520/2980/files/barcelona-2025-special-edition-jersey.webp?v=1749658029"
-          alt="Barcelona Special Edition">
-        <div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase">Limitado</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Barcelona</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Special Edition</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
-
-    <a href="producto.html" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
-        <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://www.soccerbox.com/media/catalog/product/cache/9d14d56c606ce6e31fa44a7bf9aa05c5/r/e/real-madrid-home-shirt-24.jpg"
-          alt="Real Madrid Home Kit">
-        <div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase">Nuevo</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Real Madrid</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Home Kit 24/25</p>
-      <p class="font-label-bold text-label-bold">$29.99</p>
-    </a>
-
-    <a href="producto.html" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4">
-        <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGy_tzp75YX4116pu52lw8K3u7E7V2pZqlnA&s"
-          alt="AC Milan Third Kit">
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">AC Milan</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Third Kit</p>
-      <p class="font-label-bold text-label-bold">$32.99</p>
-    </a>
-
-    <a href="producto.html" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4">
-        <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://store.juventus.com/images/juventus/products/large/JU25A02.webp"
-          alt="Juventus Away Pro">
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Juventus</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Away Pro</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
-
-    <a href="personalizar.html" class="flex flex-col group cursor-pointer">
-      <div class="bg-primary aspect-[3/4] overflow-hidden mb-4 flex flex-col items-center justify-center gap-4 p-8">
-        <span class="material-symbols-outlined text-on-primary" style="font-size:64px">edit</span>
-        <p class="font-headline-sm text-headline-sm text-on-primary uppercase text-center">Crea la tuya</p>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-primary mb-1">Personalización</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Tu camiseta única</p>
-      <p class="font-label-bold text-label-bold">Desde $39.99</p>
-    </a>
-
-  </div>
+<main>
+<section class="relative h-[819px] w-full bg-on-background overflow-hidden flex items-center">
+<div class="absolute inset-0 z-0">
+<img alt="Hero" class="w-full h-full object-cover opacity-60 grayscale brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbuUxlB3M2M-RpoGqdCZpk6aRTTpvEGrFWesEvHzdme446xg0I6IOxm2DUaEoEnuOvxa47-9kmP_eiOvWUAEVOY03jzF3k9L3ZOiRo1xiMTvRBE73sXZ-Vw4c90i9axqryymHFWCKSmnARMV2oTOSFx5n5JIQ8Z0t4RB7ZHqAj15Kgns4X-3mi3OTLrBnR-i35ZReb8QPNU9dPvdkPDlFShHhg_aRrQI2P0HvE_KoBfKyzbVkcWI8cWEnHlrHCMfSbq-4p8hwETKOl">
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop w-full max-w-[1440px] mx-auto">
+<div class="max-w-4xl">
+<h2 class="font-headline-xl text-headline-xl text-white mb-gutter uppercase leading-[0.9] md:text-[100px]">CAMISETAS DE<br>CALIDAD IMPORTADA</h2>
+<p class="font-body-lg text-body-lg text-surface-container-highest mb-8 uppercase tracking-widest font-bold">La excelencia del fútbol mundial a tu alcance.</p>
+<button class="bg-white text-on-background font-label-bold text-[16px] px-12 py-4 uppercase hover:bg-primary hover:text-white transition-all transform active:scale-95">
+                        VER AHORA
+                    </button>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 bg-white">
+<div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<h3 class="font-headline-md text-headline-md mb-12 uppercase tracking-tighter">ENCUENTRA TU EQUIPO</h3>
+<div class="flex overflow-x-auto hide-scrollbar gap-12 pb-4">
+<div class="flex-shrink-0 flex flex-col items-center group cursor-pointer">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-on-background p-4 mb-4 group-hover:scale-105 transition-transform">
+<img alt="Barca" class="w-full h-full object-contain" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/250px-FC_Barcelona_%28crest%29.svg.png">
+</div>
+<span class="font-label-bold text-[12px] uppercase">BARCELONA</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center group cursor-pointer">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-outline p-4 mb-4 group-hover:scale-105 transition-transform">
+<img alt="Arsenal" class="w-full h-full object-contain" src="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1280px-Arsenal_FC.svg.png">
+</div>
+<span class="font-label-bold text-[12px] uppercase">ARSENAL</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center group cursor-pointer">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-outline p-4 mb-4 group-hover:scale-105 transition-transform">
+<img alt="PSG" class="w-full h-full object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJJXctvP-WQMSJJUIHxkOuEgBIASGExP1iQA&s">
+</div>
+<span class="font-label-bold text-[12px] uppercase">PSG</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center group cursor-pointer">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-outline p-4 mb-4 group-hover:scale-105 transition-transform">
+<img alt="Bayern" class="w-full h-full object-contain" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/250px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png">
+</div>
+<span class="font-label-bold text-[12px] uppercase">BAYERN</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center group cursor-pointer">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-outline p-4 mb-4 group-hover:scale-105 transition-transform">
+<img alt="Liverpool" class="w-full h-full object-contain" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/960px-Liverpool_FC.svg.png">
+</div>
+<span class="font-label-bold text-[12px] uppercase">LIVERPOOL</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-section-gap bg-surface-container">
+<div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<div class="flex flex-wrap gap-0 mb-12 border border-on-background w-fit">
+<button class="px-8 py-3 bg-primary text-white font-label-bold text-[14px] uppercase">Actuales 2024/25</button>
+<button class="px-8 py-3 bg-white text-on-background font-label-bold text-[14px] uppercase border-l border-on-background hover:bg-surface-dim transition-colors">Retro / Clásicas</button>
+<button class="px-8 py-3 bg-white text-on-background font-label-bold text-[14px] uppercase border-l border-on-background hover:bg-surface-dim transition-colors">Ediciones Especiales</button>
+<button class="px-8 py-3 bg-white text-on-background font-label-bold text-[14px] uppercase border-l border-on-background hover:bg-surface-dim transition-colors">Selecciones</button>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter">
+<a href="producto.html" class="group cursor-pointer">
+<div class="relative aspect-[3/4] bg-white overflow-hidden mb-4">
+<img alt="Jersey" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 object-contain p-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs0pct9cL2wTwBoG4Q7gabdA7ZXLB1NlS8aDbBkFNyiD06SJJfXMVs-Tn9kA3PByrgYS_8lmjjr9TUWdZX1Gk3MxVr07FFl3XW8mIvr_zlorVEGHmTKAhI9moA-HVMBrVUFarG51RllA8O_E7T6RyUsMHoE7okdb718Smkf33YzB-XsLo4fo4_LrBHGHxQUbdGbgrlvRiyHuVgnJ0flDt-bHovJXSpzyCaYHFlOcaJYvnkbfTtRFAfx1kzJ9UAq31ZXznXZVO1l7Jy">
+<div class="absolute top-4 left-0 bg-primary text-white px-4 py-1 font-label-bold text-[10px] uppercase">TOP VENTAS</div>
+</div>
+<h4 class="font-label-bold text-[14px] uppercase mb-1 tracking-tight">ARSENAL HOME 24/25</h4>
+<p class="font-headline-sm text-primary text-[18px]">$34.99</p>
+</a>
+<a href="producto.html" class="group cursor-pointer">
+<div class="relative aspect-[3/4] bg-white overflow-hidden mb-4">
+<img alt="Jersey" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 object-contain p-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcQTMgW4FDtPLny2wijxEKODPBCGGan3-zq74o7Xq4P9qOvdGwWl12rKCr_d-cFWPedS79pOU3nmo2kWxJ-tCw-nBYeycsYUBZ7rNMJhmyvskRge3ZrzQrBSEGRdEdL5zPYmOu1KQulH7Pw8gMv7bptZa_uh1gqC0yukqS1XXFrFIgS7zi5j_g_vbyhnptkwR8-wxJnLufwxJfUxmYvH7rZ_mJRske1Ze5fNZUSPumcR6ma4V4pgm0PHC5i4bywIU_P87ida_1DS0A">
+</div>
+<h4 class="font-label-bold text-[14px] uppercase mb-1 tracking-tight">BARCELONA HOME 24/25</h4>
+<p class="font-headline-sm text-primary text-[18px]">$34.99</p>
+</a>
+<a href="producto.html" class="group cursor-pointer">
+<div class="relative aspect-[3/4] bg-white overflow-hidden mb-4">
+<img alt="Jersey" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 object-contain p-4" src="https://kickkit.co.za/cdn/shop/files/Travis_is_ready_to_get_subbed_in_-_sebastiennagy_1_46c706d1-17e6-45cf-8f55-b26b60695247.jpg?v=1752498390&width=1445">
+</div>
+<h4 class="font-label-bold text-[14px] uppercase mb-1 tracking-tight">BARCELONA SPECIAL EDITION (CACTUS JACK)</h4>
+<p class="font-headline-sm text-primary text-[18px]">$34.99</p>
+</a>
+<a href="producto.html" class="group cursor-pointer">
+<div class="relative aspect-[3/4] bg-white overflow-hidden mb-4">
+<img alt="Jersey" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 object-contain p-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKDuLQUPV9zCwSNIaJZuoF5BpQUctk04juTADl456XYR6zcgoeS-jOwiJj1CxIUaRFcIqXNBZ1aohhr3kjWpvLFO3DUXdX_mU7MPPGwM9lA9i1XUQ2M2JahORTt-pjkyOpzzaPpEJJYdhOGmzFU9VIgLZTaKJGTi2XJ0fKzoBfUf-_k4LG1l4pEI3Jn2RjlZfL8rPAsbb10-wHSdyyVUwP7XHAItZc_FnokZcnqHf5Cg0vf5OkeOCU2Ab6VEyT-RL36_OfIgc05fIN">
+</div>
+<h4 class="font-label-bold text-[14px] uppercase mb-1 tracking-tight">BRAZIL RETRO '94 - ROMARIO</h4>
+<p class="font-headline-sm text-primary text-[18px]">$34.99</p>
+</a>
+</div>
+</div>
+</section>
+<section class="w-full bg-on-background py-24 relative overflow-hidden">
+<div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="z-10">
+<h2 class="font-headline-lg text-headline-lg text-white mb-6 uppercase">RSS JERSEYS × <span class="text-primary">PERSONALIZACIÓN</span></h2>
+<p class="font-body-lg text-white opacity-80 max-w-lg mb-8 uppercase tracking-widest">AÑADE TU NOMBRE Y NÚMERO FAVORITO CON TIPOGRAFÍA OFICIAL.</p>
+<a href="personalizar.html" class="border-2 border-primary text-primary font-label-bold px-12 py-4 uppercase hover:bg-primary hover:text-white transition-all inline-block">
+                        PERSONALIZAR AHORA
+                    </a>
+</div>
+<div class="relative w-full md:w-1/2 h-64 md:h-96">
+<img alt="Personalization" class="w-full h-full object-cover grayscale brightness-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDe8tIhv1qJHsB4yL0x2wmBmvJVgOosYoq0l2teGJ4tllU6NHBav9JEnxZcrBJUBGxI41mNyjIIq_w5VdzZNTe5V8vHOEOok3RetM4Af4DiTNfEB-xipGMOM49l9gVE68GRLA9tAu16V7Ce-h1_PxcZI8Q4qVROlbVPns5nDPIdxqfqGGgQLQmVTE7jP8rikTzVGaThb5ceYBDqRUwx2NC7fN0liC7iGcKus2uio_hu5SqaFHQE0rsIv9-8x9ORQPe1psRjfPzjZDj">
+</div>
+</div>
+</section>
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[800px]">
+<a href="retro.html" class="md:col-span-8 group relative overflow-hidden cursor-pointer h-[400px] md:h-full block">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5XQk-3nEhv1AFgvaGQnvXuhjHLMdgIsVqf0rIqZzo6TO-r7mT9oVqWJjVz1eyrAmBcdWnEJ0iX9_uv1XdXVKaSnHWd_JxptYB3OISgtn5k9CBxeoCWaVlNHho5pWhLW6QnmuLybldpJOh7YrGxS2OU9GWk4uiCUGvE4V1mGy9YWYffyVgJLqo4N59lUw8QgT6cm8pGI33nLT8nEfNG59C7_o9OKurp15XtPDUdqvFNzcV_hbio0gcsRvc1lLXtlFjL8jeMJtRLtlk">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-12 left-12">
+<h3 class="font-headline-xl text-white text-[60px] md:text-[80px] uppercase leading-none mb-4">RETRO<br>CLASSICS</h3>
+<span class="font-label-bold text-white border-b-2 border-white pb-2 hover:text-primary hover:border-primary transition-colors uppercase">EXPLORAR HISTORIA</span>
+</div>
+</a>
+<div class="md:col-span-4 grid grid-rows-2 gap-gutter h-full">
+<a href="selecciones.html" class="group relative overflow-hidden cursor-pointer block">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF8Y3I3fp79UY-uNHWbJH6WSchOoJ3dii5FZ7cewEkJ8PpQlVwkXSaQzpcJLoNOTT69RC6Jv3Vh-kHeaUXhwEzHhfS_lwMEjkyiXjZw8_lNH8XVMS-Z66_BNyc8TI7DAnQ5eATZ0mPmyh07LOTo55PjhZUIo7JoO4d1IeLTInJ48j44xlFCyjX4dMYGZlUF30AkOn0IyqoNWuUjc4z65WQZUkurUFryKtgpUpSA9vY0jH-geOjegKXyjeym5Rvg1Gj1zIzD0ddMuzz">
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-headline-lg text-white uppercase mb-2">NACIONALES</h3>
+<span class="font-label-bold text-white uppercase text-[12px]">VER SELECCIONES</span>
+</div>
+</a>
+<a href="index.html" class="group relative overflow-hidden cursor-pointer block">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyvr0V4NXNuinpbdFWIOSEkzlSIx4zuzOUmLPXDfpLb_THmru82KAnu5Utbf3eJZG6_bCPR8L2oJUYEDZson6gUyQOcFX3mPucBcnHNxMhhQUUhXgmnX98T-zF0PU0hK7OYvHHCzU4SF2hIkUyVmSmiRVct9OyNF72iDs3SDlnYgOIMlze_YkPU1yA_SjMgKaR7rPMnz_TXEWoVDy_SGJ475tRVuEhpTheUKt45qhxuGqc8eBFRKvw705zhnjCDMvCKRgFGWU6Nypp">
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-headline-lg text-white uppercase mb-2">CLUBES</h3>
+<span class="font-label-bold text-white uppercase text-[12px]">LIGAS TOP</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<section class="bg-surface-container py-12 border-y border-on-background">
+<div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[40px] text-primary">verified</span>
+<div>
+<p class="font-label-bold text-[14px] uppercase leading-tight">CALIDAD PREMIUM</p>
+<p class="text-[12px] opacity-70">IMPORTADO DIRECTO</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[40px] text-primary">local_shipping</span>
+<div>
+<p class="font-label-bold text-[14px] uppercase leading-tight">ENVÍOS SEGUROS</p>
+<p class="text-[12px] opacity-70">A TODO EL PAÍS</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[40px] text-primary">edit</span>
+<div>
+<p class="font-label-bold text-[14px] uppercase leading-tight">PERSONALIZACIÓN</p>
+<p class="text-[12px] opacity-70">TUS NOMBRES OFICIALES</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[40px] text-primary">sentiment_satisfied</span>
+<div>
+<p class="font-label-bold text-[14px] uppercase leading-tight">CLIENTES FELICES</p>
+<p class="text-[12px] opacity-70">COMUNIDAD RSS</p>
+</div>
+</div>
+</div>
+</section>
 </main>
-
-<footer class="w-full py-section-gap px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter bg-on-surface border-t-4 border-primary">
-  <div class="col-span-2 md:col-span-1 flex flex-col gap-8">
-    <span class="font-headline-lg text-surface font-black">RSS</span>
-    <p class="font-label-bold text-surface-variant uppercase text-xs">© 2024 RSS JERSEYS.<br>ALL RIGHTS RESERVED.</p>
-  </div>
-  <div class="flex flex-col gap-6">
-    <h4 class="font-headline-sm text-surface uppercase mb-2">Productos</h4>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="nuevos.html">Novedades</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="index.html">Clubes</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="oferta.html">Outlet</a>
-  </div>
-  <div class="flex flex-col gap-6">
-    <h4 class="font-headline-sm text-surface uppercase mb-2">Deportes</h4>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="index.html">Fútbol</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="selecciones.html">Selecciones</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="retro.html">Retro</a>
-  </div>
-  <div class="flex flex-col gap-6">
-    <h4 class="font-headline-sm text-surface uppercase mb-2">Soporte</h4>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Ayuda</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Envíos</a>
-  </div>
-  <div class="flex flex-col gap-6">
-    <h4 class="font-headline-sm text-surface uppercase mb-2">Síguenos</h4>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Instagram</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="#">Facebook</a>
-  </div>
+<footer class="bg-on-background text-white pt-section-gap pb-12">
+<div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-5 gap-gutter border-b border-surface-variant pb-16">
+<div class="md:col-span-1">
+<h2 class="font-headline-lg text-headline-lg font-black text-white mb-8 tracking-tighter">RSS</h2>
+<p class="text-[14px] opacity-60 uppercase tracking-widest leading-relaxed">
+                    ENGINEERED FOR THE PITCH. PREMIUM JERSEYS FOR THE REAL FANS.
+                </p>
+</div>
+<div>
+<h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">PRODUCTOS</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="nuevos.html">Nuevos Lanzamientos</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="retro.html">Retro Classics</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="personalizar.html">Personalización</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="oferta.html">Ofertas Especiales</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">SOPORTE</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Guía de tallas</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Envíos y Devoluciones</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Seguimiento de pedido</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Preguntas Frecuentes</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">SÍGUENOS</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Instagram</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Facebook</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">TikTok</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">WhatsApp</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">EMPRESA</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Sobre Nosotros</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Términos de servicio</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Privacidad</a></li>
+<li class=""><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Contacto</a></li>
+</ul>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto mt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-label-bold text-[12px] opacity-40 uppercase">© 2024 RSS JERSEYS. ENGINEERED FOR THE PITCH.</p>
+</div>
 </footer>
 
-<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center md:hidden pb-safe bg-on-surface z-50 border-t border-on-surface-variant">
-  <a class="flex flex-col items-center justify-center bg-primary text-on-primary p-2" href="index.html">
-    <span class="material-symbols-outlined">home</span>
-    <span class="font-label-bold text-[10px] uppercase">Inicio</span>
-  </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="index.html">
-    <span class="material-symbols-outlined">grid_view</span>
-    <span class="font-label-bold text-[10px] uppercase">Categorías</span>
-  </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="nuevos.html">
-    <span class="material-symbols-outlined">new_releases</span>
-    <span class="font-label-bold text-[10px] uppercase">Novedades</span>
-  </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="personalizar.html">
-    <span class="material-symbols-outlined">edit</span>
-    <span class="font-label-bold text-[10px] uppercase">Custom</span>
-  </a>
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-[64px] grid grid-cols-4 items-stretch bg-on-background z-[150] border-t border-primary">
+<a href="index.html" class="flex flex-col items-center justify-center bg-primary text-on-primary h-full transition-colors active:bg-primary-container">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-bold text-[10px] uppercase">INICIO</span>
+</a>
+<a href="nuevos.html" class="flex flex-col items-center justify-center text-surface-container-highest h-full transition-colors active:bg-primary-container">
+<span class="material-symbols-outlined">new_releases</span>
+<span class="font-label-bold text-[10px] uppercase">NUEVOS</span>
+</a>
+<a href="retro.html" class="flex flex-col items-center justify-center text-surface-container-highest h-full transition-colors active:bg-primary-container">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-bold text-[10px] uppercase">RETRO</span>
+</a>
+<a href="personalizar.html" class="flex flex-col items-center justify-center text-surface-container-highest h-full transition-colors active:bg-primary-container">
+<span class="material-symbols-outlined">edit</span>
+<span class="font-label-bold text-[10px] uppercase">CUSTOM</span>
+</a>
 </nav>
 
-</body>
-</html>
+</body></html>
