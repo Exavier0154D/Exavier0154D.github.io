@@ -113,26 +113,38 @@
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md">
-<header class="flex flex-col w-full max-w-full z-50 px-margin-desktop bg-surface dark:bg-on-background border-b-2 border-on-surface dark:border-surface-variant sticky top-0">
-<div class="flex items-center justify-between py-6">
-<div class="flex-1 hidden md:flex gap-gutter">
-<a class="text-on-surface dark:text-surface-variant font-medium hover:text-primary transition-colors font-headline-sm text-headline-sm uppercase tracking-tighter" href="nuevos.html">Nuevos</a>
-<a class="text-on-surface dark:text-surface-variant font-medium hover:text-primary transition-colors font-headline-sm text-headline-sm uppercase tracking-tighter" href="index.html">Clubes</a>
-<a class="text-on-surface dark:text-surface-variant font-medium hover:text-primary transition-colors font-headline-sm text-headline-sm uppercase tracking-tighter" href="selecciones.html">Selecciones</a>
+
+<div class="w-full bg-on-background text-white py-2 px-margin-mobile md:px-margin-desktop text-center">
+    <p class="font-label-bold text-label-bold uppercase text-[10px] md:text-[12px] tracking-widest">
+        Envíos a todo Ecuador e Internacionales · Atención por WhatsApp
+    </p>
 </div>
-<a href="index.html" class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface dark:text-surface cursor-pointer">RSS JERSEYS</a>
-<div class="flex-1 flex justify-end items-center gap-6">
-<div class="hidden md:flex gap-gutter mr-8">
-<a class="text-primary font-bold border-b-4 border-primary pb-1 font-headline-sm text-headline-sm uppercase tracking-tighter" href="retro.html">Retro</a>
-<a class="text-on-surface dark:text-surface-variant font-medium hover:text-primary transition-colors font-headline-sm text-headline-sm uppercase tracking-tighter" href="personalizar.html">Personalización</a>
-<a class="text-on-surface dark:text-surface-variant font-medium hover:text-primary transition-colors font-headline-sm text-headline-sm uppercase tracking-tighter" href="oferta.html">Oferta</a>
-</div>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-all duration-200" data-icon="shopping_bag">shopping_bag</span>
-</div>
-</div>
-</div>
+
+<header class="sticky top-0 z-[100] bg-background border-b-2 border-on-background">
+    <div class="flex items-center justify-between h-16 md:h-20 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+        <button class="md:hidden">
+            <span class="material-symbols-outlined text-on-background">menu</span>
+        </button>
+        <div class="md:flex-1 text-center md:text-left">
+            <h1 class="font-headline-md text-headline-md font-black tracking-tighter text-on-background">RSS JERSEYS</h1>
+        </div>
+        <nav class="hidden md:flex items-center space-x-gutter">
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="nuevos.html">NUEVOS</a>
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="index.html">CLUBES</a>
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="selecciones.html">SELECCIONES</a>
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-primary border-b-2 border-primary font-black" href="retro.html">RETRO</a>
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="personalizar.html">PERSONALIZAR</a>
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="oferta.html">OFERTA</a>
+        </nav>
+        <div class="flex items-center space-x-4 md:space-x-6 md:flex-1 justify-end">
+            <button class="transition-transform active:scale-95"><span class="material-symbols-outlined">search</span></button>
+            <button class="transition-transform active:scale-95 relative">
+                <span class="material-symbols-outlined">shopping_cart</span>
+            </button>
+        </div>
+    </div>
 </header>
+
 <main>
 <section class="relative w-full h-[614px] flex items-center justify-center overflow-hidden border-b-2 border-on-surface">
 <div class="absolute inset-0 sepia-overlay z-10"></div>
