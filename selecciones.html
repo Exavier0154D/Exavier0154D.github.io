@@ -1,102 +1,197 @@
-<!DOCTYPE html>
-<html class="light" lang="es">
-<head>
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>RSS Jerseys - Selecciones</title>
+<title>RSS JERSEYS | SELECCIONES</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-<style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48; }
-  .hide-scrollbar::-webkit-scrollbar { display: none; }
-  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style>
 <script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: { extend: {
-      "colors": {
-        "inverse-primary":"#ffb4a8","tertiary":"#4d4c4c","outline":"#926e69","on-primary-fixed":"#410000","outline-variant":"#e8bdb6","surface-tint":"#c00000","surface-container-lowest":"#ffffff","surface-container":"#eeeeee","on-tertiary-fixed-variant":"#474646","on-surface-variant":"#5e3f3a","secondary-fixed":"#ffe088","secondary-container":"#fed65b","on-error":"#ffffff","on-secondary":"#ffffff","primary-fixed-dim":"#ffb4a8","surface-dim":"#dadada","secondary":"#735c00","surface":"#f9f9f9","primary":"#9e0000","surface-container-highest":"#e2e2e2","surface-container-high":"#e8e8e8","surface-variant":"#e2e2e2","on-secondary-container":"#745c00","on-primary":"#ffffff","secondary-fixed-dim":"#e9c349","on-tertiary-container":"#e4e1e1","on-secondary-fixed-variant":"#574500","on-background":"#1a1c1c","on-error-container":"#93000a","inverse-surface":"#2f3131","surface-bright":"#f9f9f9","error":"#ba1a1a","on-tertiary":"#ffffff","on-primary-container":"#ffdad4","background":"#f9f9f9","surface-container-low":"#f3f3f4","tertiary-container":"#656464","primary-fixed":"#ffdad4","primary-container":"#cc0000","tertiary-fixed-dim":"#c9c6c5","inverse-on-surface":"#f0f1f1","error-container":"#ffdad6","on-primary-fixed-variant":"#930000","tertiary-fixed":"#e5e2e1","on-tertiary-fixed":"#1c1b1b","on-surface":"#1a1c1c","on-secondary-fixed":"#241a00"
-      },
-      "borderRadius":{"DEFAULT":"0px","lg":"0px","xl":"0px","full":"9999px"},
-      "spacing":{"unit":"4px","margin-desktop":"64px","margin-mobile":"16px","gutter":"24px","section-gap":"128px"},
-      "fontFamily":{"headline-lg":["Montserrat"],"body-md":["Hanken Grotesk"],"body-lg":["Hanken Grotesk"],"label-bold":["Montserrat"],"headline-md":["Montserrat"],"headline-xl":["Montserrat"],"headline-sm":["Montserrat"],"headline-lg-mobile":["Montserrat"]},
-      "fontSize":{"headline-lg":["48px",{"lineHeight":"44px","letterSpacing":"-0.03em","fontWeight":"800"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-bold":["14px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-md":["32px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-xl":["80px",{"lineHeight":"72px","letterSpacing":"-0.04em","fontWeight":"900"}],"headline-sm":["20px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-lg-mobile":["36px",{"lineHeight":"34px","letterSpacing":"-0.03em","fontWeight":"800"}]}
-    }}
-  }
-</script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#ffb4a8",
+                        "tertiary": "#4d4c4c",
+                        "outline": "#926e69",
+                        "on-primary-fixed": "#410000",
+                        "outline-variant": "#e8bdb6",
+                        "surface-tint": "#c00000",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-fixed-variant": "#474646",
+                        "on-surface-variant": "#5e3f3a",
+                        "secondary-fixed": "#ffe088",
+                        "secondary-container": "#fed65b",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "surface-dim": "#dadada",
+                        "secondary": "#735c00",
+                        "surface": "#f9f9f9",
+                        "primary": "#9e0000",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-variant": "#e2e2e2",
+                        "on-secondary-container": "#745c00",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-tertiary-container": "#e4e1e1",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-background": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2f3131",
+                        "surface-bright": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#ffdad4",
+                        "background": "#f9f9f9",
+                        "surface-container-low": "#f3f3f4",
+                        "tertiary-container": "#656464",
+                        "primary-fixed": "#ffdad4",
+                        "primary-container": "#cc0000",
+                        "tertiary-fixed-dim": "#c9c6c5",
+                        "inverse-on-surface": "#f0f1f1",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#930000",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed": "#241a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "section-gap": "128px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-bold": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "headline-xl": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", {"lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-xl": ["80px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "900"}],
+                        "headline-sm": ["20px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["36px", {"lineHeight": "34px", "letterSpacing": "-0.03em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
-<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<body class="bg-background">
 
-<header class="flex flex-col w-full z-50 px-margin-desktop bg-surface border-b-2 border-on-surface fixed top-0">
-  <div class="flex items-center justify-between h-20">
-    <div class="flex items-center gap-8">
-      <a href="index.html" class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">RSS JERSEYS</a>
-      <nav class="hidden md:flex items-center gap-6">
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="nuevos.html">Nuevos</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="index.html">Clubes</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-primary font-bold border-b-4 border-primary pb-1" href="selecciones.html">Selecciones</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="retro.html">Retro</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="personalizar.html">Personalización</a>
-        <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface hover:text-primary transition-colors" href="oferta.html">Oferta</a>
-      </nav>
+<div class="w-full bg-on-background text-white py-2 px-margin-mobile md:px-margin-desktop text-center">
+    <p class="font-label-bold text-label-bold uppercase text-[10px] md:text-[12px] tracking-widest">
+        Envíos a todo Ecuador e Internacionales · Atención por WhatsApp
+    </p>
+</div>
+
+<header class="bg-surface dark:bg-on-background border-b-2 border-on-surface dark:border-surface-variant flex flex-col w-full max-w-full z-50 px-margin-desktop sticky top-0">
+    <div class="flex items-center justify-between h-20">
+        <div class="flex-shrink-0 md:hidden">
+            <h1 class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface dark:text-surface">RSS JERSEYS</h1>
+        </div>
+
+        <div class="flex-1 hidden md:flex items-center gap-6">
+            <a class="text-on-surface dark:text-surface-variant font-medium hover:text-primary transition-colors font-headline-sm text-headline-sm uppercase tracking-tighter" href="nuevos.html">Nuevos</a>
+            <a class="text-on-surface dark:text-surface-variant font-medium hover:text-primary transition-colors font-headline-sm text-headline-sm uppercase tracking-tighter" href="index.html">Clubes</a>
+            <a class="text-primary font-bold border-b-4 border-primary pb-1 font-headline-sm text-headline-sm uppercase tracking-tighter" href="selecciones.html">Selecciones</a>
+        </div>
+        
+        <div class="flex-shrink-0 hidden md:block">
+            <a href="index.html"><h1 class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface dark:text-surface">RSS JERSEYS</h1></a>
+        </div>
+        
+        <div class="flex-1 flex items-center justify-end gap-6">
+            <div class="hidden md:flex items-center gap-6 mr-6">
+                <a class="text-on-surface dark:text-surface-variant font-medium hover:text-primary transition-colors font-headline-sm text-headline-sm uppercase tracking-tighter" href="retro.html">Retro</a>
+                <a class="text-on-surface dark:text-surface-variant font-medium hover:text-primary transition-colors font-headline-sm text-headline-sm uppercase tracking-tighter" href="personalizar.html">Personalización</a>
+                <a class="text-on-surface dark:text-surface-variant font-medium hover:text-primary transition-colors font-headline-sm text-headline-sm uppercase tracking-tighter" href="oferta.html">Oferta</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="transition-transform active:scale-95"><span class="material-symbols-outlined text-on-surface hover:text-primary cursor-pointer">search</span></button>
+                <button class="transition-transform active:scale-95 relative"><span class="material-symbols-outlined text-on-surface hover:text-primary cursor-pointer">shopping_cart</span></button>
+            </div>
+        </div>
     </div>
-    <div class="flex items-center gap-4">
-      <button class="material-symbols-outlined text-on-surface hover:text-primary transition-all active:scale-95">favorite</button>
-      <button class="material-symbols-outlined text-on-surface hover:text-primary transition-all active:scale-95">shopping_bag</button>
-    </div>
-  </div>
 </header>
 
-<main class="mt-20 px-margin-mobile md:px-margin-desktop">
+<main class="mt-8 px-margin-mobile md:px-margin-desktop">
 
-  <section class="py-16 border-b-2 border-on-surface mb-12">
-    <p class="font-label-bold text-label-bold text-primary uppercase mb-4">Fútbol internacional</p>
-    <h1 class="font-headline-xl text-headline-xl uppercase mb-6">Selecciones</h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Las camisetas oficiales de las mejores selecciones del mundo. Viste los colores de tu país con orgullo.</p>
-  </section>
-
-  <div class="flex items-center gap-4 mb-12 overflow-x-auto hide-scrollbar pb-2">
-    <button class="border-2 border-on-surface bg-on-surface text-surface px-6 py-3 font-label-bold text-label-bold uppercase whitespace-nowrap">Todos</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Europa</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Sudamérica</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Norte y Centroamérica</button>
+  <div class="py-8 flex items-center gap-2">
+    <a href="index.html" class="flex items-center gap-2 group">
+      <span class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors">arrow_back</span>
+      <span class="font-label-bold text-label-bold uppercase tracking-widest group-hover:text-primary transition-colors">Volver al Catálogo</span>
+    </a>
   </div>
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter pb-section-gap">
-    <a href="producto.html" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
-        <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://images.footballfanatics.com/spain-national-team/mens-adidas-red-spain-national-team-2024-home-replica-jersey_ss5_p-201027523+u-bkgn0pnvegmgk0b84h6b+v-8a1e0c5e8b1e41bd99a8a96f88abe754.jpg?_hv=2&w=340" alt="España">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🇪🇸 España</div>
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start pb-section-gap">
+    <div class="md:col-span-7 flex flex-col gap-4">
+      <div class="w-full bg-surface-container aspect-[4/5] relative overflow-hidden">
+        <img class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+          alt="Barcelona Special Edition Jersey"
+          src="https://cdn.shopify.com/s/files/1/0880/2520/2980/files/barcelona-2025-special-edition-jersey.webp?v=1749658029">
       </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">España</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Home 24/25</p>
-      <p class="font-label-bold text-label-bold">$31.99</p>
-    </a>
+    </div>
 
-    <a href="producto.html" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative">
-        <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXJR2y2eWZ2lEkrk6gVhE3yJDsxJKJX4u6IA&s" alt="Argentina">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🇦🇷 Argentina</div>
-        <div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase">Campeón</div>
+    <div class="md:col-span-5 md:sticky md:top-32 flex flex-col gap-8">
+      <div class="border-b-2 border-on-surface pb-6">
+        <p class="font-label-bold text-label-bold text-primary uppercase mb-2">EDICIÓN LIMITADA</p>
+        <h1 class="font-headline-lg text-headline-lg uppercase mb-4">Barcelona Special Edition</h1>
+        <p class="font-headline-md text-headline-md text-on-surface-variant">$34.99</p>
       </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Argentina</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Home 24/25</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
 
-    <a href="personalizar.html" class="flex flex-col group cursor-pointer">
-      <div class="bg-primary aspect-[3/4] overflow-hidden mb-4 flex flex-col items-center justify-center gap-4 p-8">
-        <span class="material-symbols-outlined text-on-primary" style="font-size:64px">flag</span>
-        <p class="font-headline-sm text-headline-sm text-on-primary uppercase text-center">Tu selección</p>
+      <div>
+        <div class="flex justify-between items-center mb-4">
+          <span class="font-label-bold text-label-bold uppercase">SELECCIONAR TALLA</span>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all">S</button>
+          <button class="border-2 border-on-surface px-6 py-3 font-label-bold text-label-bold uppercase bg-on-surface text-surface">M</button>
+          <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all">L</button>
+          <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all">XL</button>
+        </div>
       </div>
-      <p class="font-label-bold text-label-bold uppercase text-primary mb-1">Personalización</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Crea la tuya</p>
-      <p class="font-label-bold text-label-bold">Desde $39.99</p>
-    </a>
+
+      <div class="flex flex-col gap-4">
+        <button class="w-full bg-primary text-on-primary font-headline-sm text-headline-sm uppercase py-6 hover:bg-on-surface transition-all active:scale-95">AGREGAR AL CARRITO</button>
+        <a href="personalizar.html" class="flex items-center justify-center gap-2 text-secondary font-label-bold text-label-bold uppercase group">
+          PERSONALIZAR ESTA CAMISETA
+          <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+        </a>
+      </div>
+    </div>
   </div>
 </main>
 
@@ -109,7 +204,7 @@
     <h4 class="font-headline-sm text-surface uppercase mb-2">Productos</h4>
     <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="nuevos.html">Novedades</a>
     <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="index.html">Clubes</a>
-    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="oferta.html">Outlet</a>
+    <a class="font-body-md text-surface-variant hover:text-primary transition-all uppercase tracking-widest text-sm" href="oferta.html">Ofertas Especiales</a>
   </div>
   <div class="flex flex-col gap-6">
     <h4 class="font-headline-sm text-surface uppercase mb-2">Deportes</h4>
@@ -133,9 +228,9 @@
     <span class="material-symbols-outlined">flag</span>
     <span class="font-label-bold text-[10px] uppercase">Selecciones</span>
   </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="nuevos.html">
-    <span class="material-symbols-outlined">new_releases</span>
-    <span class="font-label-bold text-[10px] uppercase">Novedades</span>
+  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="retro.html">
+    <span class="material-symbols-outlined">history</span>
+    <span class="font-label-bold text-[10px] uppercase">Retro</span>
   </a>
   <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="personalizar.html">
     <span class="material-symbols-outlined">edit</span>
