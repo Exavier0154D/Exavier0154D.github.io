@@ -120,13 +120,13 @@
       <div class="relative w-full max-w-xl aspect-[3/4] flex items-center justify-center">
         <img alt="Jersey Back View"
           class="absolute inset-0 w-full h-full object-contain opacity-90 mix-blend-multiply"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Z6Em5thmopQs7bIvTAMg-aXrNRxNpabdS1VLup-FsbmwOWnTuG0cSUFSRK-3zp99GkMrrxPTwI3Km2Q_KnaT5j_SEm56GuuOsJULdDP8qGBkRYywxEaJyq_2rCT7pdjVJ-4XXQi020VAQ_QUooy5QBbXY8WIjuROQeW5UGIwXnG5aOIuGbZmQR84HoZv1iKe7VY1h9uJB-wwbJK1MjmlZJa1ErbYtzcfA3NcSBOWdbM0Vdjy5NsZEp-3MygskJPLH1BBlo57fJMy"/>
+          src="https://cdn.shopify.com/s/files/1/0880/2520/2980/files/barcelona-2025-special-edition-jersey.webp?v=1749658029"/>
         
         <div class="relative z-10 flex flex-col items-center justify-center w-full text-center mt-[-10%]">
-          <span id="preview-name" class="font-headline-xl text-headline-xl text-on-background uppercase tracking-tight scale-125 mb-[-20px]">
+          <span id="preview-name" class="font-headline-xl text-headline-xl text-[#e9c349] uppercase tracking-tight scale-125 mb-[-20px] drop-shadow-md">
             GARCIA
           </span>
-          <span id="preview-number" class="text-[280px] font-black leading-none text-on-background tracking-tighter">
+          <span id="preview-number" class="text-[280px] font-black leading-none text-[#e9c349] tracking-tighter drop-shadow-md">
             10
           </span>
         </div>
@@ -138,31 +138,33 @@
         <div class="mb-12">
           <p class="font-label-bold text-label-bold text-primary mb-2 uppercase">PASO 3 DE 4</p>
           <h2 class="font-headline-lg text-headline-lg uppercase leading-tight text-on-background">TU NOMBRE EN LA CANCHA</h2>
-          <p class="font-body-lg text-body-lg text-tertiary mt-4">Personaliza el dorsal con tu nombre o el de tu ídolo. Máximo 12 caracteres.</p>
+          <p class="font-body-lg text-body-lg text-tertiary mt-4">Personaliza el dorsal con tu nombre o el de tu ídolo.</p>
         </div>
 
-        <div class="space-y-12">
+        <div class="space-y-10">
           <div class="group">
-            <label class="font-label-bold text-label-bold uppercase block mb-4 group-focus-within:text-primary transition-colors text-on-background">NOMBRE DEL JUGADOR</label>
+            <label class="font-label-bold text-label-bold uppercase block mb-4 group-focus-within:text-primary transition-colors text-on-background">NOMBRE DEL JUGADOR (Máx 12)</label>
             <input
               id="name-input"
               class="w-full border-b-2 border-on-background bg-transparent py-4 font-headline-md text-headline-md uppercase placeholder:text-surface-variant focus:border-primary transition-all text-on-background"
               placeholder="ESCRIBE AQUÍ"
               maxlength="12"
               type="text"
-              value="GARCIA"
-              oninput="document.getElementById('preview-name').textContent = this.value || 'NOMBRE'"/>
+              value="GARCIA"/>
           </div>
 
-          <div class="group opacity-50">
-            <label class="font-label-bold text-label-bold uppercase block mb-4 text-on-background">NÚMERO</label>
-            <div class="flex items-center gap-4">
-              <button class="w-16 h-16 border-2 border-on-background flex items-center justify-center font-headline-sm hover:bg-on-background hover:text-white transition-all text-on-background">10</button>
-              <span class="font-body-md italic text-tertiary">Click para editar paso anterior</span>
-            </div>
+          <div class="group">
+            <label class="font-label-bold text-label-bold uppercase block mb-4 group-focus-within:text-primary transition-colors text-on-background">NÚMERO DORSAL (Máx 2)</label>
+            <input
+              id="number-input"
+              class="w-24 border-b-2 border-on-background bg-transparent py-4 font-headline-md text-headline-md uppercase placeholder:text-surface-variant focus:border-primary transition-all text-on-background text-center"
+              placeholder="10"
+              maxlength="2"
+              type="text"
+              value="10"/>
           </div>
 
-          <div class="flex items-center gap-6 p-4 border border-outline-variant bg-surface">
+          <div class="flex items-center gap-6 p-4 border border-outline-variant bg-surface mt-8">
             <img class="w-20 h-20 object-cover"
               alt="Jersey seleccionado"
               src="https://cdn.shopify.com/s/files/1/0880/2520/2980/files/barcelona-2025-special-edition-jersey.webp?v=1749658029">
@@ -256,6 +258,26 @@
     <span class="font-label-bold text-[10px] uppercase">Oferta</span>
   </a>
 </nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const nameInput = document.getElementById('name-input');
+        const numberInput = document.getElementById('number-input');
+        const previewName = document.getElementById('preview-name');
+        const previewNumber = document.getElementById('preview-number');
+
+        // Actualizar Nombre
+        nameInput.addEventListener('input', (e) => {
+            previewName.textContent = e.target.value || 'NOMBRE';
+        });
+
+        // Actualizar Número (solo permite dígitos)
+        numberInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            previewNumber.textContent = e.target.value || '10';
+        });
+    });
+</script>
 
 </body>
 </html>
