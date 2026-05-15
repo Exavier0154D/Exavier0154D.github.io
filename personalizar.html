@@ -97,7 +97,6 @@
             <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="index.html">CLUBES</a>
             <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="selecciones.html">SELECCIONES</a>
             <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="retro.html">RETRO</a>
-            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-primary border-b-2 border-primary font-black" href="personalizar.html">PERSONALIZAR</a>
             <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="oferta.html">OFERTA</a>
         </nav>
         <div class="flex items-center space-x-4 md:space-x-6 md:flex-1 justify-end">
@@ -118,9 +117,7 @@
 
     <section class="lg:col-span-7 jersey-preview-canvas flex items-center justify-center p-8 border-r-2 border-on-surface bg-surface-container">
       <div class="relative w-full max-w-xl aspect-[3/4] flex items-center justify-center">
-        <img alt="Jersey Back View"
-          class="absolute inset-0 w-full h-full object-contain opacity-90 mix-blend-multiply"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYBcFlRUhBadTdIaWlBPOqPLiB8jXT5fpa6F0jCG4fr-K-ZMEAQRpBXEV_0k1uVlPS-I5g85w5zWSCTLkU28_EfcshejQRLCtY6yEn0ScbnpXwgfPOIuj9yq6oSuollPoqPGl_PniaAr_5CZLQXT8PeSn2bUwgiacQ4VEWKU24Wxalo4v21JvLqI0RyAjWcsvD2Y7ZTCM5Alh6g16AhdnwY4iHg1PqGO6Y5ryW5Y31f5_Cjw4OAC0bBYJQDiSC07HP1CRMPl3L4NzH"/>
+        <img id="preview-jersey-img" alt="Vista previa" class="absolute inset-0 w-full h-full object-contain opacity-90 mix-blend-multiply" src=""/>
         
         <div class="relative z-10 flex flex-col items-center justify-center w-full text-center mt-[-10%]">
           <span id="preview-name" class="font-headline-lg text-headline-lg text-white uppercase tracking-widest mb-[-10px] drop-shadow-md">
@@ -165,14 +162,12 @@
           </div>
 
           <div class="flex items-center gap-6 p-4 border border-outline-variant bg-surface mt-8">
-            <img class="w-20 h-20 object-cover"
-              alt="Jersey seleccionado"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYBcFlRUhBadTdIaWlBPOqPLiB8jXT5fpa6F0jCG4fr-K-ZMEAQRpBXEV_0k1uVlPS-I5g85w5zWSCTLkU28_EfcshejQRLCtY6yEn0ScbnpXwgfPOIuj9yq6oSuollPoqPGl_PniaAr_5CZLQXT8PeSn2bUwgiacQ4VEWKU24Wxalo4v21JvLqI0RyAjWcsvD2Y7ZTCM5Alh6g16AhdnwY4iHg1PqGO6Y5ryW5Y31f5_Cjw4OAC0bBYJQDiSC07HP1CRMPl3L4NzH">
+            <img id="selected-jersey-img" class="w-20 h-20 object-cover" alt="Jersey seleccionado" src="">
             <div>
               <p class="font-label-bold text-label-bold uppercase text-on-background">Jersey Seleccionado</p>
-              <p class="font-body-md text-tertiary">Barcelona Special Edition</p>
+              <p id="selected-jersey-title" class="font-body-md text-tertiary">Cargando...</p>
             </div>
-            <a href="index.html" class="ml-auto text-primary font-label-bold uppercase text-xs underline">Cambiar</a>
+            <a href="javascript:history.back()" class="ml-auto text-primary font-label-bold uppercase text-xs underline">Cambiar</a>
           </div>
         </div>
       </div>
@@ -203,7 +198,6 @@
             <ul class="space-y-4">
                 <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="nuevos.html">Nuevos Lanzamientos</a></li>
                 <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="retro.html">Retro Classics</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="personalizar.html">Personalización</a></li>
                 <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="oferta.html">Ofertas Especiales</a></li>
             </ul>
         </div>
@@ -249,9 +243,9 @@
     <span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
     <span class="font-label-bold text-[10px] uppercase">Categorías</span>
   </a>
-  <a class="flex flex-col items-center justify-center bg-primary text-on-primary p-2" href="personalizar.html">
-    <span class="material-symbols-outlined" data-icon="edit">edit</span>
-    <span class="font-label-bold text-[10px] uppercase">Custom</span>
+  <a class="flex flex-col items-center justify-center text-surface-variant dark:text-on-surface-variant p-2 hover:bg-primary-container hover:text-on-primary-container transition-all" href="nuevos.html">
+    <span class="material-symbols-outlined" data-icon="new_releases">new_releases</span>
+    <span class="font-label-bold text-[10px] uppercase">Novedades</span>
   </a>
   <a class="flex flex-col items-center justify-center text-surface-variant dark:text-on-surface-variant p-2 hover:bg-primary-container hover:text-on-primary-container transition-all" href="oferta.html">
     <span class="material-symbols-outlined" data-icon="local_offer">local_offer</span>
@@ -261,6 +255,22 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // Leer la URL para ver si vino con parámetros de camiseta
+        const params = new URLSearchParams(window.location.search);
+        const title = params.get('title');
+        const img = params.get('img');
+
+        // CONDICIONAL: Si alguien entra aquí sin haber elegido camiseta, se regresa al inicio.
+        if(!img || !title) {
+            window.location.href = 'nuevos.html';
+            return;
+        }
+
+        // Si sí hay camiseta, la inyectamos en la pantalla
+        document.getElementById('preview-jersey-img').src = img;
+        document.getElementById('selected-jersey-img').src = img;
+        document.getElementById('selected-jersey-title').textContent = decodeURIComponent(title);
+
         const nameInput = document.getElementById('name-input');
         const numberInput = document.getElementById('number-input');
         const previewName = document.getElementById('preview-name');
