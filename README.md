@@ -2,7 +2,7 @@
 
 Bienvenido al repositorio oficial de **RSS JERSEYS**, una plataforma e-commerce de indumentaria futbolística de alta gama diseñada para ofrecer la mejor experiencia de compra y personalización en Ecuador.
 
-> **🔗 Demo en vivo:** [exavier0154d.github.io](https://exavier0154d.github.io/mundiales.index)
+> **🔗 Demo en vivo:** [exavier0154d.github.io](https://exavier0154d.github.io)
 
 ---
 
@@ -13,9 +13,9 @@ RSS JERSEYS nace para resolver la falta de indumentaria deportiva premium y opci
 ### ✨ Características Principales
 * **Hero Video dinámico:** Experiencia visual inmersiva desde el primer segundo.
 * **Navegación Unificada:** Flujo optimizado entre colecciones (Nuevos, Retro, Selecciones, Ofertas).
-* **Catálogo Inteligente:** Sistema de paso de parámetros por URL para carga dinámica de productos.
-* **Personalización Exclusiva:** Módulo de personalización de dorsales y nombres con vista previa en tiempo real.
-* **Diseño Mobile-First:** Barra de navegación inferior optimizada para dispositivos móviles.
+* **Catálogo Inteligente:** Sistema de transferencia de datos por URL para carga dinámica de productos entre pantallas.
+* **Personalización Exclusiva:** Módulo de edición de dorsales y nombres con vista previa en tiempo real sobre el jersey.
+* **Diseño Mobile-First:** Interfaz adaptativa con barra de navegación inferior optimizada para celulares.
 
 ---
 
@@ -27,7 +27,7 @@ El desarrollo se basó en el uso de herramientas de vanguardia para garantizar r
 * **Prototipado:** [Stitch](https://www.useberry.com/stitch/) (Diseño de alta fidelidad).
 * **Despliegue:** [GitHub Pages](https://pages.github.com/).
 * **Inteligencia Artificial:** * [Claude.ai](https://claude.ai/) (Lógica de negocio y optimización de código).
-    * [Gemini](https://gemini.google.com/) (Generación de contenido y assets visuales).
+    * [Gemini](https://gemini.google.com/) (Generación de contenido, assets visuales y documentación).
 
 ---
 
