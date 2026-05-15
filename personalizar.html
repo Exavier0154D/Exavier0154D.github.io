@@ -21,6 +21,13 @@
     border-color: #9e0000 !important;
     box-shadow: none !important;
   }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  body {
+      background-color: #f9f9f9;
+      color: #1a1c1c;
+      font-family: 'Hanken Grotesk', sans-serif;
+  }
 </style>
 <script id="tailwind-config">
   tailwind.config = {
@@ -69,32 +76,41 @@
   }
 </script>
 </head>
-<body class="bg-background text-on-surface font-body-md">
+<body class="bg-background text-on-background">
 
-<header class="bg-surface border-b-2 border-on-surface flex flex-col w-full max-w-full z-50 px-margin-desktop">
-  <div class="flex items-center justify-between py-6">
-    <a href="index.html" class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">RSS JERSEYS</a>
-    <nav class="hidden md:flex items-center gap-8">
-      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="nuevos.html">Nuevos</a>
-      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="index.html">Clubes</a>
-      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="selecciones.html">Selecciones</a>
-      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="retro.html">Retro</a>
-      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-primary font-bold border-b-4 border-primary pb-1" href="personalizar.html">Personalización</a>
-      <a class="font-headline-sm text-headline-sm uppercase tracking-tighter text-on-surface font-medium hover:text-primary transition-colors" href="oferta.html">Oferta</a>
-    </nav>
-    <div class="flex items-center gap-4">
-      <button class="text-on-surface hover:text-primary transition-all active:scale-95">
-        <span class="material-symbols-outlined">favorite</span>
-      </button>
-      <button class="text-on-surface hover:text-primary transition-all active:scale-95">
-        <span class="material-symbols-outlined">shopping_bag</span>
-      </button>
+<div class="w-full bg-on-background text-white py-2 px-margin-mobile md:px-margin-desktop text-center">
+    <p class="font-label-bold text-label-bold uppercase text-[10px] md:text-[12px] tracking-widest">
+        Envíos a todo Ecuador e Internacionales · Atención por WhatsApp
+    </p>
+</div>
+
+<header class="sticky top-0 z-[100] bg-background border-b-2 border-on-background">
+    <div class="flex items-center justify-between h-16 md:h-20 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+        <button class="md:hidden">
+            <span class="material-symbols-outlined text-on-background">menu</span>
+        </button>
+        <div class="md:flex-1 text-center md:text-left">
+            <a href="index.html"><h1 class="font-headline-md text-headline-md font-black tracking-tighter text-on-background">RSS JERSEYS</h1></a>
+        </div>
+        <nav class="hidden md:flex items-center space-x-gutter">
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="nuevos.html">NUEVOS</a>
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="index.html">CLUBES</a>
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="selecciones.html">SELECCIONES</a>
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="retro.html">RETRO</a>
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-primary border-b-2 border-primary font-black" href="personalizar.html">PERSONALIZAR</a>
+            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="oferta.html">OFERTA</a>
+        </nav>
+        <div class="flex items-center space-x-4 md:space-x-6 md:flex-1 justify-end">
+            <button class="transition-transform active:scale-95"><span class="material-symbols-outlined">search</span></button>
+            <button class="transition-transform active:scale-95 relative">
+                <span class="material-symbols-outlined">shopping_cart</span>
+            </button>
+        </div>
     </div>
-  </div>
 </header>
 
 <main class="min-h-screen">
-  <div class="w-full bg-surface-container-high h-2 sticky top-0 z-40">
+  <div class="w-full bg-surface-container-high h-2 sticky top-[80px] z-40">
     <div class="bg-primary h-full w-3/4 transition-all duration-500" id="progress-bar"></div>
   </div>
 
@@ -105,6 +121,7 @@
         <img alt="Jersey Back View"
           class="absolute inset-0 w-full h-full object-contain opacity-90 mix-blend-multiply"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYBcFlRUhBadTdIaWlBPOqPLiB8jXT5fpa6F0jCG4fr-K-ZMEAQRpBXEV_0k1uVlPS-I5g85w5zWSCTLkU28_EfcshejQRLCtY6yEn0ScbnpXwgfPOIuj9yq6oSuollPoqPGl_PniaAr_5CZLQXT8PeSn2bUwgiacQ4VEWKU24Wxalo4v21JvLqI0RyAjWcsvD2Y7ZTCM5Alh6g16AhdnwY4iHg1PqGO6Y5ryW5Y31f5_Cjw4OAC0bBYJQDiSC07HP1CRMPl3L4NzH"/>
+        
         <div class="relative z-10 flex flex-col items-center justify-center w-full text-center mt-[-10%]">
           <span id="preview-name" class="font-headline-xl text-headline-xl text-on-surface uppercase tracking-tight scale-125 mb-[-20px]">
             GARCIA
@@ -120,7 +137,7 @@
       <div>
         <div class="mb-12">
           <p class="font-label-bold text-label-bold text-primary mb-2 uppercase">PASO 3 DE 4</p>
-          <h2 class="font-headline-lg text-headline-lg uppercase">TU NOMBRE EN LA CANCHA</h2>
+          <h2 class="font-headline-lg text-headline-lg uppercase leading-tight">TU NOMBRE EN LA CANCHA</h2>
           <p class="font-body-lg text-body-lg text-tertiary mt-4">Personaliza el dorsal con tu nombre o el de tu ídolo. Máximo 12 caracteres.</p>
         </div>
 
@@ -129,7 +146,7 @@
             <label class="font-label-bold text-label-bold uppercase block mb-4 group-focus-within:text-primary transition-colors">NOMBRE DEL JUGADOR</label>
             <input
               id="name-input"
-              class="w-full border-b-2 border-on-surface bg-transparent py-4 font-headline-md text-headline-md uppercase placeholder:text-surface-variant focus:border-primary transition-all"
+              class="w-full border-b-2 border-on-background bg-transparent py-4 font-headline-md text-headline-md uppercase placeholder:text-surface-variant focus:border-primary transition-all"
               placeholder="ESCRIBE AQUÍ"
               maxlength="12"
               type="text"
@@ -140,30 +157,30 @@
           <div class="group opacity-50">
             <label class="font-label-bold text-label-bold uppercase block mb-4">NÚMERO</label>
             <div class="flex items-center gap-4">
-              <button class="w-16 h-16 border-2 border-on-surface flex items-center justify-center font-headline-sm hover:bg-on-surface hover:text-surface transition-all">10</button>
+              <button class="w-16 h-16 border-2 border-on-background flex items-center justify-center font-headline-sm hover:bg-on-background hover:text-white transition-all">10</button>
               <span class="font-body-md italic text-surface-variant">Click para editar paso anterior</span>
             </div>
           </div>
 
-          <div class="flex items-center gap-6 p-4 border border-surface-variant">
+          <div class="flex items-center gap-6 p-4 border border-outline-variant bg-background">
             <img class="w-20 h-20 object-cover"
               alt="Jersey seleccionado"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Z6Em5thmopQs7bIvTAMg-aXrNRxNpabdS1VLup-FsbmwOWnTuG0cSUFSRK-3zp99GkMrrxPTwI3Km2Q_KnaT5j_SEm56GuuOsJULdDP8qGBkRYywxEaJyq_2rCT7pdjVJ-4XXQi020VAQ_QUooy5QBbXY8WIjuROQeW5UGIwXnG5aOIuGbZmQR84HoZv1iKe7VY1h9uJB-wwbJK1MjmlZJa1ErbYtzcfA3NcSBOWdbM0Vdjy5NsZEp-3MygskJPLH1BBlo57fJMy">
+              src="https://cdn.shopify.com/s/files/1/0880/2520/2980/files/barcelona-2025-special-edition-jersey.webp?v=1749658029">
             <div>
-              <p class="font-label-bold text-label-bold uppercase">Jersey Titular 24/25</p>
-              <p class="font-body-md text-tertiary">Seleccionado</p>
+              <p class="font-label-bold text-label-bold uppercase">Jersey Seleccionado</p>
+              <p class="font-body-md text-tertiary">Edición Especial</p>
             </div>
             <a href="index.html" class="ml-auto text-primary font-label-bold uppercase text-xs underline">Cambiar</a>
           </div>
         </div>
       </div>
 
-      <div class="mt-12 pt-8 border-t-2 border-surface-variant flex items-center justify-between">
+      <div class="mt-12 pt-8 border-t-2 border-outline-variant flex items-center justify-between">
         <a href="producto.html" class="font-label-bold text-label-bold uppercase flex items-center gap-2 hover:text-primary transition-colors group">
           <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
           Atrás
         </a>
-        <button class="bg-on-surface text-surface px-12 py-6 font-headline-sm text-headline-sm uppercase hover:bg-primary transition-all active:scale-95">
+        <button class="bg-on-background text-white px-12 py-6 font-headline-sm text-headline-sm uppercase hover:bg-primary transition-all active:scale-95">
           CONTINUAR
         </button>
       </div>
@@ -171,18 +188,72 @@
   </div>
 </main>
 
-<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center md:hidden pb-safe bg-on-surface z-50 border-t border-on-surface-variant">
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="index.html">
-    <span class="material-symbols-outlined">home</span>
+<footer class="bg-on-background text-white pt-section-gap pb-12 mt-12">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-5 gap-gutter border-b border-surface-variant pb-16">
+        <div class="md:col-span-1">
+            <h2 class="font-headline-lg text-headline-lg font-black text-white mb-8 tracking-tighter">RSS</h2>
+            <p class="text-[14px] opacity-60 uppercase tracking-widest leading-relaxed">
+                ENGINEERED FOR THE PITCH. PREMIUM JERSEYS FOR THE REAL FANS.
+            </p>
+        </div>
+        <div>
+            <h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">PRODUCTOS</h4>
+            <ul class="space-y-4">
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="nuevos.html">Nuevos Lanzamientos</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="retro.html">Retro Classics</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="personalizar.html">Personalización</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="oferta.html">Ofertas Especiales</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">SOPORTE</h4>
+            <ul class="space-y-4">
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Guía de tallas</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Envíos y Devoluciones</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Seguimiento de pedido</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">SÍGUENOS</h4>
+            <ul class="space-y-4">
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Instagram</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Facebook</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">TikTok</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">WhatsApp</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">EMPRESA</h4>
+            <ul class="space-y-4">
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Sobre Nosotros</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Términos de servicio</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Privacidad</a></li>
+                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto mt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="font-label-bold text-[12px] opacity-40 uppercase">© 2024 RSS JERSEYS. ENGINEERED FOR THE PITCH.</p>
+    </div>
+</footer>
+
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center md:hidden pb-safe bg-on-surface dark:bg-surface-container-lowest border-t border-on-surface-variant z-50">
+  <a class="flex flex-col items-center justify-center text-surface-variant dark:text-on-surface-variant p-2 hover:bg-primary-container hover:text-on-primary-container transition-all" href="index.html">
+    <span class="material-symbols-outlined" data-icon="home">home</span>
     <span class="font-label-bold text-[10px] uppercase">Inicio</span>
   </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant p-2" href="index.html">
-    <span class="material-symbols-outlined">grid_view</span>
+  <a class="flex flex-col items-center justify-center text-surface-variant dark:text-on-surface-variant p-2 hover:bg-primary-container hover:text-on-primary-container transition-all" href="index.html">
+    <span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
     <span class="font-label-bold text-[10px] uppercase">Categorías</span>
   </a>
   <a class="flex flex-col items-center justify-center bg-primary text-on-primary p-2" href="personalizar.html">
-    <span class="material-symbols-outlined">edit</span>
+    <span class="material-symbols-outlined" data-icon="edit">edit</span>
     <span class="font-label-bold text-[10px] uppercase">Custom</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-surface-variant dark:text-on-surface-variant p-2 hover:bg-primary-container hover:text-on-primary-container transition-all" href="oferta.html">
+    <span class="material-symbols-outlined" data-icon="local_offer">local_offer</span>
+    <span class="font-label-bold text-[10px] uppercase">Oferta</span>
   </a>
 </nav>
 
