@@ -102,7 +102,6 @@
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  .price-slash { text-decoration: line-through; opacity: 0.5; }
   body {
       background-color: #f9f9f9;
       color: #1a1c1c;
@@ -131,7 +130,6 @@
             <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="index.html">CLUBES</a>
             <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="selecciones.html">SELECCIONES</a>
             <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="retro.html">RETRO</a>
-            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="personalizar.html">PERSONALIZAR</a>
             <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="oferta.html">OFERTA</a>
         </nav>
         <div class="flex items-center space-x-4 md:space-x-6 md:flex-1 justify-end">
@@ -185,7 +183,7 @@
         <button class="w-full bg-primary text-white font-headline-sm text-headline-sm uppercase py-5 hover:bg-on-background transition-all active:scale-95 border-2 border-primary hover:border-on-background">
             AGREGAR AL CARRITO
         </button>
-        <a href="personalizar.html" class="flex items-center justify-center gap-2 text-on-background border-2 border-on-background font-label-bold text-label-bold uppercase py-5 hover:bg-surface-dim transition-colors group">
+        <a id="btn-personalizar" href="personalizar.html" class="flex items-center justify-center gap-2 text-on-background border-2 border-on-background font-label-bold text-label-bold uppercase py-5 hover:bg-surface-dim transition-colors group">
           <span class="material-symbols-outlined">edit</span>
           PERSONALIZAR ESTA CAMISETA
         </a>
@@ -208,77 +206,77 @@
     <h3 class="font-headline-lg text-headline-lg uppercase mb-8">También te podría interesar</h3>
     
     <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
-      <a href="producto.html?title=Arsenal%20Home%2024/25&price=$34.99&img=https://assets.adidas.com/images/w_1880,f_auto,q_auto/6b542a9c1b51491f9cdc9700fba1d7b3_9366/IT6140_HM30.jpg" class="flex flex-col group cursor-pointer">
+      <a href="producto.html?title=Arsenal%20Local%2024/25&price=$34.99&img=https://assets.adidas.com/images/w_1880,f_auto,q_auto/6b542a9c1b51491f9cdc9700fba1d7b3_9366/IT6140_HM30.jpg" class="flex flex-col group cursor-pointer">
         <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
           <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src="https://assets.adidas.com/images/w_1880,f_auto,q_auto/6b542a9c1b51491f9cdc9700fba1d7b3_9366/IT6140_HM30.jpg" alt="Arsenal">
         </div>
         <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Arsenal FC</p>
-        <p class="font-headline-sm text-headline-sm uppercase mb-1">Home 24/25</p>
+        <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
         <p class="font-label-bold text-label-bold">$34.99</p>
       </a>
 
-      <a href="producto.html?title=Argentina%20Home%2024/25&price=$34.99&img=https://soccerpost.com/cdn/shop/files/ScreenShot2024-03-27at12.02.07PM_clipped_rev_1.png?v=1711736920" class="flex flex-col group cursor-pointer">
+      <a href="producto.html?title=Argentina%20Local%2024/25&price=$34.99&img=https://soccerpost.com/cdn/shop/files/ScreenShot2024-03-27at12.02.07PM_clipped_rev_1.png?v=1711736920" class="flex flex-col group cursor-pointer">
         <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
           <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src="https://soccerpost.com/cdn/shop/files/ScreenShot2024-03-27at12.02.07PM_clipped_rev_1.png?v=1711736920" alt="Argentina">
         </div>
         <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Argentina</p>
-        <p class="font-headline-sm text-headline-sm uppercase mb-1">Home 24/25</p>
+        <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
         <p class="font-label-bold text-label-bold">$34.99</p>
       </a>
 
-      <a href="producto.html?title=Milan%2088%20Retro&price=$50.00&img=https://store.acmilan.com/cdn/shop/files/2134-A13_01_b0713652-cc86-4f4f-88df-b72f5fdac6f7.jpg?v=1748009969" class="flex flex-col group cursor-pointer">
+      <a href="producto.html?title=Milan%20Local%2088&price=$50.00&img=https://store.acmilan.com/cdn/shop/files/2134-A13_01_b0713652-cc86-4f4f-88df-b72f5fdac6f7.jpg?v=1748009969" class="flex flex-col group cursor-pointer">
         <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
           <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src="https://store.acmilan.com/cdn/shop/files/2134-A13_01_b0713652-cc86-4f4f-88df-b72f5fdac6f7.jpg?v=1748009969" alt="Milan 88">
         </div>
         <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">AC Milan</p>
-        <p class="font-headline-sm text-headline-sm uppercase mb-1">Retro '88</p>
+        <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local '88</p>
         <p class="font-label-bold text-label-bold">$50.00</p>
       </a>
 
-      <a href="producto.html?title=Bayern%20Third%2024/25&price=$34.99&img=https://championgearz.co.za/cdn/shop/files/IMG_3219.png?v=1723455710" class="flex flex-col group cursor-pointer">
+      <a href="producto.html?title=Bayern%20Tercera%2024/25&price=$34.99&img=https://championgearz.co.za/cdn/shop/files/IMG_3219.png?v=1723455710" class="flex flex-col group cursor-pointer">
         <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
           <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src="https://championgearz.co.za/cdn/shop/files/IMG_3219.png?v=1723455710" alt="Bayern">
         </div>
         <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Bayern Munich</p>
-        <p class="font-headline-sm text-headline-sm uppercase mb-1">Third 24/25</p>
+        <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Tercera 24/25</p>
         <p class="font-label-bold text-label-bold">$34.99</p>
       </a>
 
-      <a href="producto.html?title=Real%20Madrid%20Home%2024/25&price=$29.99&img=https://assets.adidas.com/images/w_1880,f_auto,q_auto/4d2aba30dea24adb8300bceb8f0650f7_9366/IX8095_DM1.jpg" class="flex flex-col group cursor-pointer">
+      <a href="producto.html?title=Real%20Madrid%20Local%2024/25&price=$29.99&img=https://assets.adidas.com/images/w_1880,f_auto,q_auto/4d2aba30dea24adb8300bceb8f0650f7_9366/IX8095_DM1.jpg" class="flex flex-col group cursor-pointer">
         <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
           <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src="https://assets.adidas.com/images/w_1880,f_auto,q_auto/4d2aba30dea24adb8300bceb8f0650f7_9366/IX8095_DM1.jpg" alt="Real Madrid">
         </div>
         <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Real Madrid</p>
-        <p class="font-headline-sm text-headline-sm uppercase mb-1">Home 24/25</p>
+        <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
         <p class="font-label-bold text-label-bold">$29.99</p>
       </a>
 
-      <a href="producto.html?title=Inter%20Milan%20Home%2023/24&price=$15.00&img=https://www.copycatz.in/wp-content/uploads/2024/03/Inter-Milan-Home-2023-24-football-Jersey-1.jpeg" class="flex flex-col group cursor-pointer">
+      <a href="producto.html?title=Inter%20Milan%20Local%2023/24&price=$15.00&img=https://www.copycatz.in/wp-content/uploads/2024/03/Inter-Milan-Home-2023-24-football-Jersey-1.jpeg" class="flex flex-col group cursor-pointer">
         <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
           <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src="https://www.copycatz.in/wp-content/uploads/2024/03/Inter-Milan-Home-2023-24-football-Jersey-1.jpeg" alt="Inter Milan">
           <div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase font-black">OUTLET</div>
         </div>
         <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Inter Milan</p>
-        <p class="font-headline-sm text-headline-sm uppercase mb-1">Home 23/24</p>
+        <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 23/24</p>
         <p class="font-label-bold text-label-bold text-primary">$15.00</p>
       </a>
 
-      <a href="producto.html?title=Brasil%20Home%2024/25&price=$34.99&img=https://thekityard.com/cdn/shop/files/364AB0DD-2C1C-44F3-9639-046E5519D44E.jpg?v=1717776322" class="flex flex-col group cursor-pointer">
+      <a href="producto.html?title=Brasil%20Local%2024/25&price=$34.99&img=https://thekityard.com/cdn/shop/files/364AB0DD-2C1C-44F3-9639-046E5519D44E.jpg?v=1717776322" class="flex flex-col group cursor-pointer">
         <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
           <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src="https://thekityard.com/cdn/shop/files/364AB0DD-2C1C-44F3-9639-046E5519D44E.jpg?v=1717776322" alt="Brasil">
         </div>
         <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Brasil</p>
-        <p class="font-headline-sm text-headline-sm uppercase mb-1">Home 24/25</p>
+        <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
         <p class="font-label-bold text-label-bold">$34.99</p>
       </a>
 
-      <a href="producto.html?title=España%20Home%2024/25&price=$34.99&img=https://jerseymotion.com/wp-content/uploads/2024/06/Spain-2425-Authentic-Home-Jersey.jpg" class="flex flex-col group cursor-pointer">
+      <a href="producto.html?title=España%20Local%2024/25&price=$34.99&img=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZCsu37DbP9X_I4pEe0K_liOtD6p1HPCTkug&s" class="flex flex-col group cursor-pointer">
         <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
-          <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src="https://jerseymotion.com/wp-content/uploads/2024/06/Spain-2425-Authentic-Home-Jersey.jpg" alt="España">
+          <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZCsu37DbP9X_I4pEe0K_liOtD6p1HPCTkug&s" alt="España">
           <div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase">Campeón Euro</div>
         </div>
         <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">España</p>
-        <p class="font-headline-sm text-headline-sm uppercase mb-1">Home 24/25</p>
+        <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
         <p class="font-label-bold text-label-bold">$34.99</p>
       </a>
 
@@ -299,7 +297,6 @@
             <ul class="space-y-4">
                 <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="nuevos.html">Nuevos Lanzamientos</a></li>
                 <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="retro.html">Retro Classics</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="personalizar.html">Personalización</a></li>
                 <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="oferta.html">Ofertas Especiales</a></li>
             </ul>
         </div>
@@ -349,7 +346,7 @@
     <span class="material-symbols-outlined" data-icon="new_releases">new_releases</span>
     <span class="font-label-bold text-[10px] uppercase">Novedades</span>
   </a>
-  <a class="flex flex-col items-center justify-center bg-primary text-on-primary p-2" href="oferta.html">
+  <a class="flex flex-col items-center justify-center text-surface-variant dark:text-on-surface-variant p-2 hover:bg-primary-container hover:text-on-primary-container transition-all" href="oferta.html">
     <span class="material-symbols-outlined" data-icon="local_offer">local_offer</span>
     <span class="font-label-bold text-[10px] uppercase">Oferta</span>
   </a>
@@ -367,6 +364,12 @@
         if(title) document.getElementById('product-title').textContent = title;
         if(price) document.getElementById('product-price').textContent = price;
         if(img) document.getElementById('product-image').src = img;
+
+        // NUEVO: Pasar parámetros al botón de personalizar
+        const btnPersonalizar = document.getElementById('btn-personalizar');
+        if (title && img) {
+            btnPersonalizar.href = `personalizar.html?title=${encodeURIComponent(title)}&img=${encodeURIComponent(img)}`;
+        }
     });
 </script>
 
