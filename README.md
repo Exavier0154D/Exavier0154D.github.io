@@ -1,4 +1,4 @@
-# ⚽ RSS JERSEYS — Calidad Importada
+# ⚽ EXAJERSEYS — Calidad Importada
 
 Bienvenido al repositorio oficial de **RSS JERSEYS**, una plataforma e-commerce de indumentaria futbolística de alta gama diseñada para ofrecer la mejor experiencia de compra y personalización en Ecuador.
 
