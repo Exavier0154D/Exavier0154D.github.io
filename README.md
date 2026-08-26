@@ -1,6 +1,6 @@
 # ⚽ EXAJERSEYS — Calidad Importada
 
-Bienvenido al repositorio oficial de **RSS JERSEYS**, una plataforma e-commerce de indumentaria futbolística de alta gama diseñada para ofrecer la mejor experiencia de compra y personalización en Ecuador.
+Bienvenido al repositorio oficial de **EXAJERSEYS**, una plataforma e-commerce de indumentaria futbolística de alta gama diseñada para ofrecer la mejor experiencia de compra y personalización en Ecuador.
 
 > **🔗 Demo en vivo:** [exavier0154d.github.io](https://exavier0154d.github.io)
 
