@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+from pathlib import Path
+
+# Build a clean version without Tailwind utility classes.
+html = """<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -6,6 +9,8 @@
 <title>EXAJERSEYS - Selecciones</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
 <style>
 * { box-sizing: border-box; }
 
@@ -70,6 +75,23 @@ a { color: inherit; text-decoration: none; }
 }
 
 .mobile-menu { display: none; }
+
+.header-icons {
+    display: flex;
+    gap: 24px;
+}
+
+.icon-button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
 main {
     max-width: 1440px;
     margin: 32px auto 0;
@@ -258,6 +280,9 @@ main {
     opacity: .4;
     text-transform: uppercase;
 }
+
+.mobile-nav { display: none; }
+
 @media (max-width: 900px) {
     .header-inner {
         height: 64px;
@@ -271,7 +296,12 @@ main {
     .logo {
         font-size: 22px;
     }
-main {
+
+    .header-icons {
+        gap: 16px;
+    }
+
+    main {
         margin-top: 24px;
         padding: 0 16px;
     }
@@ -354,7 +384,20 @@ main {
     .footer h2 {
         font-size: 36px;
     }
-.mobile-nav a {
+
+    .mobile-nav {
+        position: fixed;
+        display: flex;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 64px;
+        z-index: 200;
+        background: #1a1c1c;
+        border-top: 1px solid #4d4c4c;
+    }
+
+    .mobile-nav a {
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -370,28 +413,29 @@ main {
         color: #fff;
     }
 
-    .mobile-nav
+    .mobile-nav .material-symbols-outlined {
+        font-size: 22px;
+        margin-bottom: 2px;
+    }
 }
 
+.club-name{margin:0 0 4px;color:#1a1c1c;font:800 17px/1.15 "Montserrat";text-transform:uppercase}
+.product-title-small{display:block;margin:0 0 5px;color:#5e3f3a;font:700 11px/1.2 "Montserrat";text-transform:uppercase}
+.product-price,.price{color:#9e0000}
+.whatsapp-float{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;z-index:10000;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.whatsapp-float svg{width:27px;height:27px}
 .mobile-nav{display:none}
-@media(max-width:900px){
-    body{padding-bottom:70px}
-    .mobile-nav{
-        position:fixed;left:0;right:0;bottom:0;z-index:9999;
-        height:64px;display:grid;grid-template-columns:repeat(4,1fr);
-        background:#9e0000;border-top:2px solid #1a1c1c;
-        box-shadow:0 -4px 14px rgba(0,0,0,.18)
-    }
-    .mobile-nav-item{
-        display:flex;flex-direction:column;align-items:center;justify-content:center;
-        gap:2px;color:#fff;text-decoration:none;font-family:"Montserrat",sans-serif
-    }
-    .mobile-nav-item span{font-size:20px;line-height:20px}
-    .mobile-nav-item small{
-        font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.04em
-    }
-    .mobile-nav-item.active{background:#1a1c1c}
-    .mobile-nav-item:active{background:#5e0000}
+@media(max-width:767px){
+ body{padding-bottom:70px}
+ .club-name{font-size:13px;line-height:16px}
+ .product-title-small{font-size:8px;line-height:11px}
+ .mobile-nav{position:fixed;left:0;right:0;bottom:0;z-index:9999;height:64px;display:grid;grid-template-columns:repeat(4,1fr);background:#9e0000;border-top:2px solid #1a1c1c;box-shadow:0 -4px 14px rgba(0,0,0,.18)}
+ .mobile-nav-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#fff;text-decoration:none;font-family:"Montserrat",sans-serif}
+ .mobile-nav-item span{font-size:20px;line-height:20px}
+ .mobile-nav-item small{font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+ .mobile-nav-item.active{background:#1a1c1c}
+ .whatsapp-float{right:14px;bottom:78px;width:44px;height:44px}
+ .whatsapp-float svg{width:25px;height:25px}
 }
 
 </style>
@@ -404,119 +448,87 @@ main {
 </div>
 
 <header class="header">
-    <div class="header-inner"><button class="mobile-menu" aria-label="Menú">☰</button>
+    <div class="header-inner">
+
+        <button class="icon-button mobile-menu" aria-label="Menú">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
 
         <a href="index.html" class="logo">EXAJERSEYS</a>
 
         <nav class="desktop-nav">
-            <a href="nuevos.html">Nuevos</a>
-            <a href="index.html">Clubes</a>
-            <a href="selecciones.html" class="active">Selecciones</a>
-            <a href="retro.html">Retro</a>
-        </nav>
-</div>
-</header>
 
-<main>
-
-<section class="hero">
-    <p class="hero-label">Fútbol internacional</p>
-    <h1>Selecciones</h1>
-    <p>
-        Las camisetas oficiales de las mejores selecciones del mundo.
-        Viste los colores de tu país con orgullo.
-    </p>
-</section>
-
-
-
-<section class="products">
-<a class="product" href="producto.html?title=Argentina%20Local%202026&price=%2434.99&img=assets/Argentina%20Local%202026.jpeg">
-    <div class="product-image">
-        <img src="assets/Argentina Local 2026.jpeg" alt="Argentina Local 2026" loading="lazy">
-        <span class="badge">Argentina</span>
-    </div>
-    <p class="team">Argentina</p>
-    <p class="product-name">Local 2026</p>
-    <p class="price">$36.00</p>
-</a>
-
-<a class="product" href="producto.html?title=Argentina%20Visitante%202026&price=%2434.99&img=assets/Argentina%20Visitante%202026.jpeg">
-    <div class="product-image">
-        <img src="assets/Argentina Visitante 2026.jpeg" alt="Argentina Visitante 2026" loading="lazy">
-        <span class="badge">Argentina</span>
-    </div>
-    <p class="team">Argentina</p>
-    <p class="product-name">Visitante 2026</p>
-    <p class="price">$36.00</p>
-</a>
-
-<a class="product" href="producto.html?title=Brasil%20Local%202026&price=%2434.99&img=assets/Brazil%20Local%202026.jpeg">
-    <div class="product-image">
-        <img src="assets/Brazil Local 2026.jpeg" alt="Brasil Local 2026" loading="lazy">
-        <span class="badge">Brasil</span>
-    </div>
-    <p class="team">Brasil</p>
-    <p class="product-name">Local 2026</p>
-    <p class="price">$36.00</p>
-</a>
-
-<a class="product" href="producto.html?title=Cabo%20Verde&price=%2434.99&img=assets/Cabo%20Verde.jpeg">
-    <div class="product-image">
-        <img src="assets/Cabo Verde.jpeg" alt="Cabo Verde" loading="lazy">
-        <span class="badge">Cabo Verde</span>
-    </div>
-    <p class="team">Cabo Verde</p>
-    <p class="product-name">Camiseta</p>
-    <p class="price">$36.00</p>
-</a>
-
-<a class="product" href="producto.html?title=Holanda%20Local%201998&price=%2434.99&img=assets/Holanda%20Local%201998.jpeg">
-    <div class="product-image">
-        <img src="assets/Holanda Local 1998.jpeg" alt="Holanda Local 1998" loading="lazy">
-        <span class="badge">Holanda</span>
-    </div>
-    <p class="team">Holanda</p>
-    <p class="product-name">Local 1998</p>
-    <p class="price">$36.00</p>
-</a>
-
-<a class="product" href="producto.html?title=Noruega%20Visitante&price=%2434.99&img=assets/Noruega%20Visitante.jpeg">
-    <div class="product-image">
-        <img src="assets/Noruega Visitante.jpeg" alt="Noruega Visitante" loading="lazy">
-        <span class="badge">Noruega</span>
-    </div>
-    <p class="team">Noruega</p>
-    <p class="product-name">Visitante</p>
-    <p class="price">$36.00</p>
-</a>
 </section>
 </main>
 
 <footer class="footer">
-<div class="footer-inner">
-<div>
-<h2>EXAJERSEYS</h2>
-<p>CALIDAD IMPORTADA · CATÁLOGO DE CAMISETAS DE FÚTBOL</p>
-</div>
-</div>
-<p class="copyright">© 2026 EXAJERSEYS</p>
+    <div class="footer-inner">
+        <div>
+            <h2>RSS</h2>
+            <p>ENGINEERED FOR THE PITCH.<br>PREMIUM JERSEYS FOR THE REAL FANS.</p>
+        </div>
+
+        <div>
+            <h4>PRODUCTOS</h4>
+            <ul>
+                <li><a href="nuevos.html">Nuevos Lanzamientos</a></li>
+                <li><a href="retro.html">Retro Classics</a></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>SOPORTE</h4>
+            <ul>
+                <li><a href="#">Guía de tallas</a></li>
+                <li><a href="#">Envíos y Devoluciones</a></li>
+                <li><a href="#">Seguimiento de pedido</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>SÍGUENOS</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">TikTok</a></li>
+                <li><a href="#">WhatsApp</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>EMPRESA</h4>
+            <ul>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="copyright">© 2024 EXAJERSEYS. ENGINEERED FOR THE PITCH.</p>
 </footer>
 
+
+
+
 <nav class="mobile-nav" aria-label="Navegación móvil">
-    <a href="index.html" class="mobile-nav-item">
-        <span>⌂</span><small>Clubes</small>
-    </a>
-    <a href="nuevos.html" class="mobile-nav-item">
-        <span>✦</span><small>Nuevos</small>
-    </a>
-    <a href="selecciones.html" class="mobile-nav-item active">
-        <span>⚽</span><small>Selecciones</small>
-    </a>
-    <a href="retro.html" class="mobile-nav-item">
-        <span>↺</span><small>Retro</small>
-    </a>
+<a href="index.html" class="mobile-nav-item"><span>⌂</span><small>Clubes</small></a>
+<a href="nuevos.html" class="mobile-nav-item"><span>✦</span><small>Nuevos</small></a>
+<a href="selecciones.html" class="mobile-nav-item active"><span>⚽</span><small>Selecciones</small></a>
+<a href="retro.html" class="mobile-nav-item"><span>↺</span><small>Retro</small></a>
 </nav>
+
+<a class="whatsapp-float" href="https://wa.me/qr/W4AOLHEJP5MIM1" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+<svg viewBox="0 0 32 32"><path fill="currentColor" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.3 28.8l6.6-1.7A12.8 12.8 0 1 0 16 3.2Zm0 23.2a10.3 10.3 0 0 1-5.3-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.3 10.3 0 1 1 16 26.4Zm5.7-7.6c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.5-.7-2.5-1.3-3.5-2.9-.3-.5.3-.5.8-1.7.1-.3.1-.5 0-.7-.1-.2-.7-1.7-1-2.1-.3-.5-.5-.4-.7-.4h-.6c-.2 0-.7.1-.9.5-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2.6 1 2.6.7 3.1.7.5 0 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z"/></svg>
+</a>
 
 </body>
 </html>
+"""
+
+out = Path("/mnt/data/selecciones_corregido.html")
+out.write_text(html, encoding="utf-8")
+print(out)
