@@ -23,7 +23,7 @@ a{color:inherit;text-decoration:none}
 .hero small{color:#9e0000;font:700 13px "Montserrat";text-transform:uppercase;letter-spacing:.15em}
 .hero h1{margin:16px 0;font:900 clamp(44px,7vw,80px)/.9 "Montserrat";text-transform:uppercase;letter-spacing:-.04em}
 .hero p{max-width:650px;color:#5e3f3a;font-size:18px;line-height:1.6}
-.toolbar{max-width:1440px;margin:auto;padding:24px 64px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd}
+.toolbar{max-width:1440px;margin:auto;padding:24px 64px;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #ddd}
 .filters{display:flex;gap:10px;overflow:auto}
 .filter{border:2px solid #5e3f3a;background:none;padding:10px 18px;font:700 11px "Montserrat";text-transform:uppercase;white-space:nowrap;cursor:pointer}
 .filter.active{background:#1a1c1c;color:#fff}
@@ -41,6 +41,33 @@ a{color:inherit;text-decoration:none}
 .footer-inner{max-width:1440px;margin:auto;display:flex;justify-content:space-between}
 .footer h2{margin:0;font:900 34px "Montserrat"}
 .footer p{opacity:.55;font-size:12px}
+
+.search-box {
+    position: relative;
+    width: 230px;
+    flex-shrink: 0;
+}
+.search-box input {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #1a1c1c;
+    background: #fff;
+    padding: 0 38px 0 12px;
+    outline: none;
+    font: 400 13px "Hanken Grotesk", sans-serif;
+}
+.search-box input:focus {
+    border: 2px solid #9e0000;
+}
+.search-box span {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    pointer-events: none;
+}
+
 @media(max-width:900px){
 .header-inner{height:64px;padding:0 16px}
 .mobile-menu{display:block}
@@ -51,6 +78,12 @@ a{color:inherit;text-decoration:none}
 .hero p{font-size:15px}
 .toolbar{padding:16px;display:block}
 .filters{margin-bottom:12px}
+
+.search-box {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
 .count{font-size:10px}
 .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:28px 16px 80px}
 .product-image{margin-bottom:7px}
@@ -91,18 +124,283 @@ a{color:inherit;text-decoration:none}
 <section class="toolbar">
 <div class="filters">
 <button class="filter active" data-filter="all">Todos</button>
-<button class="filter" data-filter="club">Clubes</button>
-<button class="filter" data-filter="selection">Selecciones</button>
+<button class="filter" data-filter="all">Todos</button>
+
 </div>
-<span class="count" id="count">9 Artículos</span>
+
+<div class="search-box">
+    <input type="search" id="searchInput" placeholder="Buscar camiseta..." aria-label="Buscar camiseta">
+    <span>⌕</span>
+</div>
+
+<span class="count" id="count">31 Artículos</span>
 </section>
 
 <section class="products" id="products">
+    <a class="product-card" href="producto.html?title=Arsenal%20Visitante%2025-26&price=%2434.99&img=assets/Arsenal%20Visitante%2025-26.jpeg">
+        <div class="product-image">
+            <img src="assets/Arsenal Visitante 25-26.jpeg" alt="Arsenal Visitante 25-26" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Arsenal</p>
+        <h3>Visitante 25-26</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Arsenal%20Visitante%2026-27&price=%2434.99&img=assets/Arsenal%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Arsenal Visitante 26-27.jpeg" alt="Arsenal Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Arsenal</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Barcelona%20Especial%20101&price=%2434.99&img=assets/Barcelona%20Especial%20101.jpeg">
+        <div class="product-image">
+            <img src="assets/Barcelona Especial 101.jpeg" alt="Barcelona Especial 101" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Barcelona</p>
+        <h3>Especial 101</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Barcelona%20Local%2026-27&price=%2434.99&img=assets/Barcelona%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Barcelona Local 26-27.jpeg" alt="Barcelona Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Barcelona</p>
+        <h3>Local 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Barcelona%20Visitante%2026-27&price=%2434.99&img=assets/Barcelona%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Barcelona Visitante 26-27.jpeg" alt="Barcelona Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Barcelona</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Barcelona%20X%20Travis%20Scott&price=%2434.99&img=assets/Barcelona%20X%20Travis%20Scott.jpeg">
+        <div class="product-image">
+            <img src="assets/Barcelona X Travis Scott.jpeg" alt="Barcelona X Travis Scott" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Barcelona</p>
+        <h3>X Travis Scott</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Bayern%20Munich%20Local%2026-27&price=%2434.99&img=assets/Bayern%20Munich%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Bayern Munich Local 26-27.jpeg" alt="Bayern Munich Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Bayern Munich</p>
+        <h3>Local 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Bayern%20Munich%20Visitante%2026-27&price=%2434.99&img=assets/Bayern%20Munich%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Bayern Munich Visitante 26-27.jpeg" alt="Bayern Munich Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Bayern Munich</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Chelsea%20Visitante%2026-27&price=%2434.99&img=assets/Chelsea%20visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Chelsea visitante 26-27.jpeg" alt="Chelsea Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Chelsea</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Emelec%20Visitante%2026-27&price=%2434.99&img=assets/Emelec%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Emelec Visitante 26-27.jpeg" alt="Emelec Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Emelec</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Flamengo%20Local%2026-27&price=%2434.99&img=assets/Flamego%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Flamego Local 26-27.jpeg" alt="Flamengo Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Flamengo</p>
+        <h3>Local 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Juventus%20Local%2026-27&price=%2434.99&img=assets/Juventus%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Juventus Local 26-27.jpeg" alt="Juventus Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Juventus</p>
+        <h3>Local 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Juventus%20Visitante%2026-27&price=%2434.99&img=assets/Juventus%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Juventus Visitante 26-27.jpeg" alt="Juventus Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Juventus</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Liverpool%20Local%2026-27&price=%2434.99&img=assets/Liverpool%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Liverpool Local 26-27.jpeg" alt="Liverpool Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Liverpool</p>
+        <h3>Local 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Liverpool%20Visitante%2026-27&price=%2434.99&img=assets/Liverpool%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Liverpool Visitante 26-27.jpeg" alt="Liverpool Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Liverpool</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20City%20Local%2025-26%20Fan&price=%2434.99&img=assets/Manchester%20City%20Local%2025-26%20Fan.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester City Local 25-26 Fan.jpeg" alt="Manchester City Local 25-26 Fan" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Manchester City</p>
+        <h3>Local 25-26 Fan</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20City%20Local%2025-26%20Player&price=%2434.99&img=assets/Manchester%20City%20Local%2025-26%20Player.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester City Local 25-26 Player.jpeg" alt="Manchester City Local 25-26 Player" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Manchester City</p>
+        <h3>Local 25-26 Player</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20City%20Local%2026-27%20Player&price=%2434.99&img=assets/Manchester%20City%20Local%2026-27%20Player.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester City Local 26-27 Player.jpeg" alt="Manchester City Local 26-27 Player" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Manchester City</p>
+        <h3>Local 26-27 Player</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20City%20Visitante%2026-27&price=%2434.99&img=assets/Manchester%20City%20Vistante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester City Vistante 26-27.jpeg" alt="Manchester City Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Manchester City</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20United%20Tercera%2026-27&price=%2434.99&img=assets/Manchester%20United%20Tercera%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester United Tercera 26-27.jpeg" alt="Manchester United Tercera 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Manchester United</p>
+        <h3>Tercera 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20United%20Visitante%2026-27&price=%2434.99&img=assets/Manchester%20United%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester United Visitante 26-27.jpeg" alt="Manchester United Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Manchester United</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Milan%201996&price=%2434.99&img=assets/Milan%201996.jpeg">
+        <div class="product-image">
+            <img src="assets/Milan 1996.jpeg" alt="Milan 1996" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Milan</p>
+        <h3>1996</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Newcastle%20Local%2026-27&price=%2434.99&img=assets/Newcastle%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Newcastle Local 26-27.jpeg" alt="Newcastle Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Newcastle</p>
+        <h3>Local 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Newcastle%20Visitante%2026-27&price=%2434.99&img=assets/Newcastle%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Newcastle Visitante 26-27.jpeg" alt="Newcastle Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Newcastle</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=PSG%20Visitante%2024-25&price=%2434.99&img=assets/PSG%20Visitante%2024-25.jpeg">
+        <div class="product-image">
+            <img src="assets/PSG Visitante 24-25.jpeg" alt="PSG Visitante 24-25" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">PSG</p>
+        <h3>Visitante 24-25</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Real%20Madrid%20Local%2025-26&price=%2434.99&img=assets/Real%20Madrid%20Local%2025-26.jpeg">
+        <div class="product-image">
+            <img src="assets/Real Madrid Local 25-26.jpeg" alt="Real Madrid Local 25-26" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Real Madrid</p>
+        <h3>Local 25-26</h3>
+        <p class="price">$34.99</p>
+    </a>
 
     <a class="product-card" href="producto.html?title=Real%20Madrid%20Local%2026-27&price=%2434.99&img=assets/Real%20Mdrid%20Local%2026-27.jpeg">
         <div class="product-image">
             <img src="assets/Real Mdrid Local 26-27.jpeg" alt="Real Madrid Local 26-27" loading="lazy">
-            <span class="badge">NUEVO</span>
+            <span class="badge">CLUB</span>
         </div>
         <p class="team">Real Madrid</p>
         <h3>Local 26-27</h3>
@@ -112,83 +410,42 @@ a{color:inherit;text-decoration:none}
     <a class="product-card" href="producto.html?title=Real%20Madrid%20Visitante%2026-27&price=%2434.99&img=assets/Real%20Mdrid%20Visitante%2026-27%20Front.jpeg">
         <div class="product-image">
             <img src="assets/Real Mdrid Visitante 26-27 Front.jpeg" alt="Real Madrid Visitante 26-27" loading="lazy">
-            <span class="badge">NUEVO</span>
+            <span class="badge">CLUB</span>
         </div>
         <p class="team">Real Madrid</p>
         <h3>Visitante 26-27</h3>
         <p class="price">$34.99</p>
     </a>
 
-    <a class="product-card" href="producto.html?title=Manchester%20City%20Local%2026-27&price=%2434.99&img=assets/Manchester%20City%20Local%2026-27%20Player.jpeg">
+    <a class="product-card" href="producto.html?title=Roma%20Local%2026-27&price=%2434.99&img=assets/Roma%20Local%2026-27.jpeg">
         <div class="product-image">
-            <img src="assets/Manchester City Local 26-27 Player.jpeg" alt="Manchester City Local 26-27" loading="lazy">
-            <span class="badge">NUEVO</span>
+            <img src="assets/Roma Local 26-27.jpeg" alt="Roma Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
         </div>
-        <p class="team">Manchester City</p>
+        <p class="team">Roma</p>
         <h3>Local 26-27</h3>
         <p class="price">$34.99</p>
     </a>
 
-    <a class="product-card" href="producto.html?title=Barcelona%20Local%2026-27&price=%2434.99&img=assets/Barcelona%20Local%2026-27.jpeg">
+    <a class="product-card" href="producto.html?title=Roma%20Visitante%2026-27&price=%2434.99&img=assets/Roma%20Visitante%2026-27.jpeg">
         <div class="product-image">
-            <img src="assets/Barcelona Local 26-27.jpeg" alt="Barcelona Local 26-27" loading="lazy">
-            <span class="badge">NUEVO</span>
+            <img src="assets/Roma Visitante 26-27.jpeg" alt="Roma Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
         </div>
-        <p class="team">Barcelona</p>
+        <p class="team">Roma</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Tottenham%20Local%2026-27&price=%2434.99&img=assets/Tottenham%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Tottenham Local 26-27.jpeg" alt="Tottenham Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <p class="team">Tottenham</p>
         <h3>Local 26-27</h3>
         <p class="price">$34.99</p>
     </a>
-
-    <a class="product-card" href="producto.html?title=Argentina%20Local%202026&price=%2434.99&img=assets/Argentina%20Local%202026.jpeg">
-        <div class="product-image">
-            <img src="assets/Argentina Local 2026.jpeg" alt="Argentina Local 2026" loading="lazy">
-            <span class="badge">NUEVO</span>
-        </div>
-        <p class="team">Argentina</p>
-        <h3>Local 2026</h3>
-        <p class="price">$34.99</p>
-    </a>
-
-    <a class="product-card" href="producto.html?title=Brasil%20Local%202026&price=%2434.99&img=assets/Brazil%20Local%202026.jpeg">
-        <div class="product-image">
-            <img src="assets/Brazil Local 2026.jpeg" alt="Brasil Local 2026" loading="lazy">
-            <span class="badge">NUEVO</span>
-        </div>
-        <p class="team">Brasil</p>
-        <h3>Local 2026</h3>
-        <p class="price">$34.99</p>
-    </a>
-
-    <a class="product-card" href="producto.html?title=Cabo%20Verde%202026&price=%2434.99&img=assets/Cabo%20Verde.jpeg">
-        <div class="product-image">
-            <img src="assets/Cabo Verde.jpeg" alt="Cabo Verde 2026" loading="lazy">
-            <span class="badge">NUEVO</span>
-        </div>
-        <p class="team">Cabo Verde</p>
-        <h3>2026</h3>
-        <p class="price">$34.99</p>
-    </a>
-
-    <a class="product-card" href="producto.html?title=Holanda%20Local%201998&price=%2434.99&img=assets/Holanda%20Local%201998.jpeg">
-        <div class="product-image">
-            <img src="assets/Holanda Local 1998.jpeg" alt="Holanda Local 1998" loading="lazy">
-            <span class="badge">NUEVO</span>
-        </div>
-        <p class="team">Holanda</p>
-        <h3>Local 1998</h3>
-        <p class="price">$34.99</p>
-    </a>
-
-    <a class="product-card" href="producto.html?title=Noruega%20Visitante&price=%2434.99&img=assets/Noruega%20Visitante.jpeg">
-        <div class="product-image">
-            <img src="assets/Noruega Visitante.jpeg" alt="Noruega Visitante" loading="lazy">
-            <span class="badge">NUEVO</span>
-        </div>
-        <p class="team">Noruega</p>
-        <h3>Visitante</h3>
-        <p class="price">$34.99</p>
-    </a>
-
 </section>
 </main>
 
@@ -211,12 +468,28 @@ filters.forEach(btn=>btn.addEventListener('click',()=>{
  const type=btn.dataset.filter;
  cards.forEach(card=>{
    const team=card.querySelector('.team').textContent.toLowerCase();
-   const selections=['argentina','brasil','cabo verde','holanda','noruega'];
+   const selections=[];
    const isSelection=selections.some(x=>team.includes(x));
    card.style.display=(type==='all'||(type==='selection'&&isSelection)||(type==='club'&&!isSelection))?'block':'none';
  });
  document.getElementById('count').textContent=[...cards].filter(c=>c.style.display!=='none').length+' Artículos';
 }));
+
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', () => {
+    const term = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const match = text.includes(term);
+        card.style.display = match ? 'block' : 'none';
+        if (match) visible++;
+    });
+
+    document.getElementById('count').textContent = visible + ' Artículos';
+});
+
 </script>
 </body>
 </html>
