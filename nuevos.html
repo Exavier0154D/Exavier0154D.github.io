@@ -96,50 +96,22 @@ a{color:inherit;text-decoration:none}
 .footer-inner{display:block}
 }
 
-.mobile-nav { display: none; }
-
-@media (max-width: 900px) {
-    body { padding-bottom: 70px; }
-
-    .mobile-nav {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 9999;
-        height: 64px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        background: #9e0000;
-        border-top: 2px solid #1a1c1c;
-        box-shadow: 0 -4px 14px rgba(0,0,0,.18);
-    }
-
-    .mobile-nav-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2px;
-        color: #fff;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-    }
-
-    .mobile-nav-item span {
-        font-size: 20px;
-        line-height: 20px;
-    }
-
-    .mobile-nav-item small {
-        font-size: 8px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: .04em;
-    }
-
-    .mobile-nav-item.active { background: #1a1c1c; }
-    .mobile-nav-item:active { background: #5e0000; }
+.club-name{margin:0 0 4px;color:#1a1c1c;font:800 17px/1.15 "Montserrat";text-transform:uppercase}
+.team{margin:0 0 5px;color:#5e3f3a;font:700 11px/1.2 "Montserrat";text-transform:uppercase}
+.whatsapp-float{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;z-index:10000;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.whatsapp-float svg{width:27px;height:27px}
+.mobile-nav{display:none}
+@media(max-width:900px){
+ .club-name{font-size:13px;line-height:16px}
+ .team{font-size:8px;line-height:11px}
+ .mobile-nav{position:fixed;left:0;right:0;bottom:0;z-index:9999;height:64px;display:grid;grid-template-columns:repeat(4,1fr);background:#9e0000;border-top:2px solid #1a1c1c;box-shadow:0 -4px 14px rgba(0,0,0,.18)}
+ .mobile-nav-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#fff;text-decoration:none;font-family:"Montserrat",sans-serif}
+ .mobile-nav-item span{font-size:20px;line-height:20px}
+ .mobile-nav-item small{font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+ .mobile-nav-item.active{background:#1a1c1c}
+ .whatsapp-float{right:14px;bottom:78px;width:44px;height:44px}
+ .whatsapp-float svg{width:25px;height:25px}
+ body{padding-bottom:70px}
 }
 
 </style>
@@ -171,7 +143,6 @@ a{color:inherit;text-decoration:none}
 <section class="toolbar">
 <div class="filters">
 <button class="filter active" data-filter="all">Todos</button>
-<button class="filter" data-filter="all">Todos</button>
 
 </div>
 
@@ -189,8 +160,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Arsenal Visitante 25-26.jpeg" alt="Arsenal Visitante 25-26" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 25-26</p>
-        <h3>Arsenal</h3>
+        <h3 class="club-name">Arsenal</h3><p class="team">Visitante 25-26</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -199,8 +169,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Arsenal Visitante 26-27.jpeg" alt="Arsenal Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Arsenal</h3>
+        <h3 class="club-name">Arsenal</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -209,8 +178,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Barcelona Especial 101.jpeg" alt="Barcelona Especial 101" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Especial 101</p>
-        <h3>Barcelona</h3>
+        <h3 class="club-name">Barcelona</h3><p class="team">Especial 101</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -219,8 +187,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Barcelona Local 26-27.jpeg" alt="Barcelona Local 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 26-27</p>
-        <h3>Barcelona</h3>
+        <h3 class="club-name">Barcelona</h3><p class="team">Local 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -229,8 +196,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Barcelona Visitante 26-27.jpeg" alt="Barcelona Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Barcelona</h3>
+        <h3 class="club-name">Barcelona</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -239,8 +205,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Barcelona X Travis Scott.jpeg" alt="Barcelona X Travis Scott" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">X Travis Scott</p>
-        <h3>Barcelona</h3>
+        <h3 class="club-name">Barcelona</h3><p class="team">X Travis Scott</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -249,8 +214,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Bayern Munich Local 26-27.jpeg" alt="Bayern Munich Local 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 26-27</p>
-        <h3>Bayern Munich</h3>
+        <h3 class="club-name">Bayern Munich</h3><p class="team">Local 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -259,8 +223,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Bayern Munich Visitante 26-27.jpeg" alt="Bayern Munich Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Bayern Munich</h3>
+        <h3 class="club-name">Bayern Munich</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -269,8 +232,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Chelsea visitante 26-27.jpeg" alt="Chelsea Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Chelsea</h3>
+        <h3 class="club-name">Chelsea</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -279,8 +241,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Emelec Visitante 26-27.jpeg" alt="Emelec Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Emelec</h3>
+        <h3 class="club-name">Emelec</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -289,8 +250,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Flamego Local 26-27.jpeg" alt="Flamengo Local 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 26-27</p>
-        <h3>Flamengo</h3>
+        <h3 class="club-name">Flamengo</h3><p class="team">Local 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -299,8 +259,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Juventus Local 26-27.jpeg" alt="Juventus Local 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 26-27</p>
-        <h3>Juventus</h3>
+        <h3 class="club-name">Juventus</h3><p class="team">Local 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -309,8 +268,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Juventus Visitante 26-27.jpeg" alt="Juventus Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Juventus</h3>
+        <h3 class="club-name">Juventus</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -319,8 +277,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Liverpool Local 26-27.jpeg" alt="Liverpool Local 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 26-27</p>
-        <h3>Liverpool</h3>
+        <h3 class="club-name">Liverpool</h3><p class="team">Local 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -329,8 +286,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Liverpool Visitante 26-27.jpeg" alt="Liverpool Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Liverpool</h3>
+        <h3 class="club-name">Liverpool</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -339,8 +295,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Manchester City Local 25-26 Fan.jpeg" alt="Manchester City Local 25-26 Fan" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 25-26 Fan</p>
-        <h3>Manchester City</h3>
+        <h3 class="club-name">Manchester City</h3><p class="team">Local 25-26 Fan</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -349,8 +304,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Manchester City Local 25-26 Player.jpeg" alt="Manchester City Local 25-26 Player" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 25-26 Player</p>
-        <h3>Manchester City</h3>
+        <h3 class="club-name">Manchester City</h3><p class="team">Local 25-26 Player</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -359,8 +313,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Manchester City Local 26-27 Player.jpeg" alt="Manchester City Local 26-27 Player" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 26-27 Player</p>
-        <h3>Manchester City</h3>
+        <h3 class="club-name">Manchester City</h3><p class="team">Local 26-27 Player</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -369,8 +322,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Manchester City Vistante 26-27.jpeg" alt="Manchester City Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Manchester City</h3>
+        <h3 class="club-name">Manchester City</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -379,8 +331,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Manchester United Tercera 26-27.jpeg" alt="Manchester United Tercera 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Tercera 26-27</p>
-        <h3>Manchester United</h3>
+        <h3 class="club-name">Manchester United</h3><p class="team">Tercera 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -389,8 +340,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Manchester United Visitante 26-27.jpeg" alt="Manchester United Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Manchester United</h3>
+        <h3 class="club-name">Manchester United</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -399,8 +349,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Milan 1996.jpeg" alt="Milan 1996" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">1996</p>
-        <h3>Milan</h3>
+        <h3 class="club-name">Milan</h3><p class="team">1996</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -409,8 +358,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Newcastle Local 26-27.jpeg" alt="Newcastle Local 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 26-27</p>
-        <h3>Newcastle</h3>
+        <h3 class="club-name">Newcastle</h3><p class="team">Local 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -419,8 +367,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Newcastle Visitante 26-27.jpeg" alt="Newcastle Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Newcastle</h3>
+        <h3 class="club-name">Newcastle</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -429,8 +376,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/PSG Visitante 24-25.jpeg" alt="PSG Visitante 24-25" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 24-25</p>
-        <h3>PSG</h3>
+        <h3 class="club-name">PSG</h3><p class="team">Visitante 24-25</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -439,8 +385,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Real Madrid Local 25-26.jpeg" alt="Real Madrid Local 25-26" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 25-26</p>
-        <h3>Real Madrid</h3>
+        <h3 class="club-name">Real Madrid</h3><p class="team">Local 25-26</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -449,8 +394,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Real Mdrid Local 26-27.jpeg" alt="Real Madrid Local 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 26-27</p>
-        <h3>Real Madrid</h3>
+        <h3 class="club-name">Real Madrid</h3><p class="team">Local 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -459,8 +403,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Real Mdrid Visitante 26-27 Front.jpeg" alt="Real Madrid Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Real Madrid</h3>
+        <h3 class="club-name">Real Madrid</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -469,8 +412,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Roma Local 26-27.jpeg" alt="Roma Local 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 26-27</p>
-        <h3>Roma</h3>
+        <h3 class="club-name">Roma</h3><p class="team">Local 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -479,8 +421,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Roma Visitante 26-27.jpeg" alt="Roma Visitante 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Visitante 26-27</p>
-        <h3>Roma</h3>
+        <h3 class="club-name">Roma</h3><p class="team">Visitante 26-27</p>
         <p class="price">$36.00</p>
     </a>
 
@@ -489,8 +430,7 @@ a{color:inherit;text-decoration:none}
             <img src="assets/Tottenham Local 26-27.jpeg" alt="Tottenham Local 26-27" loading="lazy">
             <span class="badge">CLUB</span>
         </div>
-        <p class="team">Local 26-27</p>
-        <h3>Tottenham</h3>
+        <h3 class="club-name">Tottenham</h3><p class="team">Local 26-27</p>
         <p class="price">$36.00</p>
     </a>
 </section>
@@ -540,23 +480,14 @@ searchInput.addEventListener('input', () => {
 </script>
 
 <nav class="mobile-nav" aria-label="Navegación móvil">
-    <a href="index.html" class="mobile-nav-item">
-        <span>⌂</span>
-        <small>Clubes</small>
-    </a>
-    <a href="nuevos.html" class="mobile-nav-item active">
-        <span>✦</span>
-        <small>Nuevos</small>
-    </a>
-    <a href="selecciones.html" class="mobile-nav-item">
-        <span>⚽</span>
-        <small>Selecciones</small>
-    </a>
-    <a href="retro.html" class="mobile-nav-item">
-        <span>↺</span>
-        <small>Retro</small>
-    </a>
+<a href="index.html" class="mobile-nav-item"><span>⌂</span><small>Clubes</small></a>
+<a href="nuevos.html" class="mobile-nav-item active"><span>✦</span><small>Nuevos</small></a>
+<a href="selecciones.html" class="mobile-nav-item"><span>⚽</span><small>Selecciones</small></a>
+<a href="retro.html" class="mobile-nav-item"><span>↺</span><small>Retro</small></a>
 </nav>
 
+<a class="whatsapp-float" href="https://wa.me/qr/W4AOLHEJP5MIM1" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+<svg viewBox="0 0 32 32"><path fill="currentColor" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.3 28.8l6.6-1.7A12.8 12.8 0 1 0 16 3.2Zm0 23.2a10.3 10.3 0 0 1-5.3-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.3 10.3 0 1 1 16 26.4Zm5.7-7.6c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.5-.7-2.5-1.3-3.5-2.9-.3-.5.3-.5.8-1.7.1-.3.1-.5 0-.7-.1-.2-.7-1.7-1-2.1-.3-.5-.5-.4-.7-.4h-.6c-.2 0-.7.1-.9.5-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2.6 1 2.6.7 3.1.7.5 0 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z"/></svg>
+</a>
 </body>
 </html>
