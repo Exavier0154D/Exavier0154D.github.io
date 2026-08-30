@@ -1,344 +1,659 @@
-<!DOCTYPE html>
-<html class="light" lang="es">
+from pathlib import Path
+
+# Build a clean version without Tailwind utility classes.
+html = """<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RSS Jerseys - Selecciones</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-<script id="tailwind-config">
-    tailwind.config = {
-        darkMode: "class",
-        theme: {
-            extend: {
-                "colors": {
-                    "surface-container-low": "#f3f3f4",
-                    "on-tertiary-container": "#e4e1e1",
-                    "inverse-surface": "#2f3131",
-                    "on-error": "#ffffff",
-                    "surface-dim": "#dadada",
-                    "on-tertiary-fixed-variant": "#474646",
-                    "surface-container-highest": "#e2e2e2",
-                    "secondary-fixed": "#ffe088",
-                    "error": "#ba1a1a",
-                    "error-container": "#ffdad6",
-                    "secondary": "#735c00",
-                    "inverse-primary": "#ffb4a8",
-                    "on-error-container": "#93000a",
-                    "surface-container": "#eeeeee",
-                    "on-tertiary-fixed": "#1c1b1b",
-                    "on-primary-fixed-variant": "#930000",
-                    "surface-container-lowest": "#ffffff",
-                    "tertiary-fixed": "#e5e2e1",
-                    "secondary-fixed-dim": "#e9c349",
-                    "surface-tint": "#c00000",
-                    "background": "#f9f9f9",
-                    "primary-container": "#cc0000",
-                    "on-secondary-container": "#745c00",
-                    "tertiary": "#4d4c4c",
-                    "surface-variant": "#e2e2e2",
-                    "on-secondary-fixed-variant": "#574500",
-                    "primary-fixed-dim": "#ffb4a8",
-                    "on-secondary-fixed": "#241a00",
-                    "on-background": "#1a1c1c",
-                    "on-surface-variant": "#5e3f3a",
-                    "tertiary-fixed-dim": "#c9c6c5",
-                    "surface-bright": "#f9f9f9",
-                    "tertiary-container": "#656464",
-                    "on-secondary": "#ffffff",
-                    "primary": "#9e0000",
-                    "surface-container-high": "#e8e8e8",
-                    "on-primary-container": "#ffdad4",
-                    "on-primary-fixed": "#410000",
-                    "primary-fixed": "#ffdad4",
-                    "secondary-container": "#fed65b",
-                    "on-tertiary": "#ffffff",
-                    "outline": "#926e69",
-                    "inverse-on-surface": "#f0f1f1",
-                    "on-primary": "#ffffff",
-                    "outline-variant": "#e8bdb6",
-                    "surface": "#f9f9f9",
-                    "on-surface": "#1a1c1c"
-                },
-                "borderRadius": {
-                    "DEFAULT": "0px",
-                    "lg": "0px",
-                    "xl": "0px",
-                    "full": "9999px"
-                },
-                "spacing": {
-                    "unit": "4px",
-                    "margin-desktop": "64px",
-                    "margin-mobile": "16px",
-                    "gutter": "24px",
-                    "section-gap": "128px"
-                },
-                "fontFamily": {
-                    "headline-lg": ["Montserrat"],
-                    "body-md": ["Hanken Grotesk"],
-                    "body-lg": ["Hanken Grotesk"],
-                    "label-bold": ["Montserrat"],
-                    "headline-md": ["Montserrat"],
-                    "headline-xl": ["Montserrat"],
-                    "headline-sm": ["Montserrat"],
-                    "headline-lg-mobile": ["Montserrat"]
-                },
-                "fontSize": {
-                    "headline-lg": ["48px", {"lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "label-bold": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
-                    "headline-md": ["32px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                    "headline-xl": ["80px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "900"}],
-                    "headline-sm": ["20px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                    "headline-lg-mobile": ["36px", {"lineHeight": "34px", "letterSpacing": "-0.03em", "fontWeight": "800"}]
-                }
-            }
-        }
-    }
-</script>
+
 <style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  .hide-scrollbar::-webkit-scrollbar { display: none; }
-  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  body {
-      background-color: #f9f9f9;
-      color: #1a1c1c;
-      font-family: 'Hanken Grotesk', sans-serif;
-  }
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: #f9f9f9;
+    color: #1a1c1c;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.top-bar {
+    background: #1a1c1c;
+    color: #fff;
+    text-align: center;
+    padding: 8px 16px;
+    font: 700 10px "Montserrat", sans-serif;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f9f9f9;
+    border-bottom: 2px solid #1a1c1c;
+}
+
+.header-inner {
+    max-width: 1440px;
+    height: 80px;
+    margin: auto;
+    padding: 0 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font: 900 32px "Montserrat", sans-serif;
+    letter-spacing: -.05em;
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.desktop-nav a {
+    font: 700 14px "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.desktop-nav a:hover,
+.desktop-nav .active {
+    color: #9e0000;
+}
+
+.mobile-menu { display: none; }
+
+.header-icons {
+    display: flex;
+    gap: 24px;
+}
+
+.icon-button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+main {
+    max-width: 1440px;
+    margin: 32px auto 0;
+    padding: 0 64px;
+}
+
+.hero {
+    padding: 64px 0;
+    border-bottom: 2px solid #1a1c1c;
+    margin-bottom: 48px;
+}
+
+.hero-label {
+    color: #9e0000;
+    font: 700 14px "Montserrat", sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+}
+
+.hero h1 {
+    margin: 0 0 24px;
+    font: 900 80px/72px "Montserrat", sans-serif;
+    letter-spacing: -.04em;
+    text-transform: uppercase;
+}
+
+.hero p {
+    max-width: 620px;
+    margin: 0;
+    color: #5e3f3a;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.filters {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar { display: none; }
+
+.filter {
+    flex: 0 0 auto;
+    padding: 12px 24px;
+    border: 2px solid #5e3f3a;
+    background: transparent;
+    font: 700 14px "Montserrat", sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.filter.active {
+    background: #1a1c1c;
+    color: #fff;
+    border-color: #1a1c1c;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    padding-bottom: 128px;
+}
+
+.product {
+    min-width: 0;
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #eeeeee;
+    border: 2px solid transparent;
+}
+
+.product:hover .product-image {
+    border-color: #1a1c1c;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    padding: 16px;
+    transition: transform .4s ease;
+}
+
+.product:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #fff;
+    color: #1a1c1c;
+    padding: 6px 10px;
+    font: 700 11px "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.champion {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    background: #9e0000;
+    color: #fff;
+    padding: 6px 10px;
+    font: 700 11px "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.team {
+    margin: 0 0 4px;
+    color: #5e3f3a;
+    font: 700 14px "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.product-name {
+    margin: 0 0 4px;
+    font: 700 20px/24px "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.price {
+    margin: 0;
+    font: 700 14px "Montserrat", sans-serif;
+}
+
+.footer {
+    background: #1a1c1c;
+    color: #fff;
+    padding: 128px 64px 48px;
+}
+
+.footer-inner {
+    max-width: 1440px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    border-bottom: 1px solid #4d4c4c;
+    padding-bottom: 64px;
+}
+
+.footer h2 {
+    margin: 0 0 32px;
+    font: 900 48px "Montserrat", sans-serif;
+}
+
+.footer h4 {
+    margin: 0 0 32px;
+    color: #9e0000;
+    font: 700 16px "Montserrat", sans-serif;
+}
+
+.footer p,
+.footer a {
+    font-size: 14px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer li { margin-bottom: 16px; }
+
+.footer a { opacity: .6; }
+.footer a:hover { opacity: 1; }
+
+.copyright {
+    max-width: 1440px;
+    margin: 48px auto 0;
+    font: 700 12px "Montserrat", sans-serif;
+    opacity: .4;
+    text-transform: uppercase;
+}
+
+.mobile-nav { display: none; }
+
+@media (max-width: 900px) {
+    .header-inner {
+        height: 64px;
+        padding: 0 16px;
+    }
+
+    .mobile-menu { display: block; }
+
+    .desktop-nav { display: none; }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .header-icons {
+        gap: 16px;
+    }
+
+    main {
+        margin-top: 24px;
+        padding: 0 16px;
+    }
+
+    .hero {
+        padding: 48px 0;
+        margin-bottom: 32px;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+        line-height: 42px;
+    }
+
+    .hero p {
+        font-size: 15px;
+        line-height: 23px;
+    }
+
+    .filters {
+        margin-bottom: 32px;
+    }
+
+    .filter {
+        padding: 10px 16px;
+        font-size: 11px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding-bottom: 80px;
+    }
+
+    .product-image {
+        margin-bottom: 8px;
+    }
+
+    .product-image img {
+        padding: 4px;
+    }
+
+    .badge,
+    .champion {
+        top: 6px;
+        left: 6px;
+        padding: 4px 6px;
+        font-size: 8px;
+    }
+
+    .champion {
+        top: auto;
+        bottom: 6px;
+    }
+
+    .team {
+        font-size: 9px;
+        line-height: 12px;
+    }
+
+    .product-name {
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .price {
+        font-size: 13px;
+    }
+
+    .footer {
+        padding: 64px 16px 32px;
+    }
+
+    .footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 16px;
+        padding-bottom: 40px;
+    }
+
+    .footer h2 {
+        font-size: 36px;
+    }
+
+    .mobile-nav {
+        position: fixed;
+        display: flex;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 64px;
+        z-index: 200;
+        background: #1a1c1c;
+        border-top: 1px solid #4d4c4c;
+    }
+
+    .mobile-nav a {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #ddd;
+        font: 700 9px "Montserrat", sans-serif;
+        text-transform: uppercase;
+    }
+
+    .mobile-nav a.active {
+        background: #9e0000;
+        color: #fff;
+    }
+
+    .mobile-nav .material-symbols-outlined {
+        font-size: 22px;
+        margin-bottom: 2px;
+    }
+}
 </style>
 </head>
-<body class="bg-background text-on-background">
 
-<div class="w-full bg-on-background text-white py-2 px-margin-mobile md:px-margin-desktop text-center">
-    <p class="font-label-bold text-label-bold uppercase text-[10px] md:text-[12px] tracking-widest">
-        Envíos a todo Ecuador e Internacionales · Atención por WhatsApp
-    </p>
+<body>
+
+<div class="top-bar">
+    Envíos a todo Ecuador e Internacionales · Atención por WhatsApp
 </div>
 
-<header class="sticky top-0 z-[100] bg-background border-b-2 border-on-background">
-    <div class="flex items-center justify-between h-16 md:h-20 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
-        <button class="md:hidden">
-            <span class="material-symbols-outlined text-on-background">menu</span>
+<header class="header">
+    <div class="header-inner">
+
+        <button class="icon-button mobile-menu" aria-label="Menú">
+            <span class="material-symbols-outlined">menu</span>
         </button>
-        <div class="md:flex-1 text-center md:text-left">
-            <a href="index.html"><h1 class="font-headline-md text-headline-md font-black tracking-tighter text-on-background">RSS JERSEYS</h1></a>
-        </div>
-        <nav class="hidden md:flex items-center space-x-gutter">
-            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="nuevos.html">NUEVOS</a>
-            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="index.html">CLUBES</a>
-            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-primary border-b-2 border-primary font-black" href="selecciones.html">SELECCIONES</a>
-            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="retro.html">RETRO</a>
-            <a class="font-headline-sm text-[14px] uppercase tracking-tighter text-on-background hover:text-primary transition-colors" href="oferta.html">OFERTA</a>
+
+        <a href="index.html" class="logo">RSS JERSEYS</a>
+
+        <nav class="desktop-nav">
+            <a href="nuevos.html">Nuevos</a>
+            <a href="index.html">Clubes</a>
+            <a href="selecciones.html" class="active">Selecciones</a>
+            <a href="retro.html">Retro</a>
+            <a href="oferta.html">Oferta</a>
         </nav>
-        <div class="flex items-center space-x-4 md:space-x-6 md:flex-1 justify-end">
-            <button class="transition-transform active:scale-95"><span class="material-symbols-outlined">search</span></button>
-            <button class="transition-transform active:scale-95 relative">
+
+        <div class="header-icons">
+            <button class="icon-button" aria-label="Buscar">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+            <button class="icon-button" aria-label="Carrito">
                 <span class="material-symbols-outlined">shopping_cart</span>
             </button>
         </div>
+
     </div>
 </header>
 
-<main class="mt-8 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<main>
 
-  <section class="py-16 border-b-2 border-on-surface mb-12">
-    <p class="font-label-bold text-label-bold text-primary uppercase mb-4">Fútbol internacional</p>
-    <h1 class="font-headline-xl text-headline-xl uppercase mb-6">Selecciones</h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Las camisetas oficiales de las mejores selecciones del mundo. Viste los colores de tu país con orgullo.</p>
-  </section>
+<section class="hero">
+    <p class="hero-label">Fútbol internacional</p>
+    <h1>Selecciones</h1>
+    <p>
+        Las camisetas oficiales de las mejores selecciones del mundo.
+        Viste los colores de tu país con orgullo.
+    </p>
+</section>
 
-  <div class="flex items-center gap-4 mb-12 overflow-x-auto hide-scrollbar pb-2">
-    <button class="border-2 border-on-surface bg-on-surface text-surface px-6 py-3 font-label-bold text-label-bold uppercase whitespace-nowrap">Todos</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Europa</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Sudamérica</button>
-    <button class="border-2 border-on-surface-variant px-6 py-3 font-label-bold text-label-bold uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap">Norte y Centroamérica</button>
-  </div>
+<div class="filters">
+    <button class="filter active">Todos</button>
+    <button class="filter">Europa</button>
+    <button class="filter">Sudamérica</button>
+    <button class="filter">Norte y Centroamérica</button>
+</div>
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter pb-section-gap">
-    
-    <a href="producto.html?title=Argentina%20Local%2024/25&price=$34.99&img=https://soccerpost.com/cdn/shop/files/ScreenShot2024-03-27at12.02.07PM_clipped_rev_1.png?v=1711736920" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
-        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://soccerpost.com/cdn/shop/files/ScreenShot2024-03-27at12.02.07PM_clipped_rev_1.png?v=1711736920" alt="Argentina">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🇦🇷 Argentina</div>
-        <div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase">Campeón</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Argentina</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
+<section class="products">
 
-    <a href="producto.html?title=Ecuador%20Local%2024/25&price=$34.99&img=https://kickoffshopper.com/wp-content/uploads/2024/06/24-25-Ecuador-Home-Jersey.jpg" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
-        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://kickoffshopper.com/wp-content/uploads/2024/06/24-25-Ecuador-Home-Jersey.jpg" alt="Ecuador">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🇪🇨 Ecuador</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Ecuador</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
+<a class="product" href="producto.html?title=Argentina%20Local%2024/25&price=$34.99&img=https://soccerpost.com/cdn/shop/files/ScreenShot2024-03-27at12.02.07PM_clipped_rev_1.png?v=1711736920">
+    <div class="product-image">
+        <img src="https://soccerpost.com/cdn/shop/files/ScreenShot2024-03-27at12.02.07PM_clipped_rev_1.png?v=1711736920" alt="Argentina">
+        <span class="badge">🇦🇷 Argentina</span>
+        <span class="champion">Campeón</span>
+    </div>
+    <p class="team">Argentina</p>
+    <p class="product-name">Camiseta Local 24/25</p>
+    <p class="price">$34.99</p>
+</a>
 
-    <a href="producto.html?title=Brasil%20Local%2024/25&price=$34.99&img=https://thekityard.com/cdn/shop/files/364AB0DD-2C1C-44F3-9639-046E5519D44E.jpg?v=1717776322" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
-        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://thekityard.com/cdn/shop/files/364AB0DD-2C1C-44F3-9639-046E5519D44E.jpg?v=1717776322" alt="Brasil">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🇧🇷 Brasil</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Brasil</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
+<a class="product" href="producto.html?title=Ecuador%20Local%2024/25&price=$34.99&img=https://kickoffshopper.com/wp-content/uploads/2024/06/24-25-Ecuador-Home-Jersey.jpg">
+    <div class="product-image">
+        <img src="https://kickoffshopper.com/wp-content/uploads/2024/06/24-25-Ecuador-Home-Jersey.jpg" alt="Ecuador">
+        <span class="badge">🇪🇨 Ecuador</span>
+    </div>
+    <p class="team">Ecuador</p>
+    <p class="product-name">Camiseta Local 24/25</p>
+    <p class="price">$34.99</p>
+</a>
 
-    <a href="producto.html?title=Uruguay%20Local%2024/25&price=$34.99&img=https://lataquillafutbol.com/wp-content/uploads/2024/08/Uruguay-24-25-Local.jpg" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
-        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://lataquillafutbol.com/wp-content/uploads/2024/08/Uruguay-24-25-Local.jpg" alt="Uruguay">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🇺🇾 Uruguay</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Uruguay</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
+<a class="product" href="producto.html?title=Brasil%20Local%2024/25&price=$34.99&img=https://thekityard.com/cdn/shop/files/364AB0DD-2C1C-44F3-9639-046E5519D44E.jpg?v=1717776322">
+    <div class="product-image">
+        <img src="https://thekityard.com/cdn/shop/files/364AB0DD-2C1C-44F3-9639-046E5519D44E.jpg?v=1717776322" alt="Brasil">
+        <span class="badge">🇧🇷 Brasil</span>
+    </div>
+    <p class="team">Brasil</p>
+    <p class="product-name">Camiseta Local 24/25</p>
+    <p class="price">$34.99</p>
+</a>
 
-    <a href="producto.html?title=España%20Local%2024/25&price=$34.99&img=https://assets.adidas.com/images/w_600,f_auto,q_auto/7d33dabef37046ecbc8c61c3fada84dc_9366/Spain_24_Home_Jersey_Red_IP9331_01_laydown.jpg" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
-        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://assets.adidas.com/images/w_600,f_auto,q_auto/7d33dabef37046ecbc8c61c3fada84dc_9366/Spain_24_Home_Jersey_Red_IP9331_01_laydown.jpg" alt="España">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🇪🇸 España</div>
-        <div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 text-label-bold uppercase">Campeón Euro</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">España</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
+<a class="product" href="producto.html?title=Uruguay%20Local%2024/25&price=$34.99&img=https://lataquillafutbol.com/wp-content/uploads/2024/08/Uruguay-24-25-Local.jpg">
+    <div class="product-image">
+        <img src="https://lataquillafutbol.com/wp-content/uploads/2024/08/Uruguay-24-25-Local.jpg" alt="Uruguay">
+        <span class="badge">🇺🇾 Uruguay</span>
+    </div>
+    <p class="team">Uruguay</p>
+    <p class="product-name">Camiseta Local 24/25</p>
+    <p class="price">$34.99</p>
+</a>
 
-    <a href="producto.html?title=Alemania%20Local%2024/25&price=$34.99&img=https://www.soccerbox.com/media/catalog/product/cache/9d14d56c606ce6e31fa44a7bf9aa05c5/g/e/germany-authentic-home-shirt-24.jpg" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
-        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://www.soccerbox.com/media/catalog/product/cache/9d14d56c606ce6e31fa44a7bf9aa05c5/g/e/germany-authentic-home-shirt-24.jpg" alt="Alemania">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🇩🇪 Alemania</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Alemania</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
+<a class="product" href="producto.html?title=España%20Local%2024/25&price=$34.99&img=https://assets.adidas.com/images/w_600,f_auto,q_auto/7d33dabef37046ecbc8c61c3fada84dc_9366/Spain_24_Home_Jersey_Red_IP9331_01_laydown.jpg">
+    <div class="product-image">
+        <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/7d33dabef37046ecbc8c61c3fada84dc_9366/Spain_24_Home_Jersey_Red_IP9331_01_laydown.jpg" alt="España">
+        <span class="badge">🇪🇸 España</span>
+        <span class="champion">Campeón Euro</span>
+    </div>
+    <p class="team">España</p>
+    <p class="product-name">Camiseta Local 24/25</p>
+    <p class="price">$34.99</p>
+</a>
 
-    <a href="producto.html?title=Inglaterra%20Local%2024/25&price=$34.99&img=https://www.signature-styles.com/cdn/shop/files/FullSizeRender_c3837dea-4bb5-4674-8b50-990b8c6d1452.jpg?v=1713719668" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
-        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://www.signature-styles.com/cdn/shop/files/FullSizeRender_c3837dea-4bb5-4674-8b50-990b8c6d1452.jpg?v=1713719668" alt="Inglaterra">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Inglaterra</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
+<a class="product" href="producto.html?title=Alemania%20Local%2024/25&price=$34.99&img=https://www.soccerbox.com/media/catalog/product/cache/9d14d56c606ce6e31fa44a7bf9aa05c5/g/e/germany-authentic-home-shirt-24.jpg">
+    <div class="product-image">
+        <img src="https://www.soccerbox.com/media/catalog/product/cache/9d14d56c606ce6e31fa44a7bf9aa05c5/g/e/germany-authentic-home-shirt-24.jpg" alt="Alemania">
+        <span class="badge">🇩🇪 Alemania</span>
+    </div>
+    <p class="team">Alemania</p>
+    <p class="product-name">Camiseta Local 24/25</p>
+    <p class="price">$34.99</p>
+</a>
 
-    <a href="producto.html?title=Francia%20Local%2024/25&price=$34.99&img=https://static.wixstatic.com/media/e8681c_dd0611e1ce804e5a91eddf6dae33c526~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
-        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://static.wixstatic.com/media/e8681c_dd0611e1ce804e5a91eddf6dae33c526~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg" alt="Francia">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🇫🇷 Francia</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Francia</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
+<a class="product" href="producto.html?title=Inglaterra%20Local%2024/25&price=$34.99&img=https://www.signature-styles.com/cdn/shop/files/FullSizeRender_c3837dea-4bb5-4674-8b50-990b8c6d1452.jpg?v=1713719668">
+    <div class="product-image">
+        <img src="https://www.signature-styles.com/cdn/shop/files/FullSizeRender_c3837dea-4bb5-4674-8b50-990b8c6d1452.jpg?v=1713719668" alt="Inglaterra">
+        <span class="badge">🏴 Inglaterra</span>
+    </div>
+    <p class="team">Inglaterra</p>
+    <p class="product-name">Camiseta Local 24/25</p>
+    <p class="price">$34.99</p>
+</a>
 
-    <a href="producto.html?title=Italia%20Local%2024/25&price=$34.99&img=https://italiansportswearcollection.com/cdn/shop/files/ItalyHomeJersey2024.jpg?v=1716659515" class="flex flex-col group cursor-pointer">
-      <div class="bg-surface-container aspect-[3/4] overflow-hidden mb-4 relative border-2 border-transparent group-hover:border-on-background transition-all">
-        <img class="w-full h-full object-cover grayscale-[0.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-          src="https://italiansportswearcollection.com/cdn/shop/files/ItalyHomeJersey2024.jpg?v=1716659515" alt="Italia">
-        <div class="absolute top-4 left-4 bg-surface text-on-surface px-3 py-1 text-label-bold uppercase text-xs">🇮🇹 Italia</div>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-1">Italia</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Camiseta Local 24/25</p>
-      <p class="font-label-bold text-label-bold">$34.99</p>
-    </a>
+<a class="product" href="producto.html?title=Francia%20Local%2024/25&price=$34.99&img=https://static.wixstatic.com/media/e8681c_dd0611e1ce804e5a91eddf6dae33c526~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg">
+    <div class="product-image">
+        <img src="https://static.wixstatic.com/media/e8681c_dd0611e1ce804e5a91eddf6dae33c526~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg" alt="Francia">
+        <span class="badge">🇫🇷 Francia</span>
+    </div>
+    <p class="team">Francia</p>
+    <p class="product-name">Camiseta Local 24/25</p>
+    <p class="price">$34.99</p>
+</a>
 
-    <a href="nuevos.html" class="flex flex-col group cursor-pointer">
-      <div class="bg-primary aspect-[3/4] overflow-hidden mb-4 flex flex-col items-center justify-center gap-4 p-8 border-2 border-transparent group-hover:border-on-background transition-all">
-        <span class="material-symbols-outlined text-on-primary" style="font-size:64px">checkroom</span>
-        <p class="font-headline-sm text-headline-sm text-on-primary uppercase text-center">Elige tu camiseta</p>
-      </div>
-      <p class="font-label-bold text-label-bold uppercase text-primary mb-1">Personalización</p>
-      <p class="font-headline-sm text-headline-sm uppercase mb-1">Tu diseño único</p>
-      <p class="font-label-bold text-label-bold">Catálogo completo</p>
-    </a>
+<a class="product" href="producto.html?title=Italia%20Local%2024/25&price=$34.99&img=https://italiansportswearcollection.com/cdn/shop/files/ItalyHomeJersey2024.jpg?v=1716659515">
+    <div class="product-image">
+        <img src="https://italiansportswearcollection.com/cdn/shop/files/ItalyHomeJersey2024.jpg?v=1716659515" alt="Italia">
+        <span class="badge">🇮🇹 Italia</span>
+    </div>
+    <p class="team">Italia</p>
+    <p class="product-name">Camiseta Local 24/25</p>
+    <p class="price">$34.99</p>
+</a>
 
-  </div>
+<a class="product" href="nuevos.html">
+    <div class="product-image" style="background:#9e0000; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px;">
+        <span class="material-symbols-outlined" style="font-size:56px;color:#fff;">checkroom</span>
+        <strong style="color:#fff;font:700 16px 'Montserrat',sans-serif;text-transform:uppercase;text-align:center;">Elige tu camiseta</strong>
+    </div>
+    <p class="team" style="color:#9e0000;">Personalización</p>
+    <p class="product-name">Tu diseño único</p>
+    <p class="price">Catálogo completo</p>
+</a>
+
+</section>
 </main>
 
-<footer class="bg-on-background text-white pt-section-gap pb-12 mt-12">
-    <div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-5 gap-gutter border-b border-surface-variant pb-16">
-        <div class="md:col-span-1">
-            <h2 class="font-headline-lg text-headline-lg font-black text-white mb-8 tracking-tighter">RSS</h2>
-            <p class="text-[14px] opacity-60 uppercase tracking-widest leading-relaxed">
-                ENGINEERED FOR THE PITCH. PREMIUM JERSEYS FOR THE REAL FANS.
-            </p>
-        </div>
+<footer class="footer">
+    <div class="footer-inner">
         <div>
-            <h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">PRODUCTOS</h4>
-            <ul class="space-y-4">
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="nuevos.html">Nuevos Lanzamientos</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="retro.html">Retro Classics</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="oferta.html">Ofertas Especiales</a></li>
+            <h2>RSS</h2>
+            <p>ENGINEERED FOR THE PITCH.<br>PREMIUM JERSEYS FOR THE REAL FANS.</p>
+        </div>
+
+        <div>
+            <h4>PRODUCTOS</h4>
+            <ul>
+                <li><a href="nuevos.html">Nuevos Lanzamientos</a></li>
+                <li><a href="retro.html">Retro Classics</a></li>
+                <li><a href="oferta.html">Ofertas Especiales</a></li>
             </ul>
         </div>
+
         <div>
-            <h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">SOPORTE</h4>
-            <ul class="space-y-4">
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Guía de tallas</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Envíos y Devoluciones</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Seguimiento de pedido</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Preguntas Frecuentes</a></li>
+            <h4>SOPORTE</h4>
+            <ul>
+                <li><a href="#">Guía de tallas</a></li>
+                <li><a href="#">Envíos y Devoluciones</a></li>
+                <li><a href="#">Seguimiento de pedido</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
             </ul>
         </div>
+
         <div>
-            <h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">SÍGUENOS</h4>
-            <ul class="space-y-4">
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Instagram</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Facebook</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">TikTok</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">WhatsApp</a></li>
+            <h4>SÍGUENOS</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">TikTok</a></li>
+                <li><a href="#">WhatsApp</a></li>
             </ul>
         </div>
+
         <div>
-            <h4 class="font-label-bold text-[16px] uppercase mb-8 text-primary">EMPRESA</h4>
-            <ul class="space-y-4">
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Sobre Nosotros</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Términos de servicio</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Privacidad</a></li>
-                <li><a class="text-[14px] opacity-60 hover:opacity-100 transition-opacity uppercase" href="#">Contacto</a></li>
+            <h4>EMPRESA</h4>
+            <ul>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Contacto</a></li>
             </ul>
         </div>
     </div>
-    <div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto mt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p class="font-label-bold text-[12px] opacity-40 uppercase">© 2024 RSS JERSEYS. ENGINEERED FOR THE PITCH.</p>
-    </div>
+
+    <p class="copyright">© 2024 RSS JERSEYS. ENGINEERED FOR THE PITCH.</p>
 </footer>
 
-<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center md:hidden pb-safe bg-on-surface dark:bg-surface-container-lowest border-t border-on-surface-variant z-50">
-  <a class="flex flex-col items-center justify-center text-surface-variant dark:text-on-surface-variant p-2 hover:bg-primary-container hover:text-on-primary-container transition-all" href="index.html">
-    <span class="material-symbols-outlined" data-icon="home">home</span>
-    <span class="font-label-bold text-[10px] uppercase">Inicio</span>
-  </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant dark:text-on-surface-variant p-2 hover:bg-primary-container hover:text-on-primary-container transition-all" href="index.html">
-    <span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
-    <span class="font-label-bold text-[10px] uppercase">Categorías</span>
-  </a>
-  <a class="flex flex-col items-center justify-center bg-primary text-on-primary p-2" href="selecciones.html">
-    <span class="material-symbols-outlined" data-icon="flag">flag</span>
-    <span class="font-label-bold text-[10px] uppercase">Selecciones</span>
-  </a>
-  <a class="flex flex-col items-center justify-center text-surface-variant dark:text-on-surface-variant p-2 hover:bg-primary-container hover:text-on-primary-container transition-all" href="oferta.html">
-    <span class="material-symbols-outlined" data-icon="local_offer">local_offer</span>
-    <span class="font-label-bold text-[10px] uppercase">Oferta</span>
-  </a>
+<nav class="mobile-nav">
+    <a href="index.html">
+        <span class="material-symbols-outlined">home</span>
+        Inicio
+    </a>
+    <a href="index.html">
+        <span class="material-symbols-outlined">grid_view</span>
+        Categorías
+    </a>
+    <a href="selecciones.html" class="active">
+        <span class="material-symbols-outlined">flag</span>
+        Selecciones
+    </a>
+    <a href="oferta.html">
+        <span class="material-symbols-outlined">local_offer</span>
+        Oferta
+    </a>
 </nav>
 
 </body>
 </html>
+"""
+
+out = Path("/mnt/data/selecciones_corregido.html")
+out.write_text(html, encoding="utf-8")
+print(out)
