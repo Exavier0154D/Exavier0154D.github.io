@@ -1,34 +1,4 @@
-from pathlib import Path
-from urllib.parse import quote
-
-products = [
-    ("Real Madrid", "Local 26-27", "assets/Real Mdrid Local 26-27.jpeg", "$34.99"),
-    ("Barcelona", "Local 26-27", "assets/Barcelona Local 26-27.jpeg", "$34.99"),
-    ("Manchester City", "Local 26-27 Player", "assets/Manchester City Local 26-27 Player.jpeg", "$34.99"),
-    ("Arsenal", "Visitante 26-27", "assets/Arsenal Visitante 26-27.jpeg", "$34.99"),
-    ("Bayern Munich", "Local 26-27", "assets/Bayern Munich Local 26-27.jpeg", "$34.99"),
-    ("Liverpool", "Local 26-27", "assets/Liverpool Local 26-27.jpeg", "$34.99"),
-    ("Argentina", "Local 2026", "assets/Argentina Local 2026.jpeg", "$34.99"),
-    ("Brasil", "Local 2026", "assets/Brazil Local 2026.jpeg", "$34.99"),
-]
-
-cards = []
-for team, model, img, price in products:
-    title = f"{team} {model}"
-    href = f"producto.html?title={quote(title)}&price={quote(price)}&img={quote(img)}"
-    cards.append(f"""
-        <a class="product-card" href="{href}">
-            <div class="product-image">
-                <img src="{img}" alt="{title}" loading="lazy">
-                <span class="badge">DESTACADA</span>
-            </div>
-            <p class="team">{team}</p>
-            <h3>{model}</h3>
-            <p class="price">{price}</p>
-        </a>
-    """)
-
-html = f"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -39,18 +9,18 @@ html = f"""<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-* {{ box-sizing: border-box; }}
-html {{ scroll-behavior: smooth; }}
-body {{
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
     margin: 0;
     background: #f9f9f9;
     color: #1a1c1c;
     font-family: "Hanken Grotesk", sans-serif;
-}}
-a {{ color: inherit; text-decoration: none; }}
-button {{ font: inherit; }}
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
 
-.top-bar {{
+.top-bar {
     background: #1a1c1c;
     color: #fff;
     text-align: center;
@@ -58,17 +28,17 @@ button {{ font: inherit; }}
     font: 700 10px "Montserrat", sans-serif;
     letter-spacing: .12em;
     text-transform: uppercase;
-}}
+}
 
-.header {{
+.header {
     position: sticky;
     top: 0;
     z-index: 100;
     background: #f9f9f9;
     border-bottom: 2px solid #1a1c1c;
-}}
+}
 
-.header-inner {{
+.header-inner {
     max-width: 1440px;
     height: 80px;
     margin: auto;
@@ -76,46 +46,46 @@ button {{ font: inherit; }}
     display: flex;
     align-items: center;
     justify-content: space-between;
-}}
+}
 
-.logo {{
+.logo {
     font: 900 32px "Montserrat", sans-serif;
     letter-spacing: -.05em;
-}}
+}
 
-.nav {{
+.nav {
     display: flex;
     align-items: center;
     gap: 28px;
-}}
+}
 
-.nav a {{
+.nav a {
     font: 700 14px "Montserrat", sans-serif;
     text-transform: uppercase;
-}}
+}
 
 .nav a:hover,
-.nav .active {{
+.nav .active {
     color: #9e0000;
-}}
+}
 
-.mobile-menu {{
+.mobile-menu {
     display: none;
     border: 0;
     background: transparent;
     font-size: 26px;
-}}
+}
 
-.hero {{
+.hero {
     position: relative;
     min-height: 680px;
     overflow: hidden;
     display: flex;
     align-items: center;
     background: #1a1c1c;
-}}
+}
 
-.hero video {{
+.hero video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -123,49 +93,49 @@ button {{ font: inherit; }}
     object-fit: cover;
     opacity: .58;
     filter: grayscale(.2) brightness(.55);
-}}
+}
 
-.hero-overlay {{
+.hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.25));
-}}
+}
 
-.hero-content {{
+.hero-content {
     position: relative;
     z-index: 2;
     width: min(1440px, 100%);
     margin: auto;
     padding: 80px 64px;
     color: #fff;
-}}
+}
 
-.hero-label {{
+.hero-label {
     color: #ffb4a8;
     font: 700 13px "Montserrat", sans-serif;
     letter-spacing: .25em;
     text-transform: uppercase;
     margin-bottom: 20px;
-}}
+}
 
-.hero h1 {{
+.hero h1 {
     max-width: 900px;
     margin: 0 0 24px;
     font: 900 clamp(44px, 7vw, 96px)/.9 "Montserrat", sans-serif;
     text-transform: uppercase;
     letter-spacing: -.045em;
-}}
+}
 
-.hero p {{
+.hero p {
     max-width: 650px;
     margin: 0 0 36px;
     font-size: 18px;
     line-height: 1.6;
     text-transform: uppercase;
     letter-spacing: .08em;
-}}
+}
 
-.hero-button {{
+.hero-button {
     display: inline-block;
     background: #fff;
     color: #1a1c1c;
@@ -173,20 +143,20 @@ button {{ font: inherit; }}
     font: 700 13px "Montserrat", sans-serif;
     text-transform: uppercase;
     transition: .2s;
-}}
+}
 
-.hero-button:hover {{
+.hero-button:hover {
     background: #9e0000;
     color: #fff;
-}}
+}
 
-.catalog {{
+.catalog {
     max-width: 1440px;
     margin: auto;
     padding: 96px 64px;
-}}
+}
 
-.section-heading {{
+.section-heading {
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -194,56 +164,56 @@ button {{ font: inherit; }}
     border-bottom: 2px solid #1a1c1c;
     padding-bottom: 20px;
     margin-bottom: 40px;
-}}
+}
 
-.section-heading h2 {{
+.section-heading h2 {
     margin: 0;
     font: 900 48px/1 "Montserrat", sans-serif;
     text-transform: uppercase;
-}}
+}
 
-.section-heading p {{
+.section-heading p {
     margin: 0;
     color: #5e3f3a;
-}}
+}
 
-.product-grid {{
+.product-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
-}}
+}
 
-.product-card {{
+.product-card {
     min-width: 0;
-}}
+}
 
-.product-image {{
+.product-image {
     position: relative;
     aspect-ratio: 3 / 4;
     background: #fff;
     overflow: hidden;
     margin-bottom: 14px;
     border: 2px solid transparent;
-}}
+}
 
-.product-card:hover .product-image {{
+.product-card:hover .product-image {
     border-color: #1a1c1c;
-}}
+}
 
-.product-image img {{
+.product-image img {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: contain;
     padding: 14px;
     transition: transform .4s ease;
-}}
+}
 
-.product-card:hover img {{
+.product-card:hover img {
     transform: scale(1.05);
-}}
+}
 
-.badge {{
+.badge {
     position: absolute;
     top: 12px;
     left: 0;
@@ -252,51 +222,51 @@ button {{ font: inherit; }}
     padding: 6px 10px;
     font: 700 10px "Montserrat", sans-serif;
     text-transform: uppercase;
-}}
+}
 
-.team {{
+.team {
     margin: 0 0 4px;
     color: #5e3f3a;
     font: 700 12px "Montserrat", sans-serif;
     text-transform: uppercase;
-}}
+}
 
-.product-card h3 {{
+.product-card h3 {
     margin: 0 0 5px;
     font: 700 18px/1.2 "Montserrat", sans-serif;
     text-transform: uppercase;
-}}
+}
 
-.price {{
+.price {
     margin: 0;
     color: #9e0000;
     font: 700 17px "Montserrat", sans-serif;
-}}
+}
 
-.categories {{
+.categories {
     background: #1a1c1c;
     color: #fff;
     padding: 80px 64px;
-}}
+}
 
-.categories-inner {{
+.categories-inner {
     max-width: 1440px;
     margin: auto;
-}}
+}
 
-.categories h2 {{
+.categories h2 {
     margin: 0 0 32px;
     font: 900 42px "Montserrat", sans-serif;
     text-transform: uppercase;
-}}
+}
 
-.category-grid {{
+.category-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-}}
+}
 
-.category {{
+.category {
     border: 1px solid #555;
     padding: 32px;
     min-height: 180px;
@@ -304,147 +274,147 @@ button {{ font: inherit; }}
     flex-direction: column;
     justify-content: end;
     transition: .2s;
-}}
+}
 
-.category:hover {{
+.category:hover {
     background: #9e0000;
     border-color: #9e0000;
-}}
+}
 
-.category strong {{
+.category strong {
     font: 800 28px "Montserrat", sans-serif;
     text-transform: uppercase;
-}}
+}
 
-.category span {{
+.category span {
     margin-top: 8px;
     opacity: .75;
     text-transform: uppercase;
     font-size: 12px;
-}}
+}
 
-.footer {{
+.footer {
     background: #111;
     color: #fff;
     padding: 48px 64px 32px;
-}}
+}
 
-.footer-inner {{
+.footer-inner {
     max-width: 1440px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     gap: 32px;
-}}
+}
 
-.footer h2 {{
+.footer h2 {
     margin: 0;
     font: 900 36px "Montserrat", sans-serif;
-}}
+}
 
-.footer p {{
+.footer p {
     opacity: .55;
     font-size: 12px;
-}}
+}
 
-@media (max-width: 900px) {{
-    .header-inner {{
+@media (max-width: 900px) {
+    .header-inner {
         height: 64px;
         padding: 0 16px;
-    }}
+    }
 
-    .mobile-menu {{
+    .mobile-menu {
         display: block;
-    }}
+    }
 
-    .nav {{
+    .nav {
         display: none;
-    }}
+    }
 
-    .logo {{
+    .logo {
         font-size: 22px;
-    }}
+    }
 
-    .hero {{
+    .hero {
         min-height: 560px;
-    }}
+    }
 
-    .hero-content {{
+    .hero-content {
         padding: 56px 16px;
-    }}
+    }
 
-    .hero p {{
+    .hero p {
         font-size: 13px;
         line-height: 1.5;
-    }}
+    }
 
-    .catalog {{
+    .catalog {
         padding: 56px 16px;
-    }}
+    }
 
-    .section-heading {{
+    .section-heading {
         display: block;
         margin-bottom: 28px;
-    }}
+    }
 
-    .section-heading h2 {{
+    .section-heading h2 {
         font-size: 32px;
         margin-bottom: 10px;
-    }}
+    }
 
-    .product-grid {{
+    .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
-    }}
+    }
 
-    .product-image {{
+    .product-image {
         margin-bottom: 8px;
-    }}
+    }
 
-    .product-image img {{
+    .product-image img {
         padding: 4px;
-    }}
+    }
 
-    .badge {{
+    .badge {
         top: 6px;
         padding: 4px 6px;
         font-size: 8px;
-    }}
+    }
 
-    .team {{
+    .team {
         font-size: 9px;
         line-height: 12px;
-    }}
+    }
 
-    .product-card h3 {{
+    .product-card h3 {
         font-size: 13px;
         line-height: 16px;
-    }}
+    }
 
-    .price {{
+    .price {
         font-size: 13px;
-    }}
+    }
 
-    .categories {{
+    .categories {
         padding: 56px 16px;
-    }}
+    }
 
-    .categories h2 {{
+    .categories h2 {
         font-size: 32px;
-    }}
+    }
 
-    .category-grid {{
+    .category-grid {
         grid-template-columns: 1fr;
-    }}
+    }
 
-    .category {{
+    .category {
         min-height: 130px;
-    }}
+    }
 
-    .footer {{
+    .footer {
         padding: 40px 16px 24px;
-    }}
-}}
+    }
+}
 </style>
 </head>
 
@@ -497,7 +467,87 @@ button {{ font: inherit; }}
     </div>
 
     <div class="product-grid">
-        {"".join(cards)}
+        
+        <a class="product-card" href="producto.html?title=Real%20Madrid%20Local%2026-27&price=%2434.99&img=assets/Real%20Mdrid%20Local%2026-27.jpeg">
+            <div class="product-image">
+                <img src="assets/Real Mdrid Local 26-27.jpeg" alt="Real Madrid Local 26-27" loading="lazy">
+                <span class="badge">DESTACADA</span>
+            </div>
+            <p class="team">Real Madrid</p>
+            <h3>Local 26-27</h3>
+            <p class="price">$34.99</p>
+        </a>
+    
+        <a class="product-card" href="producto.html?title=Barcelona%20Local%2026-27&price=%2434.99&img=assets/Barcelona%20Local%2026-27.jpeg">
+            <div class="product-image">
+                <img src="assets/Barcelona Local 26-27.jpeg" alt="Barcelona Local 26-27" loading="lazy">
+                <span class="badge">DESTACADA</span>
+            </div>
+            <p class="team">Barcelona</p>
+            <h3>Local 26-27</h3>
+            <p class="price">$34.99</p>
+        </a>
+    
+        <a class="product-card" href="producto.html?title=Manchester%20City%20Local%2026-27%20Player&price=%2434.99&img=assets/Manchester%20City%20Local%2026-27%20Player.jpeg">
+            <div class="product-image">
+                <img src="assets/Manchester City Local 26-27 Player.jpeg" alt="Manchester City Local 26-27 Player" loading="lazy">
+                <span class="badge">DESTACADA</span>
+            </div>
+            <p class="team">Manchester City</p>
+            <h3>Local 26-27 Player</h3>
+            <p class="price">$34.99</p>
+        </a>
+    
+        <a class="product-card" href="producto.html?title=Arsenal%20Visitante%2026-27&price=%2434.99&img=assets/Arsenal%20Visitante%2026-27.jpeg">
+            <div class="product-image">
+                <img src="assets/Arsenal Visitante 26-27.jpeg" alt="Arsenal Visitante 26-27" loading="lazy">
+                <span class="badge">DESTACADA</span>
+            </div>
+            <p class="team">Arsenal</p>
+            <h3>Visitante 26-27</h3>
+            <p class="price">$34.99</p>
+        </a>
+    
+        <a class="product-card" href="producto.html?title=Bayern%20Munich%20Local%2026-27&price=%2434.99&img=assets/Bayern%20Munich%20Local%2026-27.jpeg">
+            <div class="product-image">
+                <img src="assets/Bayern Munich Local 26-27.jpeg" alt="Bayern Munich Local 26-27" loading="lazy">
+                <span class="badge">DESTACADA</span>
+            </div>
+            <p class="team">Bayern Munich</p>
+            <h3>Local 26-27</h3>
+            <p class="price">$34.99</p>
+        </a>
+    
+        <a class="product-card" href="producto.html?title=Liverpool%20Local%2026-27&price=%2434.99&img=assets/Liverpool%20Local%2026-27.jpeg">
+            <div class="product-image">
+                <img src="assets/Liverpool Local 26-27.jpeg" alt="Liverpool Local 26-27" loading="lazy">
+                <span class="badge">DESTACADA</span>
+            </div>
+            <p class="team">Liverpool</p>
+            <h3>Local 26-27</h3>
+            <p class="price">$34.99</p>
+        </a>
+    
+        <a class="product-card" href="producto.html?title=Argentina%20Local%202026&price=%2434.99&img=assets/Argentina%20Local%202026.jpeg">
+            <div class="product-image">
+                <img src="assets/Argentina Local 2026.jpeg" alt="Argentina Local 2026" loading="lazy">
+                <span class="badge">DESTACADA</span>
+            </div>
+            <p class="team">Argentina</p>
+            <h3>Local 2026</h3>
+            <p class="price">$34.99</p>
+        </a>
+    
+        <a class="product-card" href="producto.html?title=Brasil%20Local%202026&price=%2434.99&img=assets/Brazil%20Local%202026.jpeg">
+            <div class="product-image">
+                <img src="assets/Brazil Local 2026.jpeg" alt="Brasil Local 2026" loading="lazy">
+                <span class="badge">DESTACADA</span>
+            </div>
+            <p class="team">Brasil</p>
+            <h3>Local 2026</h3>
+            <p class="price">$34.99</p>
+        </a>
+    
     </div>
 </section>
 
@@ -539,8 +589,3 @@ button {{ font: inherit; }}
 
 </body>
 </html>
-"""
-
-out = Path("/mnt/data/index_nuevo.html")
-out.write_text(html, encoding="utf-8")
-print(out)
