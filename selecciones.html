@@ -1,64 +1,477 @@
-from pathlib import Path
-from urllib.parse import quote
-import re
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXAJERSEYS - Selecciones</title>
 
-selection_files = [
-    ("Argentina", "Local 2026", "Argentina Local 2026.jpeg"),
-    ("Argentina", "Visitante 2026", "Argentina Visitante 2026.jpeg"),
-    ("Brasil", "Local 2026", "Brazil Local 2026.jpeg"),
-    ("Cabo Verde", "", "Cabo Verde.jpeg"),
-    ("Holanda", "Local 1998", "Holanda Local 1998.jpeg"),
-    ("Noruega", "Visitante", "Noruega Visitante.jpeg"),
-]
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
 
-# Use the previously prepared Selecciones page as the visual/base template.
-src = Path("/mnt/data/Pegado text(20260830-025543).txt")
-raw = src.read_text(encoding="utf-8")
-m = re.search(r'html = """(.*?)"""', raw, re.S)
-html = m.group(1)
+html { scroll-behavior: smooth; }
 
-# Remove Material Symbols dependency and all search/cart UI.
-html = re.sub(r'<link href="https://fonts\.googleapis\.com/css2\?family=Material\+Symbols[^>]+>\s*', '', html)
-html = re.sub(r'\s*<div class="header-icons">.*?</div>\s*', '\n', html, flags=re.S)
-html = re.sub(r'<span class="material-symbols-outlined">menu</span>', '☰', html)
-html = html.replace('RSS JERSEYS', 'EXAJERSEYS')
-html = re.sub(r'\s*<a href="oferta\.html">Oferta</a>', '', html)
-html = re.sub(r'\s*<button class="icon-button mobile-menu".*?</button>', '<button class="mobile-menu" aria-label="Menú">☰</button>', html, flags=re.S)
+body {
+    margin: 0;
+    background: #f9f9f9;
+    color: #1a1c1c;
+    font-family: "Hanken Grotesk", sans-serif;
+}
 
-# Remove the mobile bottom navigation if present.
-html = re.sub(r'\s*<nav class="mobile-nav">.*?</nav>\s*', '\n', html, flags=re.S)
+a { color: inherit; text-decoration: none; }
 
-# Replace the existing products section with the real selection assets.
-cards = []
-for team, model, filename in selection_files:
-    img = "assets/" + filename
-    title = f"{team} {model}".strip()
-    href = f"producto.html?title={quote(title)}&price={quote('$34.99')}&img={quote(img)}"
-    cards.append(f'''<a class="product" href="{href}">
+.top-bar {
+    background: #1a1c1c;
+    color: #fff;
+    text-align: center;
+    padding: 8px 16px;
+    font: 700 10px "Montserrat", sans-serif;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f9f9f9;
+    border-bottom: 2px solid #1a1c1c;
+}
+
+.header-inner {
+    max-width: 1440px;
+    height: 80px;
+    margin: auto;
+    padding: 0 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font: 900 32px "Montserrat", sans-serif;
+    letter-spacing: -.05em;
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.desktop-nav a {
+    font: 700 14px "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.desktop-nav a:hover,
+.desktop-nav .active {
+    color: #9e0000;
+}
+
+.mobile-menu { display: none; }
+main {
+    max-width: 1440px;
+    margin: 32px auto 0;
+    padding: 0 64px;
+}
+
+.hero {
+    padding: 64px 0;
+    border-bottom: 2px solid #1a1c1c;
+    margin-bottom: 48px;
+}
+
+.hero-label {
+    color: #9e0000;
+    font: 700 14px "Montserrat", sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+}
+
+.hero h1 {
+    margin: 0 0 24px;
+    font: 900 80px/72px "Montserrat", sans-serif;
+    letter-spacing: -.04em;
+    text-transform: uppercase;
+}
+
+.hero p {
+    max-width: 620px;
+    margin: 0;
+    color: #5e3f3a;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.filters {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar { display: none; }
+
+.filter {
+    flex: 0 0 auto;
+    padding: 12px 24px;
+    border: 2px solid #5e3f3a;
+    background: transparent;
+    font: 700 14px "Montserrat", sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.filter.active {
+    background: #1a1c1c;
+    color: #fff;
+    border-color: #1a1c1c;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    padding-bottom: 128px;
+}
+
+.product {
+    min-width: 0;
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #eeeeee;
+    border: 2px solid transparent;
+}
+
+.product:hover .product-image {
+    border-color: #1a1c1c;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    padding: 16px;
+    transition: transform .4s ease;
+}
+
+.product:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #fff;
+    color: #1a1c1c;
+    padding: 6px 10px;
+    font: 700 11px "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.champion {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    background: #9e0000;
+    color: #fff;
+    padding: 6px 10px;
+    font: 700 11px "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.team {
+    margin: 0 0 4px;
+    color: #5e3f3a;
+    font: 700 14px "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.product-name {
+    margin: 0 0 4px;
+    font: 700 20px/24px "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.price {
+    margin: 0;
+    font: 700 14px "Montserrat", sans-serif;
+}
+
+.footer {
+    background: #1a1c1c;
+    color: #fff;
+    padding: 128px 64px 48px;
+}
+
+.footer-inner {
+    max-width: 1440px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    border-bottom: 1px solid #4d4c4c;
+    padding-bottom: 64px;
+}
+
+.footer h2 {
+    margin: 0 0 32px;
+    font: 900 48px "Montserrat", sans-serif;
+}
+
+.footer h4 {
+    margin: 0 0 32px;
+    color: #9e0000;
+    font: 700 16px "Montserrat", sans-serif;
+}
+
+.footer p,
+.footer a {
+    font-size: 14px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer li { margin-bottom: 16px; }
+
+.footer a { opacity: .6; }
+.footer a:hover { opacity: 1; }
+
+.copyright {
+    max-width: 1440px;
+    margin: 48px auto 0;
+    font: 700 12px "Montserrat", sans-serif;
+    opacity: .4;
+    text-transform: uppercase;
+}
+@media (max-width: 900px) {
+    .header-inner {
+        height: 64px;
+        padding: 0 16px;
+    }
+
+    .mobile-menu { display: block; }
+
+    .desktop-nav { display: none; }
+
+    .logo {
+        font-size: 22px;
+    }
+main {
+        margin-top: 24px;
+        padding: 0 16px;
+    }
+
+    .hero {
+        padding: 48px 0;
+        margin-bottom: 32px;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+        line-height: 42px;
+    }
+
+    .hero p {
+        font-size: 15px;
+        line-height: 23px;
+    }
+
+    .filters {
+        margin-bottom: 32px;
+    }
+
+    .filter {
+        padding: 10px 16px;
+        font-size: 11px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding-bottom: 80px;
+    }
+
+    .product-image {
+        margin-bottom: 8px;
+    }
+
+    .product-image img {
+        padding: 4px;
+    }
+
+    .badge,
+    .champion {
+        top: 6px;
+        left: 6px;
+        padding: 4px 6px;
+        font-size: 8px;
+    }
+
+    .champion {
+        top: auto;
+        bottom: 6px;
+    }
+
+    .team {
+        font-size: 9px;
+        line-height: 12px;
+    }
+
+    .product-name {
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .price {
+        font-size: 13px;
+    }
+
+    .footer {
+        padding: 64px 16px 32px;
+    }
+
+    .footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 16px;
+        padding-bottom: 40px;
+    }
+
+    .footer h2 {
+        font-size: 36px;
+    }
+.mobile-nav a {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #ddd;
+        font: 700 9px "Montserrat", sans-serif;
+        text-transform: uppercase;
+    }
+
+    .mobile-nav a.active {
+        background: #9e0000;
+        color: #fff;
+    }
+
+    .mobile-nav
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    Envíos a todo Ecuador e Internacionales · Atención por WhatsApp
+</div>
+
+<header class="header">
+    <div class="header-inner"><button class="mobile-menu" aria-label="Menú">☰</button>
+
+        <a href="index.html" class="logo">EXAJERSEYS</a>
+
+        <nav class="desktop-nav">
+            <a href="nuevos.html">Nuevos</a>
+            <a href="index.html">Clubes</a>
+            <a href="selecciones.html" class="active">Selecciones</a>
+            <a href="retro.html">Retro</a>
+        </nav>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+    <p class="hero-label">Fútbol internacional</p>
+    <h1>Selecciones</h1>
+    <p>
+        Las camisetas oficiales de las mejores selecciones del mundo.
+        Viste los colores de tu país con orgullo.
+    </p>
+</section>
+
+
+
+<section class="products">
+<a class="product" href="producto.html?title=Argentina%20Local%202026&price=%2434.99&img=assets/Argentina%20Local%202026.jpeg">
     <div class="product-image">
-        <img src="{img}" alt="{title}" loading="lazy">
-        <span class="badge">{team}</span>
+        <img src="assets/Argentina Local 2026.jpeg" alt="Argentina Local 2026" loading="lazy">
+        <span class="badge">Argentina</span>
     </div>
-    <p class="team">{team}</p>
-    <p class="product-name">{model if model else "Camiseta"}</p>
+    <p class="team">Argentina</p>
+    <p class="product-name">Local 2026</p>
     <p class="price">$34.99</p>
-</a>''')
+</a>
 
-html = re.sub(
-    r'<section class="products">\s*.*?\s*</section>',
-    '<section class="products">\n' + '\n\n'.join(cards) + '\n</section>',
-    html,
-    count=1,
-    flags=re.S
-)
+<a class="product" href="producto.html?title=Argentina%20Visitante%202026&price=%2434.99&img=assets/Argentina%20Visitante%202026.jpeg">
+    <div class="product-image">
+        <img src="assets/Argentina Visitante 2026.jpeg" alt="Argentina Visitante 2026" loading="lazy">
+        <span class="badge">Argentina</span>
+    </div>
+    <p class="team">Argentina</p>
+    <p class="product-name">Visitante 2026</p>
+    <p class="price">$34.99</p>
+</a>
 
-# Remove old filter categories; there are only the real selection products now.
-html = re.sub(r'<div class="filters">.*?</div>', '', html, count=1, flags=re.S)
+<a class="product" href="producto.html?title=Brasil%20Local%202026&price=%2434.99&img=assets/Brazil%20Local%202026.jpeg">
+    <div class="product-image">
+        <img src="assets/Brazil Local 2026.jpeg" alt="Brasil Local 2026" loading="lazy">
+        <span class="badge">Brasil</span>
+    </div>
+    <p class="team">Brasil</p>
+    <p class="product-name">Local 2026</p>
+    <p class="price">$34.99</p>
+</a>
 
-# Clean the footer to a simpler catalog footer.
-html = re.sub(
-    r'<footer class="footer">.*?</footer>',
-    '''<footer class="footer">
+<a class="product" href="producto.html?title=Cabo%20Verde&price=%2434.99&img=assets/Cabo%20Verde.jpeg">
+    <div class="product-image">
+        <img src="assets/Cabo Verde.jpeg" alt="Cabo Verde" loading="lazy">
+        <span class="badge">Cabo Verde</span>
+    </div>
+    <p class="team">Cabo Verde</p>
+    <p class="product-name">Camiseta</p>
+    <p class="price">$34.99</p>
+</a>
+
+<a class="product" href="producto.html?title=Holanda%20Local%201998&price=%2434.99&img=assets/Holanda%20Local%201998.jpeg">
+    <div class="product-image">
+        <img src="assets/Holanda Local 1998.jpeg" alt="Holanda Local 1998" loading="lazy">
+        <span class="badge">Holanda</span>
+    </div>
+    <p class="team">Holanda</p>
+    <p class="product-name">Local 1998</p>
+    <p class="price">$34.99</p>
+</a>
+
+<a class="product" href="producto.html?title=Noruega%20Visitante&price=%2434.99&img=assets/Noruega%20Visitante.jpeg">
+    <div class="product-image">
+        <img src="assets/Noruega Visitante.jpeg" alt="Noruega Visitante" loading="lazy">
+        <span class="badge">Noruega</span>
+    </div>
+    <p class="team">Noruega</p>
+    <p class="product-name">Visitante</p>
+    <p class="price">$34.99</p>
+</a>
+</section>
+</main>
+
+<footer class="footer">
 <div class="footer-inner">
 <div>
 <h2>EXAJERSEYS</h2>
@@ -66,19 +479,6 @@ html = re.sub(
 </div>
 </div>
 <p class="copyright">© 2026 EXAJERSEYS</p>
-</footer>''',
-    html,
-    count=1,
-    flags=re.S
-)
-
-# Remove now-unused mobile-nav/icon styles and make sure mobile is clean.
-html = re.sub(r'\s*\.header-icons\s*\{.*?\}\s*', '\n', html, flags=re.S)
-html = re.sub(r'\s*\.icon-button\s*\{.*?\}\s*', '\n', html, flags=re.S)
-html = re.sub(r'\s*\.material-symbols-outlined\s*\{.*?\}\s*', '\n', html, flags=re.S)
-html = re.sub(r'\s*\.mobile-nav\s*\{.*?\}\s*', '\n', html, flags=re.S)
-
-out = Path("/mnt/data/selecciones_corregido_completo.html")
-out.write_text(html, encoding="utf-8")
-print(out)
-print(f"{len(selection_files)} camisetas de selecciones añadidas.")
+</footer>
+</body>
+</html>
