@@ -53,6 +53,28 @@ a{color:inherit;text-decoration:none}
 .footer{padding:40px 16px 24px}
 .footer-inner{display:block}
 }
+
+.mobile-nav{display:none}
+@media(max-width:900px){
+    body{padding-bottom:70px}
+    .mobile-nav{
+        position:fixed;left:0;right:0;bottom:0;z-index:9999;
+        height:64px;display:grid;grid-template-columns:repeat(4,1fr);
+        background:#9e0000;border-top:2px solid #1a1c1c;
+        box-shadow:0 -4px 14px rgba(0,0,0,.18)
+    }
+    .mobile-nav-item{
+        display:flex;flex-direction:column;align-items:center;justify-content:center;
+        gap:2px;color:#fff;text-decoration:none;font-family:"Montserrat",sans-serif
+    }
+    .mobile-nav-item span{font-size:20px;line-height:20px}
+    .mobile-nav-item small{
+        font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.04em
+    }
+    .mobile-nav-item.active{background:#1a1c1c}
+    .mobile-nav-item:active{background:#5e0000}
+}
+
 </style>
 </head>
 <body>
@@ -83,7 +105,7 @@ a{color:inherit;text-decoration:none}
 </div>
 <p class="team">Brasil</p>
 <h3>Local 1998</h3>
-<p class="price">$34.99</p>
+<p class="price">$36.00</p>
 </a>
 <a class="product-card" href="producto.html?title=Holanda%20Local%201998&price=%2434.99&img=assets/Holanda%20Local%201998.jpeg">
 <div class="product-image">
@@ -92,7 +114,7 @@ a{color:inherit;text-decoration:none}
 </div>
 <p class="team">Holanda</p>
 <h3>Local 1998</h3>
-<p class="price">$34.99</p>
+<p class="price">$36.00</p>
 </a>
 <a class="product-card" href="producto.html?title=Milan%201996&price=%2434.99&img=assets/Milan%201996.jpeg">
 <div class="product-image">
@@ -101,7 +123,7 @@ a{color:inherit;text-decoration:none}
 </div>
 <p class="team">Milan</p>
 <h3>1996</h3>
-<p class="price">$34.99</p>
+<p class="price">$36.00</p>
 </a>
 </section>
 </main>
@@ -111,5 +133,21 @@ a{color:inherit;text-decoration:none}
 <p>© 2026 EXAJERSEYS</p>
 </div>
 </footer>
+
+<nav class="mobile-nav" aria-label="Navegación móvil">
+    <a href="index.html" class="mobile-nav-item">
+        <span>⌂</span><small>Clubes</small>
+    </a>
+    <a href="nuevos.html" class="mobile-nav-item">
+        <span>✦</span><small>Nuevos</small>
+    </a>
+    <a href="selecciones.html" class="mobile-nav-item">
+        <span>⚽</span><small>Selecciones</small>
+    </a>
+    <a href="retro.html" class="mobile-nav-item active">
+        <span>↺</span><small>Retro</small>
+    </a>
+</nav>
+
 </body>
 </html>
