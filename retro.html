@@ -1,28 +1,4 @@
-from pathlib import Path
-from urllib.parse import quote
-
-retro = [
-    ("Brasil", "Local 1998", "Brazil Local 1998.jpeg"),
-    ("Holanda", "Local 1998", "Holanda Local 1998.jpeg"),
-    ("Milan", "1996", "Milan 1996.jpeg"),
-]
-
-cards = []
-for team, model, filename in retro:
-    img = "assets/" + filename
-    title = f"{team} {model}"
-    href = f"producto.html?title={quote(title)}&price={quote('$34.99')}&img={quote(img)}"
-    cards.append(f'''<a class="product-card" href="{href}">
-<div class="product-image">
-<img src="{img}" alt="{title}" loading="lazy">
-<span class="badge">RETRO</span>
-</div>
-<p class="team">{team}</p>
-<h3>{model}</h3>
-<p class="price">$34.99</p>
-</a>''')
-
-html = f'''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -31,52 +7,52 @@ html = f'''<!DOCTYPE html>
 <title>EXAJERSEYS | Retro</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*{{box-sizing:border-box}}
-body{{margin:0;background:#f9f9f9;color:#1a1c1c;font-family:"Hanken Grotesk",sans-serif}}
-a{{color:inherit;text-decoration:none}}
-.top-bar{{background:#1a1c1c;color:#fff;text-align:center;padding:8px 16px;font:700 10px "Montserrat";letter-spacing:.12em;text-transform:uppercase}}
-.header{{position:sticky;top:0;z-index:100;background:#f9f9f9;border-bottom:2px solid #1a1c1c}}
-.header-inner{{max-width:1440px;height:80px;margin:auto;padding:0 64px;display:flex;align-items:center;justify-content:space-between}}
-.logo{{font:900 32px "Montserrat";letter-spacing:-.05em}}
-.nav{{display:flex;gap:28px}}
-.nav a{{font:700 14px "Montserrat";text-transform:uppercase}}
-.nav a:hover,.nav .active{{color:#9e0000}}
-.mobile-menu{{display:none;border:0;background:none;font-size:24px}}
-.hero{{max-width:1440px;margin:auto;padding:64px;border-bottom:2px solid #1a1c1c}}
-.hero small{{color:#9e0000;font:700 13px "Montserrat";text-transform:uppercase;letter-spacing:.15em}}
-.hero h1{{margin:16px 0;font:900 clamp(44px,7vw,80px)/.9 "Montserrat";text-transform:uppercase;letter-spacing:-.04em}}
-.hero p{{max-width:680px;color:#5e3f3a;font-size:18px;line-height:1.6}}
-.products{{max-width:1440px;margin:auto;padding:40px 64px 100px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}}
-.product-image{{position:relative;aspect-ratio:3/4;background:#fff;overflow:hidden;margin-bottom:12px;border:2px solid transparent}}
-.product-card:hover .product-image{{border-color:#1a1c1c}}
-.product-image img{{width:100%;height:100%;display:block;object-fit:contain;padding:12px;transition:transform .4s ease}}
-.product-card:hover img{{transform:scale(1.05)}}
-.badge{{position:absolute;top:10px;left:0;background:#9e0000;color:#fff;padding:6px 10px;font:700 9px "Montserrat";text-transform:uppercase}}
-.team{{margin:0 0 4px;color:#5e3f3a;font:700 11px "Montserrat";text-transform:uppercase}}
-.product-card h3{{margin:0 0 5px;font:700 17px/1.2 "Montserrat";text-transform:uppercase}}
-.price{{margin:0;color:#9e0000;font:700 15px "Montserrat"}}
-.footer{{background:#111;color:#fff;padding:48px 64px 32px}}
-.footer-inner{{max-width:1440px;margin:auto;display:flex;justify-content:space-between}}
-.footer h2{{margin:0;font:900 34px "Montserrat"}}
-.footer p{{opacity:.55;font-size:12px}}
-@media(max-width:900px){{
-.header-inner{{height:64px;padding:0 16px}}
-.mobile-menu{{display:block}}
-.nav{{display:none}}
-.logo{{font-size:22px}}
-.hero{{padding:48px 16px}}
-.hero h1{{font-size:44px}}
-.hero p{{font-size:15px}}
-.products{{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:28px 16px 80px}}
-.product-image{{margin-bottom:7px}}
-.product-image img{{padding:4px}}
-.badge{{top:5px;padding:4px 6px;font-size:7px}}
-.team{{font-size:8px;line-height:11px}}
-.product-card h3{{font-size:13px;line-height:16px}}
-.price{{font-size:13px}}
-.footer{{padding:40px 16px 24px}}
-.footer-inner{{display:block}}
-}}
+*{box-sizing:border-box}
+body{margin:0;background:#f9f9f9;color:#1a1c1c;font-family:"Hanken Grotesk",sans-serif}
+a{color:inherit;text-decoration:none}
+.top-bar{background:#1a1c1c;color:#fff;text-align:center;padding:8px 16px;font:700 10px "Montserrat";letter-spacing:.12em;text-transform:uppercase}
+.header{position:sticky;top:0;z-index:100;background:#f9f9f9;border-bottom:2px solid #1a1c1c}
+.header-inner{max-width:1440px;height:80px;margin:auto;padding:0 64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:900 32px "Montserrat";letter-spacing:-.05em}
+.nav{display:flex;gap:28px}
+.nav a{font:700 14px "Montserrat";text-transform:uppercase}
+.nav a:hover,.nav .active{color:#9e0000}
+.mobile-menu{display:none;border:0;background:none;font-size:24px}
+.hero{max-width:1440px;margin:auto;padding:64px;border-bottom:2px solid #1a1c1c}
+.hero small{color:#9e0000;font:700 13px "Montserrat";text-transform:uppercase;letter-spacing:.15em}
+.hero h1{margin:16px 0;font:900 clamp(44px,7vw,80px)/.9 "Montserrat";text-transform:uppercase;letter-spacing:-.04em}
+.hero p{max-width:680px;color:#5e3f3a;font-size:18px;line-height:1.6}
+.products{max-width:1440px;margin:auto;padding:40px 64px 100px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.product-image{position:relative;aspect-ratio:3/4;background:#fff;overflow:hidden;margin-bottom:12px;border:2px solid transparent}
+.product-card:hover .product-image{border-color:#1a1c1c}
+.product-image img{width:100%;height:100%;display:block;object-fit:contain;padding:12px;transition:transform .4s ease}
+.product-card:hover img{transform:scale(1.05)}
+.badge{position:absolute;top:10px;left:0;background:#9e0000;color:#fff;padding:6px 10px;font:700 9px "Montserrat";text-transform:uppercase}
+.team{margin:0 0 4px;color:#5e3f3a;font:700 11px "Montserrat";text-transform:uppercase}
+.product-card h3{margin:0 0 5px;font:700 17px/1.2 "Montserrat";text-transform:uppercase}
+.price{margin:0;color:#9e0000;font:700 15px "Montserrat"}
+.footer{background:#111;color:#fff;padding:48px 64px 32px}
+.footer-inner{max-width:1440px;margin:auto;display:flex;justify-content:space-between}
+.footer h2{margin:0;font:900 34px "Montserrat"}
+.footer p{opacity:.55;font-size:12px}
+@media(max-width:900px){
+.header-inner{height:64px;padding:0 16px}
+.mobile-menu{display:block}
+.nav{display:none}
+.logo{font-size:22px}
+.hero{padding:48px 16px}
+.hero h1{font-size:44px}
+.hero p{font-size:15px}
+.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:28px 16px 80px}
+.product-image{margin-bottom:7px}
+.product-image img{padding:4px}
+.badge{top:5px;padding:4px 6px;font-size:7px}
+.team{font-size:8px;line-height:11px}
+.product-card h3{font-size:13px;line-height:16px}
+.price{font-size:13px}
+.footer{padding:40px 16px 24px}
+.footer-inner{display:block}
+}
 </style>
 </head>
 <body>
@@ -100,7 +76,33 @@ a{{color:inherit;text-decoration:none}}
 <p>Una selección de camisetas históricas que marcaron una época. Diseños clásicos para los verdaderos amantes del fútbol.</p>
 </section>
 <section class="products">
-{chr(10).join(cards)}
+<a class="product-card" href="producto.html?title=Brasil%20Local%201998&price=%2434.99&img=assets/Brazil%20Local%201998.jpeg">
+<div class="product-image">
+<img src="assets/Brazil Local 1998.jpeg" alt="Brasil Local 1998" loading="lazy">
+<span class="badge">RETRO</span>
+</div>
+<p class="team">Brasil</p>
+<h3>Local 1998</h3>
+<p class="price">$34.99</p>
+</a>
+<a class="product-card" href="producto.html?title=Holanda%20Local%201998&price=%2434.99&img=assets/Holanda%20Local%201998.jpeg">
+<div class="product-image">
+<img src="assets/Holanda Local 1998.jpeg" alt="Holanda Local 1998" loading="lazy">
+<span class="badge">RETRO</span>
+</div>
+<p class="team">Holanda</p>
+<h3>Local 1998</h3>
+<p class="price">$34.99</p>
+</a>
+<a class="product-card" href="producto.html?title=Milan%201996&price=%2434.99&img=assets/Milan%201996.jpeg">
+<div class="product-image">
+<img src="assets/Milan 1996.jpeg" alt="Milan 1996" loading="lazy">
+<span class="badge">RETRO</span>
+</div>
+<p class="team">Milan</p>
+<h3>1996</h3>
+<p class="price">$34.99</p>
+</a>
 </section>
 </main>
 <footer class="footer">
@@ -110,8 +112,4 @@ a{{color:inherit;text-decoration:none}}
 </div>
 </footer>
 </body>
-</html>'''
-
-out = Path("/mnt/data/retro_corregido.html")
-out.write_text(html, encoding="utf-8")
-print(out)
+</html>
