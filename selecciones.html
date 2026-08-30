@@ -372,6 +372,28 @@ main {
 
     .mobile-nav
 }
+
+.mobile-nav{display:none}
+@media(max-width:900px){
+    body{padding-bottom:70px}
+    .mobile-nav{
+        position:fixed;left:0;right:0;bottom:0;z-index:9999;
+        height:64px;display:grid;grid-template-columns:repeat(4,1fr);
+        background:#9e0000;border-top:2px solid #1a1c1c;
+        box-shadow:0 -4px 14px rgba(0,0,0,.18)
+    }
+    .mobile-nav-item{
+        display:flex;flex-direction:column;align-items:center;justify-content:center;
+        gap:2px;color:#fff;text-decoration:none;font-family:"Montserrat",sans-serif
+    }
+    .mobile-nav-item span{font-size:20px;line-height:20px}
+    .mobile-nav-item small{
+        font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.04em
+    }
+    .mobile-nav-item.active{background:#1a1c1c}
+    .mobile-nav-item:active{background:#5e0000}
+}
+
 </style>
 </head>
 
@@ -416,7 +438,7 @@ main {
     </div>
     <p class="team">Argentina</p>
     <p class="product-name">Local 2026</p>
-    <p class="price">$34.99</p>
+    <p class="price">$36.00</p>
 </a>
 
 <a class="product" href="producto.html?title=Argentina%20Visitante%202026&price=%2434.99&img=assets/Argentina%20Visitante%202026.jpeg">
@@ -426,7 +448,7 @@ main {
     </div>
     <p class="team">Argentina</p>
     <p class="product-name">Visitante 2026</p>
-    <p class="price">$34.99</p>
+    <p class="price">$36.00</p>
 </a>
 
 <a class="product" href="producto.html?title=Brasil%20Local%202026&price=%2434.99&img=assets/Brazil%20Local%202026.jpeg">
@@ -436,7 +458,7 @@ main {
     </div>
     <p class="team">Brasil</p>
     <p class="product-name">Local 2026</p>
-    <p class="price">$34.99</p>
+    <p class="price">$36.00</p>
 </a>
 
 <a class="product" href="producto.html?title=Cabo%20Verde&price=%2434.99&img=assets/Cabo%20Verde.jpeg">
@@ -446,7 +468,7 @@ main {
     </div>
     <p class="team">Cabo Verde</p>
     <p class="product-name">Camiseta</p>
-    <p class="price">$34.99</p>
+    <p class="price">$36.00</p>
 </a>
 
 <a class="product" href="producto.html?title=Holanda%20Local%201998&price=%2434.99&img=assets/Holanda%20Local%201998.jpeg">
@@ -456,7 +478,7 @@ main {
     </div>
     <p class="team">Holanda</p>
     <p class="product-name">Local 1998</p>
-    <p class="price">$34.99</p>
+    <p class="price">$36.00</p>
 </a>
 
 <a class="product" href="producto.html?title=Noruega%20Visitante&price=%2434.99&img=assets/Noruega%20Visitante.jpeg">
@@ -466,7 +488,7 @@ main {
     </div>
     <p class="team">Noruega</p>
     <p class="product-name">Visitante</p>
-    <p class="price">$34.99</p>
+    <p class="price">$36.00</p>
 </a>
 </section>
 </main>
@@ -480,5 +502,21 @@ main {
 </div>
 <p class="copyright">© 2026 EXAJERSEYS</p>
 </footer>
+
+<nav class="mobile-nav" aria-label="Navegación móvil">
+    <a href="index.html" class="mobile-nav-item">
+        <span>⌂</span><small>Clubes</small>
+    </a>
+    <a href="nuevos.html" class="mobile-nav-item">
+        <span>✦</span><small>Nuevos</small>
+    </a>
+    <a href="selecciones.html" class="mobile-nav-item active">
+        <span>⚽</span><small>Selecciones</small>
+    </a>
+    <a href="retro.html" class="mobile-nav-item">
+        <span>↺</span><small>Retro</small>
+    </a>
+</nav>
+
 </body>
 </html>
