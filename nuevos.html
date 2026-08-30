@@ -1,87 +1,222 @@
-from pathlib import Path
-from urllib.parse import quote
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EXAJERSEYS - Nuevos lanzamientos de camisetas de fútbol">
+<title>EXAJERSEYS | Nuevos</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 
-# All club jersey files visible in the user's GitHub assets folder.
-club_files = [
-    ("Arsenal", "Visitante 25-26", "Arsenal Visitante 25-26.jpeg"),
-    ("Arsenal", "Visitante 26-27", "Arsenal Visitante 26-27.jpeg"),
-    ("Barcelona", "Especial 101", "Barcelona Especial 101.jpeg"),
-    ("Barcelona", "Local 26-27", "Barcelona Local 26-27.jpeg"),
-    ("Barcelona", "Visitante 26-27", "Barcelona Visitante 26-27.jpeg"),
-    ("Barcelona", "X Travis Scott", "Barcelona X Travis Scott.jpeg"),
-    ("Bayern Munich", "Local 26-27", "Bayern Munich Local 26-27.jpeg"),
-    ("Bayern Munich", "Visitante 26-27", "Bayern Munich Visitante 26-27.jpeg"),
-    ("Chelsea", "Visitante 26-27", "Chelsea visitante 26-27.jpeg"),
-    ("Emelec", "Visitante 26-27", "Emelec Visitante 26-27.jpeg"),
-    ("Flamengo", "Local 26-27", "Flamego Local 26-27.jpeg"),
-    ("Juventus", "Local 26-27", "Juventus Local 26-27.jpeg"),
-    ("Juventus", "Visitante 26-27", "Juventus Visitante 26-27.jpeg"),
-    ("Liverpool", "Local 26-27", "Liverpool Local 26-27.jpeg"),
-    ("Liverpool", "Visitante 26-27", "Liverpool Visitante 26-27.jpeg"),
-    ("Manchester City", "Local 25-26 Fan", "Manchester City Local 25-26 Fan.jpeg"),
-    ("Manchester City", "Local 25-26 Player", "Manchester City Local 25-26 Player.jpeg"),
-    ("Manchester City", "Local 26-27 Player", "Manchester City Local 26-27 Player.jpeg"),
-    ("Manchester City", "Visitante 26-27", "Manchester City Vistante 26-27.jpeg"),
-    ("Manchester United", "Tercera 26-27", "Manchester United Tercera 26-27.jpeg"),
-    ("Manchester United", "Visitante 26-27", "Manchester United Visitante 26-27.jpeg"),
-    ("Milan", "1996", "Milan 1996.jpeg"),
-    ("Newcastle", "Local 26-27", "Newcastle Local 26-27.jpeg"),
-    ("Newcastle", "Visitante 26-27", "Newcastle Visitante 26-27.jpeg"),
-    ("PSG", "Visitante 24-25", "PSG Visitante 24-25.jpeg"),
-    ("Real Madrid", "Local 25-26", "Real Madrid Local 25-26.jpeg"),
-    ("Real Madrid", "Local 26-27", "Real Mdrid Local 26-27.jpeg"),
-    ("Real Madrid", "Visitante 26-27", "Real Mdrid Visitante 26-27 Front.jpeg"),
-    ("Roma", "Local 26-27", "Roma Local 26-27.jpeg"),
-    ("Roma", "Visitante 26-27", "Roma Visitante 26-27.jpeg"),
-    ("Tottenham", "Local 26-27", "Tottenham Local 26-27.jpeg"),
-]
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f9f9f9;color:#1a1c1c;font-family:"Hanken Grotesk",sans-serif}
+a{color:inherit;text-decoration:none}
+.top-bar{background:#1a1c1c;color:#fff;text-align:center;padding:8px 16px;font:700 10px "Montserrat";letter-spacing:.12em;text-transform:uppercase}
+.header{position:sticky;top:0;z-index:100;background:#f9f9f9;border-bottom:2px solid #1a1c1c}
+.header-inner{max-width:1440px;height:80px;margin:auto;padding:0 64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:900 32px "Montserrat";letter-spacing:-.05em}
+.nav{display:flex;gap:28px}
+.nav a{font:700 14px "Montserrat";text-transform:uppercase}
+.nav a:hover,.nav .active{color:#9e0000}
+.mobile-menu{display:none;border:0;background:none;font-size:24px}
+.hero{max-width:1440px;margin:auto;padding:64px;border-bottom:2px solid #1a1c1c}
+.hero small{color:#9e0000;font:700 13px "Montserrat";text-transform:uppercase;letter-spacing:.15em}
+.hero h1{margin:16px 0;font:900 clamp(44px,7vw,80px)/.9 "Montserrat";text-transform:uppercase;letter-spacing:-.04em}
+.hero p{max-width:650px;color:#5e3f3a;font-size:18px;line-height:1.6}
+.toolbar{max-width:1440px;margin:auto;padding:24px 64px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd}
+.filters{display:flex;gap:10px;overflow:auto}
+.filter{border:2px solid #5e3f3a;background:none;padding:10px 18px;font:700 11px "Montserrat";text-transform:uppercase;white-space:nowrap;cursor:pointer}
+.filter.active{background:#1a1c1c;color:#fff}
+.count{font:700 12px "Montserrat";white-space:nowrap}
+.products{max-width:1440px;margin:auto;padding:40px 64px 100px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.product-image{position:relative;aspect-ratio:3/4;background:#fff;overflow:hidden;margin-bottom:12px;border:2px solid transparent}
+.product-card:hover .product-image{border-color:#1a1c1c}
+.product-image img{width:100%;height:100%;display:block;object-fit:contain;padding:12px;transition:transform .4s ease}
+.product-card:hover img{transform:scale(1.05)}
+.badge{position:absolute;top:10px;left:0;background:#9e0000;color:#fff;padding:6px 10px;font:700 9px "Montserrat"}
+.team{margin:0 0 4px;color:#5e3f3a;font:700 11px "Montserrat";text-transform:uppercase}
+.product-card h3{margin:0 0 5px;font:700 17px/1.2 "Montserrat";text-transform:uppercase}
+.price{margin:0;color:#9e0000;font:700 15px "Montserrat"}
+.footer{background:#111;color:#fff;padding:48px 64px 32px}
+.footer-inner{max-width:1440px;margin:auto;display:flex;justify-content:space-between}
+.footer h2{margin:0;font:900 34px "Montserrat"}
+.footer p{opacity:.55;font-size:12px}
+@media(max-width:900px){
+.header-inner{height:64px;padding:0 16px}
+.mobile-menu{display:block}
+.nav{display:none}
+.logo{font-size:22px}
+.hero{padding:48px 16px}
+.hero h1{font-size:44px}
+.hero p{font-size:15px}
+.toolbar{padding:16px;display:block}
+.filters{margin-bottom:12px}
+.count{font-size:10px}
+.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:28px 16px 80px}
+.product-image{margin-bottom:7px}
+.product-image img{padding:4px}
+.badge{top:5px;padding:4px 6px;font-size:7px}
+.team{font-size:8px;line-height:11px}
+.product-card h3{font-size:13px;line-height:16px}
+.price{font-size:13px}
+.footer{padding:40px 16px 24px}
+.footer-inner{display:block}
+}
+</style>
+</head>
+<body>
 
-# Replace the old static product list in the previously generated file.
-src = Path("/mnt/data/nuevos_corregido.html")
-html = src.read_text(encoding="utf-8")
+<div class="top-bar">Catálogo EXAJERSEYS · Nuevos lanzamientos</div>
 
-cards = []
-for team, model, filename in club_files:
-    img = "assets/" + filename
-    title = f"{team} {model}"
-    href = f"producto.html?title={quote(title)}&price={quote('$34.99')}&img={quote(img)}"
-    cards.append(f'''    <a class="product-card" href="{href}">
+<header class="header">
+<div class="header-inner">
+<button class="mobile-menu" aria-label="Menú">☰</button>
+<a href="index.html" class="logo">EXAJERSEYS</a>
+<nav class="nav">
+<a href="index.html">CLUBES</a>
+<a href="nuevos.html" class="active">NUEVOS</a>
+<a href="selecciones.html">SELECCIONES</a>
+<a href="retro.html">RETRO</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<small>Nuevos lanzamientos</small>
+<h1>Temporada 2026</h1>
+<p>Descubre las nuevas camisetas disponibles en nuestro catálogo. Modelos actuales de clubes y selecciones, usando directamente las imágenes almacenadas en nuestros assets.</p>
+</section>
+
+<section class="toolbar">
+<div class="filters">
+<button class="filter active" data-filter="all">Todos</button>
+<button class="filter" data-filter="club">Clubes</button>
+<button class="filter" data-filter="selection">Selecciones</button>
+</div>
+<span class="count" id="count">9 Artículos</span>
+</section>
+
+<section class="products" id="products">
+
+    <a class="product-card" href="producto.html?title=Real%20Madrid%20Local%2026-27&price=%2434.99&img=assets/Real%20Mdrid%20Local%2026-27.jpeg">
         <div class="product-image">
-            <img src="{img}" alt="{title}" loading="lazy">
+            <img src="assets/Real Mdrid Local 26-27.jpeg" alt="Real Madrid Local 26-27" loading="lazy">
             <span class="badge">NUEVO</span>
         </div>
-        <p class="team">{team}</p>
-        <h3>{model}</h3>
+        <p class="team">Real Madrid</p>
+        <h3>Local 26-27</h3>
         <p class="price">$34.99</p>
-    </a>''')
+    </a>
 
-start_marker = '<section class="products" id="products">'
-end_marker = '</section>'
-start = html.find(start_marker)
-end = html.find(end_marker, start)
+    <a class="product-card" href="producto.html?title=Real%20Madrid%20Visitante%2026-27&price=%2434.99&img=assets/Real%20Mdrid%20Visitante%2026-27%20Front.jpeg">
+        <div class="product-image">
+            <img src="assets/Real Mdrid Visitante 26-27 Front.jpeg" alt="Real Madrid Visitante 26-27" loading="lazy">
+            <span class="badge">NUEVO</span>
+        </div>
+        <p class="team">Real Madrid</p>
+        <h3>Visitante 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
 
-new_section = '<section class="products" id="products">\n\n' + "\n\n".join(cards) + '\n\n'
-html = html[:start] + new_section + html[end:]
+    <a class="product-card" href="producto.html?title=Manchester%20City%20Local%2026-27&price=%2434.99&img=assets/Manchester%20City%20Local%2026-27%20Player.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester City Local 26-27 Player.jpeg" alt="Manchester City Local 26-27" loading="lazy">
+            <span class="badge">NUEVO</span>
+        </div>
+        <p class="team">Manchester City</p>
+        <h3>Local 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
 
-# Update count.
-import re
-html = re.sub(r'<span class="count" id="count">\d+ Artículos</span>',
-              f'<span class="count" id="count">{len(club_files)} Artículos</span>', html)
+    <a class="product-card" href="producto.html?title=Barcelona%20Local%2026-27&price=%2434.99&img=assets/Barcelona%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Barcelona Local 26-27.jpeg" alt="Barcelona Local 26-27" loading="lazy">
+            <span class="badge">NUEVO</span>
+        </div>
+        <p class="team">Barcelona</p>
+        <h3>Local 26-27</h3>
+        <p class="price">$34.99</p>
+    </a>
 
-# This page is now exclusively clubs, so simplify filters to "Todos" and "Clubes".
-html = html.replace(
-    '<button class="filter" data-filter="selection">Selecciones</button>',
-    ''
-)
+    <a class="product-card" href="producto.html?title=Argentina%20Local%202026&price=%2434.99&img=assets/Argentina%20Local%202026.jpeg">
+        <div class="product-image">
+            <img src="assets/Argentina Local 2026.jpeg" alt="Argentina Local 2026" loading="lazy">
+            <span class="badge">NUEVO</span>
+        </div>
+        <p class="team">Argentina</p>
+        <h3>Local 2026</h3>
+        <p class="price">$34.99</p>
+    </a>
 
-# Keep filtering JS functional, but classify every card as club.
-html = html.replace(
-    "const selections=['argentina','brasil','cabo verde','holanda','noruega'];",
-    "const selections=[];"
-)
+    <a class="product-card" href="producto.html?title=Brasil%20Local%202026&price=%2434.99&img=assets/Brazil%20Local%202026.jpeg">
+        <div class="product-image">
+            <img src="assets/Brazil Local 2026.jpeg" alt="Brasil Local 2026" loading="lazy">
+            <span class="badge">NUEVO</span>
+        </div>
+        <p class="team">Brasil</p>
+        <h3>Local 2026</h3>
+        <p class="price">$34.99</p>
+    </a>
 
-out = Path("/mnt/data/nuevos_clubes_completo.html")
-out.write_text(html, encoding="utf-8")
+    <a class="product-card" href="producto.html?title=Cabo%20Verde%202026&price=%2434.99&img=assets/Cabo%20Verde.jpeg">
+        <div class="product-image">
+            <img src="assets/Cabo Verde.jpeg" alt="Cabo Verde 2026" loading="lazy">
+            <span class="badge">NUEVO</span>
+        </div>
+        <p class="team">Cabo Verde</p>
+        <h3>2026</h3>
+        <p class="price">$34.99</p>
+    </a>
 
-print(f"Archivo creado: {out}")
-print(f"Camisetas de clubes añadidas: {len(club_files)}")
+    <a class="product-card" href="producto.html?title=Holanda%20Local%201998&price=%2434.99&img=assets/Holanda%20Local%201998.jpeg">
+        <div class="product-image">
+            <img src="assets/Holanda Local 1998.jpeg" alt="Holanda Local 1998" loading="lazy">
+            <span class="badge">NUEVO</span>
+        </div>
+        <p class="team">Holanda</p>
+        <h3>Local 1998</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Noruega%20Visitante&price=%2434.99&img=assets/Noruega%20Visitante.jpeg">
+        <div class="product-image">
+            <img src="assets/Noruega Visitante.jpeg" alt="Noruega Visitante" loading="lazy">
+            <span class="badge">NUEVO</span>
+        </div>
+        <p class="team">Noruega</p>
+        <h3>Visitante</h3>
+        <p class="price">$34.99</p>
+    </a>
+
+</section>
+</main>
+
+<footer class="footer">
+<div class="footer-inner">
+<div>
+<h2>EXAJERSEYS</h2>
+<p>CALIDAD IMPORTADA · CATÁLOGO DE CAMISETAS DE FÚTBOL</p>
+</div>
+<p>© 2026 EXAJERSEYS</p>
+</div>
+</footer>
+
+<script>
+const cards=[...document.querySelectorAll('.product-card')];
+const filters=document.querySelectorAll('.filter');
+filters.forEach(btn=>btn.addEventListener('click',()=>{
+ filters.forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ const type=btn.dataset.filter;
+ cards.forEach(card=>{
+   const team=card.querySelector('.team').textContent.toLowerCase();
+   const selections=['argentina','brasil','cabo verde','holanda','noruega'];
+   const isSelection=selections.some(x=>team.includes(x));
+   card.style.display=(type==='all'||(type==='selection'&&isSelection)||(type==='club'&&!isSelection))?'block':'none';
+ });
+ document.getElementById('count').textContent=[...cards].filter(c=>c.style.display!=='none').length+' Artículos';
+}));
+</script>
+</body>
+</html>
