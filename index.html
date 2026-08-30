@@ -3,666 +3,549 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="EXAJERSEYS - Catálogo de camisetas de fútbol">
-<title>EXAJERSEYS | Catálogo</title>
-
+<meta name="description" content="EXAJERSEYS - Catálogo de camisetas de clubes">
+<title>EXAJERSEYS | Clubes</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-    margin: 0;
-    background: #f9f9f9;
-    color: #1a1c1c;
-    font-family: "Hanken Grotesk", sans-serif;
-}
-a { color: inherit; text-decoration: none; }
-button { font: inherit; }
+*{box-sizing:border-box}
+body{margin:0;background:#f9f9f9;color:#1a1c1c;font-family:"Hanken Grotesk",sans-serif}
+a{color:inherit;text-decoration:none}
+.top-bar{background:#1a1c1c;color:#fff;text-align:center;padding:8px 16px;font:700 10px "Montserrat";letter-spacing:.12em;text-transform:uppercase}
+.header{position:sticky;top:0;z-index:100;background:#f9f9f9;border-bottom:2px solid #1a1c1c}
+.header-inner{max-width:1440px;height:80px;margin:auto;padding:0 64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:900 32px "Montserrat";letter-spacing:-.05em}
+.nav{display:flex;gap:28px}
+.nav a{font:700 14px "Montserrat";text-transform:uppercase}
+.nav a:hover,.nav .active{color:#9e0000}
+.mobile-menu{display:none;border:0;background:none;font-size:24px}
+.hero{max-width:1440px;margin:auto;padding:64px;border-bottom:2px solid #1a1c1c}
+.hero small{color:#9e0000;font:700 13px "Montserrat";text-transform:uppercase;letter-spacing:.15em}
+.hero h1{margin:16px 0;font:900 clamp(44px,7vw,80px)/.9 "Montserrat";text-transform:uppercase;letter-spacing:-.04em}
+.hero p{max-width:650px;color:#5e3f3a;font-size:18px;line-height:1.6}
+.toolbar{max-width:1440px;margin:auto;padding:24px 64px;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #ddd}
+.filters{display:flex;gap:10px;overflow:auto}
+.filter{border:2px solid #5e3f3a;background:none;padding:10px 18px;font:700 11px "Montserrat";text-transform:uppercase;white-space:nowrap;cursor:pointer}
+.filter.active{background:#1a1c1c;color:#fff}
+.count{font:700 12px "Montserrat";white-space:nowrap}
+.products{max-width:1440px;margin:auto;padding:40px 64px 100px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.product-image{position:relative;aspect-ratio:3/4;background:#fff;overflow:hidden;margin-bottom:12px;border:2px solid transparent}
+.product-card:hover .product-image{border-color:#1a1c1c}
+.product-image img{width:100%;height:100%;display:block;object-fit:contain;padding:12px;transition:transform .4s ease}
+.product-card:hover img{transform:scale(1.05)}
+.badge{position:absolute;top:10px;left:0;background:#9e0000;color:#fff;padding:6px 10px;font:700 9px "Montserrat"}
+.team{margin:0 0 5px;color:#1a1c1c;font:700 17px/1.2 "Montserrat";text-transform:uppercase}
+.product-card h3{margin:0 0 5px;color:#5e3f3a;font:700 11px "Montserrat";text-transform:uppercase}
+.price{margin:0;color:#9e0000;font:700 15px "Montserrat"}
+.footer{background:#111;color:#fff;padding:48px 64px 32px}
+.footer-inner{max-width:1440px;margin:auto;display:flex;justify-content:space-between}
+.footer h2{margin:0;font:900 34px "Montserrat"}
+.footer p{opacity:.55;font-size:12px}
 
-.top-bar {
-    background: #1a1c1c;
-    color: #fff;
-    text-align: center;
-    padding: 8px 16px;
-    font: 700 10px "Montserrat", sans-serif;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-}
-
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #f9f9f9;
-    border-bottom: 2px solid #1a1c1c;
-}
-
-.header-inner {
-    max-width: 1440px;
-    height: 80px;
-    margin: auto;
-    padding: 0 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font: 900 32px "Montserrat", sans-serif;
-    letter-spacing: -.05em;
-}
-
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
-
-.nav a {
-    font: 700 14px "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
-
-.nav a:hover,
-.nav .active {
-    color: #9e0000;
-}
-
-.mobile-menu {
-    display: none;
-    border: 0;
-    background: transparent;
-    font-size: 26px;
-}
-
-.hero {
+.search-box {
     position: relative;
-    min-height: 680px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    background: #1a1c1c;
+    width: 230px;
+    flex-shrink: 0;
 }
-
-.hero video {
-    position: absolute;
-    inset: 0;
+.search-box input {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: .58;
-    filter: grayscale(.2) brightness(.55);
+    height: 38px;
+    border: 1px solid #1a1c1c;
+    background: #fff;
+    padding: 0 38px 0 12px;
+    outline: none;
+    font: 400 13px "Hanken Grotesk", sans-serif;
 }
-
-.hero-overlay {
+.search-box input:focus {
+    border: 2px solid #9e0000;
+}
+.search-box span {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.25));
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    pointer-events: none;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    width: min(1440px, 100%);
-    margin: auto;
-    padding: 80px 64px;
-    color: #fff;
-}
+@media(max-width:900px){
+.header-inner{height:64px;padding:0 16px}
+.mobile-menu{display:block}
+.nav{display:none}
+.logo{font-size:22px}
+.hero{padding:48px 16px}
+.hero h1{font-size:44px}
+.hero p{font-size:15px}
+.toolbar{padding:16px;display:block}
+.filters{margin-bottom:12px}
 
-.hero-label {
-    color: #ffb4a8;
-    font: 700 13px "Montserrat", sans-serif;
-    letter-spacing: .25em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    max-width: 900px;
-    margin: 0 0 24px;
-    font: 900 clamp(44px, 7vw, 96px)/.9 "Montserrat", sans-serif;
-    text-transform: uppercase;
-    letter-spacing: -.045em;
-}
-
-.hero p {
-    max-width: 650px;
-    margin: 0 0 36px;
-    font-size: 18px;
-    line-height: 1.6;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-}
-
-.hero-button {
-    display: inline-block;
-    background: #fff;
-    color: #1a1c1c;
-    padding: 16px 38px;
-    font: 700 13px "Montserrat", sans-serif;
-    text-transform: uppercase;
-    transition: .2s;
-}
-
-.hero-button:hover {
-    background: #9e0000;
-    color: #fff;
-}
-
-.catalog {
-    max-width: 1440px;
-    margin: auto;
-    padding: 96px 64px;
-}
-
-.section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    gap: 24px;
-    border-bottom: 2px solid #1a1c1c;
-    padding-bottom: 20px;
-    margin-bottom: 40px;
-}
-
-.section-heading h2 {
-    margin: 0;
-    font: 900 48px/1 "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
-
-.section-heading p {
-    margin: 0;
-    color: #5e3f3a;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
-}
-
-.product-card {
-    min-width: 0;
-}
-
-.product-image {
-    position: relative;
-    aspect-ratio: 3 / 4;
-    background: #fff;
-    overflow: hidden;
-    margin-bottom: 14px;
-    border: 2px solid transparent;
-}
-
-.product-card:hover .product-image {
-    border-color: #1a1c1c;
-}
-
-.product-image img {
+.search-box {
     width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: contain;
-    padding: 14px;
-    transition: transform .4s ease;
+    margin-bottom: 12px;
 }
 
-.product-card:hover img {
-    transform: scale(1.05);
+.count{font-size:10px}
+.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:28px 16px 80px}
+.product-image{margin-bottom:7px}
+.product-image img{padding:4px}
+.badge{top:5px;padding:4px 6px;font-size:7px}
+.team{font-size:8px;line-height:11px}
+.product-card h3{font-size:13px;line-height:16px}
+.price{font-size:13px}
+.footer{padding:40px 16px 24px}
+.footer-inner{display:block}
 }
 
-.badge {
-    position: absolute;
-    top: 12px;
-    left: 0;
-    background: #9e0000;
-    color: #fff;
-    padding: 6px 10px;
-    font: 700 10px "Montserrat", sans-serif;
-    text-transform: uppercase;
+.club-name{
+    margin:0 0 4px;
+    color:#1a1c1c;
+    font:800 17px/1.15 "Montserrat";
+    text-transform:uppercase;
+}
+.team{
+    margin:0 0 5px;
+    color:#5e3f3a;
+    font:700 11px/1.2 "Montserrat";
+    text-transform:uppercase;
+}
+.whatsapp-float{
+    position:fixed;right:18px;bottom:18px;width:48px;height:48px;
+    border-radius:50%;background:#25D366;color:#fff;display:flex;
+    align-items:center;justify-content:center;text-decoration:none;z-index:10000;
+    box-shadow:0 4px 14px rgba(0,0,0,.25)
+}
+.whatsapp-float svg{width:27px;height:27px}
+@media(max-width:900px){
+    .club-name{font-size:13px;line-height:16px}
+    .team{font-size:8px;line-height:11px}
+    .whatsapp-float{right:14px;bottom:78px;width:44px;height:44px}
+    .whatsapp-float svg{width:25px;height:25px}
 }
 
-.team {
-    margin: 0 0 4px;
-    color: #5e3f3a;
-    font: 700 12px "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
 
-.product-card h3 {
-    margin: 0 0 5px;
-    font: 700 18px/1.2 "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
-
-.price {
-    margin: 0;
-    color: #9e0000;
-    font: 700 17px "Montserrat", sans-serif;
-}
-
-.categories {
-    background: #1a1c1c;
-    color: #fff;
-    padding: 80px 64px;
-}
-
-.categories-inner {
-    max-width: 1440px;
-    margin: auto;
-}
-
-.categories h2 {
-    margin: 0 0 32px;
-    font: 900 42px "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
-
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.category {
-    border: 1px solid #555;
-    padding: 32px;
-    min-height: 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    transition: .2s;
-}
-
-.category:hover {
-    background: #9e0000;
-    border-color: #9e0000;
-}
-
-.category strong {
-    font: 800 28px "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
-
-.category span {
-    margin-top: 8px;
-    opacity: .75;
-    text-transform: uppercase;
-    font-size: 12px;
-}
-
-.footer {
-    background: #111;
-    color: #fff;
-    padding: 48px 64px 32px;
-}
-
-.footer-inner {
-    max-width: 1440px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    gap: 32px;
-}
-
-.footer h2 {
-    margin: 0;
-    font: 900 36px "Montserrat", sans-serif;
-}
-
-.footer p {
-    opacity: .55;
-    font-size: 12px;
-}
-
-@media (max-width: 900px) {
-    .header-inner {
-        height: 64px;
-        padding: 0 16px;
-    }
-
-    .mobile-menu {
-        display: block;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .logo {
-        font-size: 22px;
-    }
-
-    .hero {
-        min-height: 560px;
-    }
-
-    .hero-content {
-        padding: 56px 16px;
-    }
-
-    .hero p {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-    .catalog {
-        padding: 56px 16px;
-    }
-
-    .section-heading {
-        display: block;
-        margin-bottom: 28px;
-    }
-
-    .section-heading h2 {
-        font-size: 32px;
-        margin-bottom: 10px;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-    .product-image {
-        margin-bottom: 8px;
-    }
-
-    .product-image img {
-        padding: 4px;
-    }
-
-    .badge {
-        top: 6px;
-        padding: 4px 6px;
-        font-size: 8px;
-    }
-
-    .team {
-        font-size: 9px;
-        line-height: 12px;
-    }
-
-    .product-card h3 {
-        font-size: 13px;
-        line-height: 16px;
-    }
-
-    .price {
-        font-size: 13px;
-    }
-
-    .categories {
-        padding: 56px 16px;
-    }
-
-    .categories h2 {
-        font-size: 32px;
-    }
-
-    .category-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .category {
-        min-height: 130px;
-    }
-
-    .footer {
-        padding: 40px 16px 24px;
-    }
-}
-
-.mobile-nav {
-    display: none;
-}
-
-@media (max-width: 900px) {
-    body {
-        padding-bottom: 70px;
-    }
-
-    .mobile-nav {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 9999;
-        height: 64px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        background: #9e0000;
-        border-top: 2px solid #1a1c1c;
-        box-shadow: 0 -4px 14px rgba(0,0,0,.18);
-    }
-
-    .mobile-nav-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2px;
-        color: #fff;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        transition: background .2s ease;
-    }
-
-    .mobile-nav-item span {
-        font-size: 20px;
-        line-height: 20px;
-    }
-
-    .mobile-nav-item small {
-        font-size: 8px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: .04em;
-    }
-
-    .mobile-nav-item.active {
-        background: #1a1c1c;
-    }
-
-    .mobile-nav-item:active {
-        background: #5e0000;
-    }
+.mobile-nav{display:none}
+@media(max-width:900px){
+  body{padding-bottom:70px}
+  .mobile-nav{
+    position:fixed;left:0;right:0;bottom:0;z-index:9999;height:64px;
+    display:grid;grid-template-columns:repeat(4,1fr);
+    background:#9e0000;border-top:2px solid #1a1c1c;
+    box-shadow:0 -4px 14px rgba(0,0,0,.18)
+  }
+  .mobile-nav-item{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:2px;color:#fff;text-decoration:none;font-family:"Montserrat",sans-serif
+  }
+  .mobile-nav-item span{font-size:20px;line-height:20px}
+  .mobile-nav-item small{font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+  .mobile-nav-item.active{background:#1a1c1c}
 }
 
 </style>
 </head>
-
 <body>
 
-<div class="top-bar">
-    Catálogo EXAJERSEYS · Camisetas de fútbol de calidad importada
-</div>
+<div class="top-bar">Catálogo EXAJERSEYS · Camisetas de clubes</div>
 
 <header class="header">
-    <div class="header-inner">
-        <button class="mobile-menu" aria-label="Menú">☰</button>
-
-        <a href="index.html" class="logo">EXAJERSEYS</a>
-
-        <nav class="nav">
-            <a href="index.html" class="active">CLUBES</a>
-            <a href="nuevos.html">NUEVOS</a>
-            <a href="selecciones.html">SELECCIONES</a>
-            <a href="retro.html">RETRO</a>
-        </nav>
-    </div>
+<div class="header-inner">
+<button class="mobile-menu" aria-label="Menú">☰</button>
+<a href="index.html" class="logo">EXAJERSEYS</a>
+<nav class="nav">
+<a href="index.html" class="active">CLUBES</a>
+<a href="nuevos.html">NUEVOS</a>
+<a href="selecciones.html">SELECCIONES</a>
+<a href="retro.html">RETRO</a>
+</nav>
+</div>
 </header>
 
 <main>
-
 <section class="hero">
-    <video autoplay muted loop playsinline>
-        <source src="assets/hero-video.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-        <div class="hero-label">Catálogo oficial EXAJERSEYS</div>
-        <h1>CAMISETAS QUE REPRESENTAN TU PASIÓN</h1>
-        <p>
-            Descubre nuestra selección de camisetas de clubes y selecciones.
-            Calidad importada, diseños actuales y clásicos que nunca pasan de moda.
-        </p>
-        <a href="#destacadas" class="hero-button">Ver camisetas</a>
-    </div>
+<small>Catálogo de clubes</small>
+<h1>CAMISETAS DE CLUBES</h1>
+<p>Encuentra las camisetas de tus clubes favoritos. Modelos actuales y destacados disponibles en nuestro catálogo.</p>
 </section>
 
-<section class="catalog" id="destacadas">
-    <div class="section-heading">
-        <div>
-            <h2>Camisetas destacadas</h2>
-            <p>Una selección de nuestros modelos disponibles.</p>
+<section class="toolbar">
+<div class="filters">
+<button class="filter active" data-filter="all">Todos</button>
+
+</div>
+
+<div class="search-box">
+    <input type="search" id="searchInput" placeholder="Buscar camiseta..." aria-label="Buscar camiseta">
+    <span>⌕</span>
+</div>
+
+<span class="count" id="count">31 Artículos</span>
+</section>
+
+<section class="products" id="products">
+    <a class="product-card" href="producto.html?title=Arsenal%20Visitante%2025-26&price=%2434.99&img=assets/Arsenal%20Visitante%2025-26.jpeg">
+        <div class="product-image">
+            <img src="assets/Arsenal Visitante 25-26.jpeg" alt="Arsenal Visitante 25-26" loading="lazy">
+            <span class="badge">CLUB</span>
         </div>
-    </div>
+        <h3 class="club-name">Arsenal</h3>
+        <p class="team">Visitante 25-26</p>
+        <p class="price">$36.00</p>
+    </a>
 
-    <div class="product-grid">
-        
-        <a class="product-card" href="producto.html?title=Real%20Madrid%20Local%2026-27&price=%2434.99&img=assets/Real%20Mdrid%20Local%2026-27.jpeg">
-            <div class="product-image">
-                <img src="assets/Real Mdrid Local 26-27.jpeg" alt="Real Madrid Local 26-27" loading="lazy">
-                <span class="badge">DESTACADA</span>
-            </div>
-            <p class="team">Real Madrid</p>
-            <h3>Local 26-27</h3>
-            <p class="price">$36.00</p>
-        </a>
-    
-        <a class="product-card" href="producto.html?title=Barcelona%20Local%2026-27&price=%2434.99&img=assets/Barcelona%20Local%2026-27.jpeg">
-            <div class="product-image">
-                <img src="assets/Barcelona Local 26-27.jpeg" alt="Barcelona Local 26-27" loading="lazy">
-                <span class="badge">DESTACADA</span>
-            </div>
-            <p class="team">Barcelona</p>
-            <h3>Local 26-27</h3>
-            <p class="price">$36.00</p>
-        </a>
-    
-        <a class="product-card" href="producto.html?title=Manchester%20City%20Local%2026-27%20Player&price=%2434.99&img=assets/Manchester%20City%20Local%2026-27%20Player.jpeg">
-            <div class="product-image">
-                <img src="assets/Manchester City Local 26-27 Player.jpeg" alt="Manchester City Local 26-27 Player" loading="lazy">
-                <span class="badge">DESTACADA</span>
-            </div>
-            <p class="team">Manchester City</p>
-            <h3>Local 26-27 Player</h3>
-            <p class="price">$36.00</p>
-        </a>
-    
-        <a class="product-card" href="producto.html?title=Arsenal%20Visitante%2026-27&price=%2434.99&img=assets/Arsenal%20Visitante%2026-27.jpeg">
-            <div class="product-image">
-                <img src="assets/Arsenal Visitante 26-27.jpeg" alt="Arsenal Visitante 26-27" loading="lazy">
-                <span class="badge">DESTACADA</span>
-            </div>
-            <p class="team">Arsenal</p>
-            <h3>Visitante 26-27</h3>
-            <p class="price">$36.00</p>
-        </a>
-    
-        <a class="product-card" href="producto.html?title=Bayern%20Munich%20Local%2026-27&price=%2434.99&img=assets/Bayern%20Munich%20Local%2026-27.jpeg">
-            <div class="product-image">
-                <img src="assets/Bayern Munich Local 26-27.jpeg" alt="Bayern Munich Local 26-27" loading="lazy">
-                <span class="badge">DESTACADA</span>
-            </div>
-            <p class="team">Bayern Munich</p>
-            <h3>Local 26-27</h3>
-            <p class="price">$36.00</p>
-        </a>
-    
-        <a class="product-card" href="producto.html?title=Liverpool%20Local%2026-27&price=%2434.99&img=assets/Liverpool%20Local%2026-27.jpeg">
-            <div class="product-image">
-                <img src="assets/Liverpool Local 26-27.jpeg" alt="Liverpool Local 26-27" loading="lazy">
-                <span class="badge">DESTACADA</span>
-            </div>
-            <p class="team">Liverpool</p>
-            <h3>Local 26-27</h3>
-            <p class="price">$36.00</p>
-        </a>
-    
-        <a class="product-card" href="producto.html?title=Argentina%20Local%202026&price=%2434.99&img=assets/Argentina%20Local%202026.jpeg">
-            <div class="product-image">
-                <img src="assets/Argentina Local 2026.jpeg" alt="Argentina Local 2026" loading="lazy">
-                <span class="badge">DESTACADA</span>
-            </div>
-            <p class="team">Argentina</p>
-            <h3>Local 2026</h3>
-            <p class="price">$36.00</p>
-        </a>
-    
-        <a class="product-card" href="producto.html?title=Brasil%20Local%202026&price=%2434.99&img=assets/Brazil%20Local%202026.jpeg">
-            <div class="product-image">
-                <img src="assets/Brazil Local 2026.jpeg" alt="Brasil Local 2026" loading="lazy">
-                <span class="badge">DESTACADA</span>
-            </div>
-            <p class="team">Brasil</p>
-            <h3>Local 2026</h3>
-            <p class="price">$36.00</p>
-        </a>
-    
-    </div>
-</section>
-
-<section class="categories">
-    <div class="categories-inner">
-        <h2>Explora el catálogo</h2>
-
-        <div class="category-grid">
-            <a class="category" href="nuevos.html">
-                <strong>Nuevos</strong>
-                <span>Últimos modelos disponibles</span>
-            </a>
-
-            <a class="category" href="selecciones.html">
-                <strong>Selecciones</strong>
-                <span>Los colores de tu país</span>
-            </a>
-
-            <a class="category" href="retro.html">
-                <strong>Retro</strong>
-                <span>Camisetas históricas y clásicas</span>
-            </a>
+    <a class="product-card" href="producto.html?title=Arsenal%20Visitante%2026-27&price=%2434.99&img=assets/Arsenal%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Arsenal Visitante 26-27.jpeg" alt="Arsenal Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
         </div>
-    </div>
-</section>
+        <h3 class="club-name">Arsenal</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
 
+    <a class="product-card" href="producto.html?title=Barcelona%20Especial%20101&price=%2434.99&img=assets/Barcelona%20Especial%20101.jpeg">
+        <div class="product-image">
+            <img src="assets/Barcelona Especial 101.jpeg" alt="Barcelona Especial 101" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Barcelona</h3>
+        <p class="team">Especial 101</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Barcelona%20Local%2026-27&price=%2434.99&img=assets/Barcelona%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Barcelona Local 26-27.jpeg" alt="Barcelona Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Barcelona</h3>
+        <p class="team">Local 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Barcelona%20Visitante%2026-27&price=%2434.99&img=assets/Barcelona%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Barcelona Visitante 26-27.jpeg" alt="Barcelona Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Barcelona</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Barcelona%20X%20Travis%20Scott&price=%2434.99&img=assets/Barcelona%20X%20Travis%20Scott.jpeg">
+        <div class="product-image">
+            <img src="assets/Barcelona X Travis Scott.jpeg" alt="Barcelona X Travis Scott" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Barcelona</h3>
+        <p class="team">X Travis Scott</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Bayern%20Munich%20Local%2026-27&price=%2434.99&img=assets/Bayern%20Munich%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Bayern Munich Local 26-27.jpeg" alt="Bayern Munich Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Bayern Munich</h3>
+        <p class="team">Local 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Bayern%20Munich%20Visitante%2026-27&price=%2434.99&img=assets/Bayern%20Munich%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Bayern Munich Visitante 26-27.jpeg" alt="Bayern Munich Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Bayern Munich</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Chelsea%20Visitante%2026-27&price=%2434.99&img=assets/Chelsea%20visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Chelsea visitante 26-27.jpeg" alt="Chelsea Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Chelsea</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Emelec%20Visitante%2026-27&price=%2434.99&img=assets/Emelec%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Emelec Visitante 26-27.jpeg" alt="Emelec Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Emelec</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Flamengo%20Local%2026-27&price=%2434.99&img=assets/Flamego%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Flamego Local 26-27.jpeg" alt="Flamengo Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Flamengo</h3>
+        <p class="team">Local 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Juventus%20Local%2026-27&price=%2434.99&img=assets/Juventus%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Juventus Local 26-27.jpeg" alt="Juventus Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Juventus</h3>
+        <p class="team">Local 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Juventus%20Visitante%2026-27&price=%2434.99&img=assets/Juventus%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Juventus Visitante 26-27.jpeg" alt="Juventus Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Juventus</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Liverpool%20Local%2026-27&price=%2434.99&img=assets/Liverpool%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Liverpool Local 26-27.jpeg" alt="Liverpool Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Liverpool</h3>
+        <p class="team">Local 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Liverpool%20Visitante%2026-27&price=%2434.99&img=assets/Liverpool%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Liverpool Visitante 26-27.jpeg" alt="Liverpool Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Liverpool</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20City%20Local%2025-26%20Fan&price=%2434.99&img=assets/Manchester%20City%20Local%2025-26%20Fan.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester City Local 25-26 Fan.jpeg" alt="Manchester City Local 25-26 Fan" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Manchester City</h3>
+        <p class="team">Local 25-26 Fan</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20City%20Local%2025-26%20Player&price=%2434.99&img=assets/Manchester%20City%20Local%2025-26%20Player.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester City Local 25-26 Player.jpeg" alt="Manchester City Local 25-26 Player" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Manchester City</h3>
+        <p class="team">Local 25-26 Player</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20City%20Local%2026-27%20Player&price=%2434.99&img=assets/Manchester%20City%20Local%2026-27%20Player.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester City Local 26-27 Player.jpeg" alt="Manchester City Local 26-27 Player" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Manchester City</h3>
+        <p class="team">Local 26-27 Player</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20City%20Visitante%2026-27&price=%2434.99&img=assets/Manchester%20City%20Vistante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester City Vistante 26-27.jpeg" alt="Manchester City Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Manchester City</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20United%20Tercera%2026-27&price=%2434.99&img=assets/Manchester%20United%20Tercera%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester United Tercera 26-27.jpeg" alt="Manchester United Tercera 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Manchester United</h3>
+        <p class="team">Tercera 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Manchester%20United%20Visitante%2026-27&price=%2434.99&img=assets/Manchester%20United%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Manchester United Visitante 26-27.jpeg" alt="Manchester United Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Manchester United</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Milan%201996&price=%2434.99&img=assets/Milan%201996.jpeg">
+        <div class="product-image">
+            <img src="assets/Milan 1996.jpeg" alt="Milan 1996" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Milan</h3>
+        <p class="team">1996</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Newcastle%20Local%2026-27&price=%2434.99&img=assets/Newcastle%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Newcastle Local 26-27.jpeg" alt="Newcastle Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Newcastle</h3>
+        <p class="team">Local 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Newcastle%20Visitante%2026-27&price=%2434.99&img=assets/Newcastle%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Newcastle Visitante 26-27.jpeg" alt="Newcastle Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Newcastle</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=PSG%20Visitante%2024-25&price=%2434.99&img=assets/PSG%20Visitante%2024-25.jpeg">
+        <div class="product-image">
+            <img src="assets/PSG Visitante 24-25.jpeg" alt="PSG Visitante 24-25" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">PSG</h3>
+        <p class="team">Visitante 24-25</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Real%20Madrid%20Local%2025-26&price=%2434.99&img=assets/Real%20Madrid%20Local%2025-26.jpeg">
+        <div class="product-image">
+            <img src="assets/Real Madrid Local 25-26.jpeg" alt="Real Madrid Local 25-26" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Real Madrid</h3>
+        <p class="team">Local 25-26</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Real%20Madrid%20Local%2026-27&price=%2434.99&img=assets/Real%20Mdrid%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Real Mdrid Local 26-27.jpeg" alt="Real Madrid Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Real Madrid</h3>
+        <p class="team">Local 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Real%20Madrid%20Visitante%2026-27&price=%2434.99&img=assets/Real%20Mdrid%20Visitante%2026-27%20Front.jpeg">
+        <div class="product-image">
+            <img src="assets/Real Mdrid Visitante 26-27 Front.jpeg" alt="Real Madrid Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Real Madrid</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Roma%20Local%2026-27&price=%2434.99&img=assets/Roma%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Roma Local 26-27.jpeg" alt="Roma Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Roma</h3>
+        <p class="team">Local 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Roma%20Visitante%2026-27&price=%2434.99&img=assets/Roma%20Visitante%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Roma Visitante 26-27.jpeg" alt="Roma Visitante 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Roma</h3>
+        <p class="team">Visitante 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+
+    <a class="product-card" href="producto.html?title=Tottenham%20Local%2026-27&price=%2434.99&img=assets/Tottenham%20Local%2026-27.jpeg">
+        <div class="product-image">
+            <img src="assets/Tottenham Local 26-27.jpeg" alt="Tottenham Local 26-27" loading="lazy">
+            <span class="badge">CLUB</span>
+        </div>
+        <h3 class="club-name">Tottenham</h3>
+        <p class="team">Local 26-27</p>
+        <p class="price">$36.00</p>
+    </a>
+</section>
 </main>
 
 <footer class="footer">
-    <div class="footer-inner">
-        <div>
-            <h2>EXAJERSEYS</h2>
-            <p>CALIDAD IMPORTADA · CATÁLOGO DE CAMISETAS DE FÚTBOL</p>
-        </div>
-
-        <p>© 2026 EXAJERSEYS</p>
-    </div>
+<div class="footer-inner">
+<div>
+<h2>EXAJERSEYS</h2>
+<p>CALIDAD IMPORTADA · CATÁLOGO DE CAMISETAS DE FÚTBOL</p>
+</div>
+<p>© 2026 EXAJERSEYS</p>
+</div>
 </footer>
 
+<script>
+const cards=[...document.querySelectorAll('.product-card')];
+const filters=document.querySelectorAll('.filter');
+filters.forEach(btn=>btn.addEventListener('click',()=>{
+ filters.forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ const type=btn.dataset.filter;
+ cards.forEach(card=>{
+   const team=card.querySelector('.team').textContent.toLowerCase();
+   const selections=[];
+   const isSelection=selections.some(x=>team.includes(x));
+   card.style.display=(type==='all'||(type==='selection'&&isSelection)||(type==='club'&&!isSelection))?'block':'none';
+ });
+ document.getElementById('count').textContent=[...cards].filter(c=>c.style.display!=='none').length+' Artículos';
+}));
+
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', () => {
+    const term = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const match = text.includes(term);
+        card.style.display = match ? 'block' : 'none';
+        if (match) visible++;
+    });
+
+    document.getElementById('count').textContent = visible + ' Artículos';
+});
+
+</script>
 
 <nav class="mobile-nav" aria-label="Navegación móvil">
-    <a href="index.html" class="mobile-nav-item active">
-        <span>⌂</span>
-        <small>Clubes</small>
-    </a>
-    <a href="nuevos.html" class="mobile-nav-item">
-        <span>✦</span>
-        <small>Nuevos</small>
-    </a>
-    <a href="selecciones.html" class="mobile-nav-item">
-        <span>⚽</span>
-        <small>Selecciones</small>
-    </a>
-    <a href="retro.html" class="mobile-nav-item">
-        <span>↺</span>
-        <small>Retro</small>
-    </a>
+  <a href="index.html" class="mobile-nav-item active"><span>⌂</span><small>Clubes</small></a>
+  <a href="nuevos.html" class="mobile-nav-item"><span>✦</span><small>Nuevos</small></a>
+  <a href="selecciones.html" class="mobile-nav-item"><span>⚽</span><small>Selecciones</small></a>
+  <a href="retro.html" class="mobile-nav-item"><span>↺</span><small>Retro</small></a>
 </nav>
 
+<a class="whatsapp-float" href="https://wa.me/qr/W4AOLHEJP5MIM1" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.3 28.8l6.6-1.7A12.8 12.8 0 1 0 16 3.2Zm0 23.2a10.3 10.3 0 0 1-5.3-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.3 10.3 0 1 1 16 26.4Zm5.7-7.6c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.5-.7-2.5-1.3-3.5-2.9-.3-.5.3-.5.8-1.7.1-.3.1-.5 0-.7-.1-.2-.7-1.7-1-2.1-.3-.5-.5-.4-.7-.4h-.6c-.2 0-.7.1-.9.5-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2.6 1 2.6.7 3.1.7.5 0 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z"/></svg>
+</a>
 </body>
 </html>
