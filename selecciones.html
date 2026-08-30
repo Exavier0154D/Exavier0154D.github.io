@@ -1,659 +1,84 @@
 from pathlib import Path
-
-# Build a clean version without Tailwind utility classes.
-html = """<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EXAJERSEYS - Selecciones</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-
-<style>
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-    margin: 0;
-    background: #f9f9f9;
-    color: #1a1c1c;
-    font-family: "Hanken Grotesk", sans-serif;
-}
-
-a { color: inherit; text-decoration: none; }
-
-.top-bar {
-    background: #1a1c1c;
-    color: #fff;
-    text-align: center;
-    padding: 8px 16px;
-    font: 700 10px "Montserrat", sans-serif;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-}
-
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #f9f9f9;
-    border-bottom: 2px solid #1a1c1c;
-}
-
-.header-inner {
-    max-width: 1440px;
-    height: 80px;
-    margin: auto;
-    padding: 0 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font: 900 32px "Montserrat", sans-serif;
-    letter-spacing: -.05em;
-}
-
-.desktop-nav {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-}
-
-.desktop-nav a {
-    font: 700 14px "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
-
-.desktop-nav a:hover,
-.desktop-nav .active {
-    color: #9e0000;
-}
-
-.mobile-menu { display: none; }
-
-.header-icons {
-    display: flex;
-    gap: 24px;
-}
-
-.icon-button {
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    padding: 0;
-}
-
-.material-symbols-outlined {
-    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-}
-
-main {
-    max-width: 1440px;
-    margin: 32px auto 0;
-    padding: 0 64px;
-}
-
-.hero {
-    padding: 64px 0;
-    border-bottom: 2px solid #1a1c1c;
-    margin-bottom: 48px;
-}
-
-.hero-label {
-    color: #9e0000;
-    font: 700 14px "Montserrat", sans-serif;
-    text-transform: uppercase;
-    margin: 0 0 16px;
-}
-
-.hero h1 {
-    margin: 0 0 24px;
-    font: 900 80px/72px "Montserrat", sans-serif;
-    letter-spacing: -.04em;
-    text-transform: uppercase;
-}
-
-.hero p {
-    max-width: 620px;
-    margin: 0;
-    color: #5e3f3a;
-    font-size: 18px;
-    line-height: 28px;
-}
-
-.filters {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 48px;
-    overflow-x: auto;
-    scrollbar-width: none;
-}
-
-.filters::-webkit-scrollbar { display: none; }
-
-.filter {
-    flex: 0 0 auto;
-    padding: 12px 24px;
-    border: 2px solid #5e3f3a;
-    background: transparent;
-    font: 700 14px "Montserrat", sans-serif;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.filter.active {
-    background: #1a1c1c;
-    color: #fff;
-    border-color: #1a1c1c;
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
-    padding-bottom: 128px;
-}
-
-.product {
-    min-width: 0;
-}
-
-.product-image {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
-    margin-bottom: 16px;
-    background: #eeeeee;
-    border: 2px solid transparent;
-}
-
-.product:hover .product-image {
-    border-color: #1a1c1c;
-}
-
-.product-image img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: contain;
-    padding: 16px;
-    transition: transform .4s ease;
-}
-
-.product:hover .product-image img {
-    transform: scale(1.05);
-}
-
-.badge {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    background: #fff;
-    color: #1a1c1c;
-    padding: 6px 10px;
-    font: 700 11px "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
-
-.champion {
-    position: absolute;
-    left: 16px;
-    bottom: 16px;
-    background: #9e0000;
-    color: #fff;
-    padding: 6px 10px;
-    font: 700 11px "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
-
-.team {
-    margin: 0 0 4px;
-    color: #5e3f3a;
-    font: 700 14px "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
-
-.product-name {
-    margin: 0 0 4px;
-    font: 700 20px/24px "Montserrat", sans-serif;
-    text-transform: uppercase;
-}
-
-.price {
-    margin: 0;
-    font: 700 14px "Montserrat", sans-serif;
-}
-
-.footer {
-    background: #1a1c1c;
-    color: #fff;
-    padding: 128px 64px 48px;
-}
-
-.footer-inner {
-    max-width: 1440px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 24px;
-    border-bottom: 1px solid #4d4c4c;
-    padding-bottom: 64px;
-}
-
-.footer h2 {
-    margin: 0 0 32px;
-    font: 900 48px "Montserrat", sans-serif;
-}
-
-.footer h4 {
-    margin: 0 0 32px;
-    color: #9e0000;
-    font: 700 16px "Montserrat", sans-serif;
-}
-
-.footer p,
-.footer a {
-    font-size: 14px;
-}
-
-.footer ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer li { margin-bottom: 16px; }
-
-.footer a { opacity: .6; }
-.footer a:hover { opacity: 1; }
-
-.copyright {
-    max-width: 1440px;
-    margin: 48px auto 0;
-    font: 700 12px "Montserrat", sans-serif;
-    opacity: .4;
-    text-transform: uppercase;
-}
-
-.mobile-nav { display: none; }
-
-@media (max-width: 900px) {
-    .header-inner {
-        height: 64px;
-        padding: 0 16px;
-    }
-
-    .mobile-menu { display: block; }
-
-    .desktop-nav { display: none; }
-
-    .logo {
-        font-size: 22px;
-    }
-
-    .header-icons {
-        gap: 16px;
-    }
-
-    main {
-        margin-top: 24px;
-        padding: 0 16px;
-    }
-
-    .hero {
-        padding: 48px 0;
-        margin-bottom: 32px;
-    }
-
-    .hero h1 {
-        font-size: 44px;
-        line-height: 42px;
-    }
-
-    .hero p {
-        font-size: 15px;
-        line-height: 23px;
-    }
-
-    .filters {
-        margin-bottom: 32px;
-    }
-
-    .filter {
-        padding: 10px 16px;
-        font-size: 11px;
-    }
-
-    .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        padding-bottom: 80px;
-    }
-
-    .product-image {
-        margin-bottom: 8px;
-    }
-
-    .product-image img {
-        padding: 4px;
-    }
-
-    .badge,
-    .champion {
-        top: 6px;
-        left: 6px;
-        padding: 4px 6px;
-        font-size: 8px;
-    }
-
-    .champion {
-        top: auto;
-        bottom: 6px;
-    }
-
-    .team {
-        font-size: 9px;
-        line-height: 12px;
-    }
-
-    .product-name {
-        font-size: 13px;
-        line-height: 16px;
-    }
-
-    .price {
-        font-size: 13px;
-    }
-
-    .footer {
-        padding: 64px 16px 32px;
-    }
-
-    .footer-inner {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px 16px;
-        padding-bottom: 40px;
-    }
-
-    .footer h2 {
-        font-size: 36px;
-    }
-
-    .mobile-nav {
-        position: fixed;
-        display: flex;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 64px;
-        z-index: 200;
-        background: #1a1c1c;
-        border-top: 1px solid #4d4c4c;
-    }
-
-    .mobile-nav a {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #ddd;
-        font: 700 9px "Montserrat", sans-serif;
-        text-transform: uppercase;
-    }
-
-    .mobile-nav a.active {
-        background: #9e0000;
-        color: #fff;
-    }
-
-    .mobile-nav .material-symbols-outlined {
-        font-size: 22px;
-        margin-bottom: 2px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<div class="top-bar">
-    Envíos a todo Ecuador e Internacionales · Atención por WhatsApp
+from urllib.parse import quote
+import re
+
+selection_files = [
+    ("Argentina", "Local 2026", "Argentina Local 2026.jpeg"),
+    ("Argentina", "Visitante 2026", "Argentina Visitante 2026.jpeg"),
+    ("Brasil", "Local 2026", "Brazil Local 2026.jpeg"),
+    ("Cabo Verde", "", "Cabo Verde.jpeg"),
+    ("Holanda", "Local 1998", "Holanda Local 1998.jpeg"),
+    ("Noruega", "Visitante", "Noruega Visitante.jpeg"),
+]
+
+# Use the previously prepared Selecciones page as the visual/base template.
+src = Path("/mnt/data/Pegado text(20260830-025543).txt")
+raw = src.read_text(encoding="utf-8")
+m = re.search(r'html = """(.*?)"""', raw, re.S)
+html = m.group(1)
+
+# Remove Material Symbols dependency and all search/cart UI.
+html = re.sub(r'<link href="https://fonts\.googleapis\.com/css2\?family=Material\+Symbols[^>]+>\s*', '', html)
+html = re.sub(r'\s*<div class="header-icons">.*?</div>\s*', '\n', html, flags=re.S)
+html = re.sub(r'<span class="material-symbols-outlined">menu</span>', '☰', html)
+html = html.replace('RSS JERSEYS', 'EXAJERSEYS')
+html = re.sub(r'\s*<a href="oferta\.html">Oferta</a>', '', html)
+html = re.sub(r'\s*<button class="icon-button mobile-menu".*?</button>', '<button class="mobile-menu" aria-label="Menú">☰</button>', html, flags=re.S)
+
+# Remove the mobile bottom navigation if present.
+html = re.sub(r'\s*<nav class="mobile-nav">.*?</nav>\s*', '\n', html, flags=re.S)
+
+# Replace the existing products section with the real selection assets.
+cards = []
+for team, model, filename in selection_files:
+    img = "assets/" + filename
+    title = f"{team} {model}".strip()
+    href = f"producto.html?title={quote(title)}&price={quote('$34.99')}&img={quote(img)}"
+    cards.append(f'''<a class="product" href="{href}">
+    <div class="product-image">
+        <img src="{img}" alt="{title}" loading="lazy">
+        <span class="badge">{team}</span>
+    </div>
+    <p class="team">{team}</p>
+    <p class="product-name">{model if model else "Camiseta"}</p>
+    <p class="price">$34.99</p>
+</a>''')
+
+html = re.sub(
+    r'<section class="products">\s*.*?\s*</section>',
+    '<section class="products">\n' + '\n\n'.join(cards) + '\n</section>',
+    html,
+    count=1,
+    flags=re.S
+)
+
+# Remove old filter categories; there are only the real selection products now.
+html = re.sub(r'<div class="filters">.*?</div>', '', html, count=1, flags=re.S)
+
+# Clean the footer to a simpler catalog footer.
+html = re.sub(
+    r'<footer class="footer">.*?</footer>',
+    '''<footer class="footer">
+<div class="footer-inner">
+<div>
+<h2>EXAJERSEYS</h2>
+<p>CALIDAD IMPORTADA · CATÁLOGO DE CAMISETAS DE FÚTBOL</p>
 </div>
-
-<header class="header">
-    <div class="header-inner">
-
-        <button class="icon-button mobile-menu" aria-label="Menú">
-            <span class="material-symbols-outlined">menu</span>
-        </button>
-
-        <a href="index.html" class="logo">RSS JERSEYS</a>
-
-        <nav class="desktop-nav">
-            <a href="nuevos.html">Nuevos</a>
-            <a href="index.html">Clubes</a>
-            <a href="selecciones.html" class="active">Selecciones</a>
-            <a href="retro.html">Retro</a>
-            <a href="oferta.html">Oferta</a>
-        </nav>
-
-        <div class="header-icons">
-            <button class="icon-button" aria-label="Buscar">
-                <span class="material-symbols-outlined">search</span>
-            </button>
-            <button class="icon-button" aria-label="Carrito">
-                <span class="material-symbols-outlined">shopping_cart</span>
-            </button>
-        </div>
-
-    </div>
-</header>
-
-<main>
-
-<section class="hero">
-    <p class="hero-label">Fútbol internacional</p>
-    <h1>Selecciones</h1>
-    <p>
-        Las camisetas oficiales de las mejores selecciones del mundo.
-        Viste los colores de tu país con orgullo.
-    </p>
-</section>
-
-<div class="filters">
-    <button class="filter active">Todos</button>
-    <button class="filter">Europa</button>
-    <button class="filter">Sudamérica</button>
-    <button class="filter">Norte y Centroamérica</button>
 </div>
+<p class="copyright">© 2026 EXAJERSEYS</p>
+</footer>''',
+    html,
+    count=1,
+    flags=re.S
+)
 
-<section class="products">
+# Remove now-unused mobile-nav/icon styles and make sure mobile is clean.
+html = re.sub(r'\s*\.header-icons\s*\{.*?\}\s*', '\n', html, flags=re.S)
+html = re.sub(r'\s*\.icon-button\s*\{.*?\}\s*', '\n', html, flags=re.S)
+html = re.sub(r'\s*\.material-symbols-outlined\s*\{.*?\}\s*', '\n', html, flags=re.S)
+html = re.sub(r'\s*\.mobile-nav\s*\{.*?\}\s*', '\n', html, flags=re.S)
 
-<a class="product" href="producto.html?title=Argentina%20Local%2024/25&price=$34.99&img=https://soccerpost.com/cdn/shop/files/ScreenShot2024-03-27at12.02.07PM_clipped_rev_1.png?v=1711736920">
-    <div class="product-image">
-        <img src="https://soccerpost.com/cdn/shop/files/ScreenShot2024-03-27at12.02.07PM_clipped_rev_1.png?v=1711736920" alt="Argentina">
-        <span class="badge">🇦🇷 Argentina</span>
-        <span class="champion">Campeón</span>
-    </div>
-    <p class="team">Argentina</p>
-    <p class="product-name">Camiseta Local 24/25</p>
-    <p class="price">$34.99</p>
-</a>
-
-<a class="product" href="producto.html?title=Ecuador%20Local%2024/25&price=$34.99&img=https://kickoffshopper.com/wp-content/uploads/2024/06/24-25-Ecuador-Home-Jersey.jpg">
-    <div class="product-image">
-        <img src="https://kickoffshopper.com/wp-content/uploads/2024/06/24-25-Ecuador-Home-Jersey.jpg" alt="Ecuador">
-        <span class="badge">🇪🇨 Ecuador</span>
-    </div>
-    <p class="team">Ecuador</p>
-    <p class="product-name">Camiseta Local 24/25</p>
-    <p class="price">$34.99</p>
-</a>
-
-<a class="product" href="producto.html?title=Brasil%20Local%2024/25&price=$34.99&img=https://thekityard.com/cdn/shop/files/364AB0DD-2C1C-44F3-9639-046E5519D44E.jpg?v=1717776322">
-    <div class="product-image">
-        <img src="https://thekityard.com/cdn/shop/files/364AB0DD-2C1C-44F3-9639-046E5519D44E.jpg?v=1717776322" alt="Brasil">
-        <span class="badge">🇧🇷 Brasil</span>
-    </div>
-    <p class="team">Brasil</p>
-    <p class="product-name">Camiseta Local 24/25</p>
-    <p class="price">$34.99</p>
-</a>
-
-<a class="product" href="producto.html?title=Uruguay%20Local%2024/25&price=$34.99&img=https://lataquillafutbol.com/wp-content/uploads/2024/08/Uruguay-24-25-Local.jpg">
-    <div class="product-image">
-        <img src="https://lataquillafutbol.com/wp-content/uploads/2024/08/Uruguay-24-25-Local.jpg" alt="Uruguay">
-        <span class="badge">🇺🇾 Uruguay</span>
-    </div>
-    <p class="team">Uruguay</p>
-    <p class="product-name">Camiseta Local 24/25</p>
-    <p class="price">$34.99</p>
-</a>
-
-<a class="product" href="producto.html?title=España%20Local%2024/25&price=$34.99&img=https://assets.adidas.com/images/w_600,f_auto,q_auto/7d33dabef37046ecbc8c61c3fada84dc_9366/Spain_24_Home_Jersey_Red_IP9331_01_laydown.jpg">
-    <div class="product-image">
-        <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/7d33dabef37046ecbc8c61c3fada84dc_9366/Spain_24_Home_Jersey_Red_IP9331_01_laydown.jpg" alt="España">
-        <span class="badge">🇪🇸 España</span>
-        <span class="champion">Campeón Euro</span>
-    </div>
-    <p class="team">España</p>
-    <p class="product-name">Camiseta Local 24/25</p>
-    <p class="price">$34.99</p>
-</a>
-
-<a class="product" href="producto.html?title=Alemania%20Local%2024/25&price=$34.99&img=https://www.soccerbox.com/media/catalog/product/cache/9d14d56c606ce6e31fa44a7bf9aa05c5/g/e/germany-authentic-home-shirt-24.jpg">
-    <div class="product-image">
-        <img src="https://www.soccerbox.com/media/catalog/product/cache/9d14d56c606ce6e31fa44a7bf9aa05c5/g/e/germany-authentic-home-shirt-24.jpg" alt="Alemania">
-        <span class="badge">🇩🇪 Alemania</span>
-    </div>
-    <p class="team">Alemania</p>
-    <p class="product-name">Camiseta Local 24/25</p>
-    <p class="price">$34.99</p>
-</a>
-
-<a class="product" href="producto.html?title=Inglaterra%20Local%2024/25&price=$34.99&img=https://www.signature-styles.com/cdn/shop/files/FullSizeRender_c3837dea-4bb5-4674-8b50-990b8c6d1452.jpg?v=1713719668">
-    <div class="product-image">
-        <img src="https://www.signature-styles.com/cdn/shop/files/FullSizeRender_c3837dea-4bb5-4674-8b50-990b8c6d1452.jpg?v=1713719668" alt="Inglaterra">
-        <span class="badge">🏴 Inglaterra</span>
-    </div>
-    <p class="team">Inglaterra</p>
-    <p class="product-name">Camiseta Local 24/25</p>
-    <p class="price">$34.99</p>
-</a>
-
-<a class="product" href="producto.html?title=Francia%20Local%2024/25&price=$34.99&img=https://static.wixstatic.com/media/e8681c_dd0611e1ce804e5a91eddf6dae33c526~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg">
-    <div class="product-image">
-        <img src="https://static.wixstatic.com/media/e8681c_dd0611e1ce804e5a91eddf6dae33c526~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg" alt="Francia">
-        <span class="badge">🇫🇷 Francia</span>
-    </div>
-    <p class="team">Francia</p>
-    <p class="product-name">Camiseta Local 24/25</p>
-    <p class="price">$34.99</p>
-</a>
-
-<a class="product" href="producto.html?title=Italia%20Local%2024/25&price=$34.99&img=https://italiansportswearcollection.com/cdn/shop/files/ItalyHomeJersey2024.jpg?v=1716659515">
-    <div class="product-image">
-        <img src="https://italiansportswearcollection.com/cdn/shop/files/ItalyHomeJersey2024.jpg?v=1716659515" alt="Italia">
-        <span class="badge">🇮🇹 Italia</span>
-    </div>
-    <p class="team">Italia</p>
-    <p class="product-name">Camiseta Local 24/25</p>
-    <p class="price">$34.99</p>
-</a>
-
-<a class="product" href="nuevos.html">
-    <div class="product-image" style="background:#9e0000; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px;">
-        <span class="material-symbols-outlined" style="font-size:56px;color:#fff;">checkroom</span>
-        <strong style="color:#fff;font:700 16px 'Montserrat',sans-serif;text-transform:uppercase;text-align:center;">Elige tu camiseta</strong>
-    </div>
-    <p class="team" style="color:#9e0000;">Personalización</p>
-    <p class="product-name">Tu diseño único</p>
-    <p class="price">Catálogo completo</p>
-</a>
-
-</section>
-</main>
-
-<footer class="footer">
-    <div class="footer-inner">
-        <div>
-            <h2>RSS</h2>
-            <p>ENGINEERED FOR THE PITCH.<br>PREMIUM JERSEYS FOR THE REAL FANS.</p>
-        </div>
-
-        <div>
-            <h4>PRODUCTOS</h4>
-            <ul>
-                <li><a href="nuevos.html">Nuevos Lanzamientos</a></li>
-                <li><a href="retro.html">Retro Classics</a></li>
-                <li><a href="oferta.html">Ofertas Especiales</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4>SOPORTE</h4>
-            <ul>
-                <li><a href="#">Guía de tallas</a></li>
-                <li><a href="#">Envíos y Devoluciones</a></li>
-                <li><a href="#">Seguimiento de pedido</a></li>
-                <li><a href="#">Preguntas Frecuentes</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4>SÍGUENOS</h4>
-            <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">TikTok</a></li>
-                <li><a href="#">WhatsApp</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4>EMPRESA</h4>
-            <ul>
-                <li><a href="#">Sobre Nosotros</a></li>
-                <li><a href="#">Términos de servicio</a></li>
-                <li><a href="#">Privacidad</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <p class="copyright">© 2024 RSS JERSEYS. ENGINEERED FOR THE PITCH.</p>
-</footer>
-
-<nav class="mobile-nav">
-    <a href="index.html">
-        <span class="material-symbols-outlined">home</span>
-        Inicio
-    </a>
-    <a href="index.html">
-        <span class="material-symbols-outlined">grid_view</span>
-        Categorías
-    </a>
-    <a href="selecciones.html" class="active">
-        <span class="material-symbols-outlined">flag</span>
-        Selecciones
-    </a>
-    <a href="oferta.html">
-        <span class="material-symbols-outlined">local_offer</span>
-        Oferta
-    </a>
-</nav>
-
-</body>
-</html>
-"""
-
-out = Path("/mnt/data/selecciones_corregido.html")
+out = Path("/mnt/data/selecciones_corregido_completo.html")
 out.write_text(html, encoding="utf-8")
 print(out)
+print(f"{len(selection_files)} camisetas de selecciones añadidas.")
